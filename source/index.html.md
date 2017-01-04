@@ -1,14 +1,13 @@
 ---
-title: API Reference
+title: Toofr Sales Hacking API Reference
 
 language_tabs:
   - shell
   - ruby
   - python
-  - javascript
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
+  - <a href='https://www.toofr.com/registration'>Sign Up for a Developer Key</a>
   - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
 
 includes:
@@ -19,50 +18,22 @@ search: true
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+Welcome to the Toofr Sales Hacking API! You can use our API to guess business emails, test emails, and extract prospects from webpages and our database.
 
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
-
-This example API documentation page was created with [Slate](https://github.com/tripit/slate). Feel free to edit it and use it as a base for your own API's documentation.
+We have language examples in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
 
 # Authentication
 
-> To authorize, use this code:
+Every Toofr user has access to our API. API calls use credits in the same way that our web application use credits. For more information on how credits are used, view our [FAQ](https://www.toofr.com/faq).
 
-```ruby
-require 'kittn'
+To get an API key, first [register for a free Toofr account](https://www.toofr.com/registration). Check your email for a confirmation message, click through the link, and log in. Your API key is available on your [Account page](https://www.toofr.com/account).
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
+Your API key is a long alphanumeric string that looks similar to this:
 
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-```
-
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-```
-
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
+`e3eabca12ccabcd3dd1233fb506b7031`
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+Key your API key secure! If you don't, someone can use all of your credits for the month, and even send you into overage. You're responsible for all API usage. 
 </aside>
 
 # Kittens
@@ -186,4 +157,3 @@ This endpoint retrieves a specific kitten.
 Parameter | Description
 --------- | -----------
 ID | The ID of the kitten to retrieve
-
