@@ -20,7 +20,7 @@ search: true
 
 Welcome to the Toofr Sales Hacking API! You can use our API to guess business emails, test emails, and extract prospects from webpages and our database.
 
-We have language examples in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+We have language examples in Shell, Ruby, and Python. You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
 
 # Authentication
 
@@ -28,132 +28,131 @@ Every Toofr user has access to our API. API calls use credits in the same way th
 
 To get an API key, first [register for a free Toofr account](https://www.toofr.com/registration). Check your email for a confirmation message, click through the link, and log in. Your API key is available on your [Account page](https://www.toofr.com/account).
 
+If you run out of credits, you'll need to sign up for a [monthly plan](https://www.toofr.com/pricing) to get more. Currenty they start at just $29/mo.
+
 Your API key is a long alphanumeric string that looks similar to this:
 
 `e3eabca12ccabcd3dd1233fb506b7031`
 
 <aside class="notice">
-Key your API key secure! If you don't, someone can use all of your credits for the month, and even send you into overage. You're responsible for all API usage. 
+Key your API key secure! If you don't, someone can use all of your credits for the month, and even send you into overage. You're responsible for all API usage.
 </aside>
 
-# Kittens
+# Emails
 
-## Get All Kittens
+## Guess Emails
 
 ```ruby
-require 'kittn'
+require 'net/http'
+require 'json'
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
+uri = URI('https://www.toofr.com/api/v1/guess_email.json')
+res = Net::HTTP.post_form(uri, 'key' => 'abc123yourkeyhere', 'first_name' => 'ryan', 'last_name' => 'buckley', 'company_name' => 'toofr.com')
+JSON.parse(res.body)
 ```
 
 ```python
-import kittn
+import requests
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
+uri = 'https://www.toofr.com/api/v1/guess_email.json'
+payload = {'key': 'abc123yourkeyhere', 'first_name': 'ryan', 'last_name': 'buckley', 'company_name': 'toofr.com'}
+r = requests.post('https://www.toofr.com/api/v1/guess_email.json', data = payload)
+r.json()
 ```
 
 ```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
-```
-
-This endpoint retrieves all kittens.
-
-### HTTP Request
-
-`GET http://example.com/api/kittens`
-
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
-## Get a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
+curl --data "key=abc123yourkeyhere&first_name=ryan&last_name=buckley&company_name=toofr.com" https://www.toofr.com/api/v1/guess_email.json
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+  "ryan@toofr.com": {
+    "confidence":119,"email":"ryan@toofr.com","default":20
+  },
+  "rbuckley@toofr.com": {
+    "confidence":20,"email":"rbuckley@toofr.com","default":15
+  },
+  "ryan.buckley@toofr.com": {
+    "confidence":18,"email":"ryan.buckley@toofr.com","default":16
+  },
+  "ryanbuckley@toofr.com": {
+    "confidence":17,"email":"ryanbuckley@toofr.com","default":17
+  },
+  "ryan_buckley@toofr.com": {
+    "confidence":16,"email":"ryan_buckley@toofr.com","default":18
+  },
+  "ryan-buckley@toofr.com": {
+    "confidence":15,"email":"ryan-buckley@toofr.com","default":19
+  },
+  "ryanb@toofr.com": {
+    "confidence":14,"email":"ryanb@toofr.com","default":14
+  },
+  "buckley@toofr.com": {
+    "confidence":13,"email":"buckley@toofr.com","default":13
+  }
 }
 ```
 
-This endpoint retrieves a specific kitten.
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+This endpoint discovers emails based on the first name, last name, and company name.
 
 ### HTTP Request
 
-`GET http://example.com/kittens/<ID>`
+`POST https://www.toofr.com/api/v1/guess_email.json`
 
-### URL Parameters
+### Query Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to retrieve
+key | Your key is required for any request and is found on your [Toofr account page](https://www.toofr.com/account)
+first_name | This is the text of the first name of your prospect, cleansed of spaces and non-ASCII characters (por favor!)
+last_name | This is the text of the last name of your prospect, cleansed of spaces and non-ASCII characters (por favor!)
+company_name | This is the text of either the company name or website
+
+<aside class="success">
+Toofr works best when you give it websites or domains, but we'll also take company names. (e.g. apple.com works better than Apple)
+</aside>
+
+## Test Emails
+
+```ruby
+require 'net/http'
+require 'json'
+
+uri = URI('https://www.toofr.com/api/v1/test_email.json')
+res = Net::HTTP.post_form(uri, 'key' => 'abc123yourkeyhere', 'email' => 'ryan@toofr.com')
+JSON.parse(res.body)
+```
+
+```python
+import requests
+
+uri = 'https://www.toofr.com/api/v1/guess_email.json'
+payload = {'key': 'abc123yourkeyhere', 'email': 'ryan@toofr.com'}
+r = requests.post('https://www.toofr.com/api/v1/test_email.json', data = payload)
+r.json()
+```
+
+```shell
+curl --data "key=abc123yourkeyhere&email=ryan@scripted.com" https://www.toofr.com/api/v1/test_email.json
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{ "email": "ryan@toofr.com", "confidence": 119 }
+```
+
+This endpoint discovers our [confidence score](http://blog.toofr.com/how-to-lower-your-bounce-rates-with-our-confidence-score/) for a given email address.
+
+### HTTP Request
+
+`POST https://www.toofr.com/api/v1/test_email.json`
+
+### Query Parameters
+
+Parameter | Description
+--------- | -----------
+key | Your key is required for any request and is found on your [Toofr account page](https://www.toofr.com/account)
+email | The properly formatted email address you want to test
