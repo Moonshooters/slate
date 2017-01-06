@@ -123,7 +123,7 @@
 
 <p>Welcome to the Toofr Sales Hacking API! You can use our API to guess business emails, test emails, and extract prospects from webpages and our database.</p>
 
-<p>We have language examples in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<p>We have language examples in Shell, Ruby, and Python. You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
 
 <h1 id="authentication">Authentication</h1>
 
@@ -131,119 +131,126 @@
 
 <p>To get an API key, first <a href="https://www.toofr.com/registration">register for a free Toofr account</a>. Check your email for a confirmation message, click through the link, and log in. Your API key is available on your <a href="https://www.toofr.com/account">Account page</a>.</p>
 
+<p>If you run out of credits, you&rsquo;ll need to sign up for a <a href="https://www.toofr.com/pricing">monthly plan</a> to get more. Currenty they start at just $29/mo.</p>
+
 <p>Your API key is a long alphanumeric string that looks similar to this:</p>
 
 <p><code class="prettyprint">e3eabca12ccabcd3dd1233fb506b7031</code></p>
 
 <aside class="notice">
-Key your API key secure! If you don&rsquo;t, someone can use all of your credits for the month, and even send you into overage. You&rsquo;re responsible for all API usage. 
+Key your API key secure! If you don&rsquo;t, someone can use all of your credits for the month, and even send you into overage. You&rsquo;re responsible for all API usage.
 </aside>
 
-<h1 id="kittens">Kittens</h1>
+<h1 id="emails">Emails</h1>
 
-<h2 id="get-all-kittens">Get All Kittens</h2>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<h2 id="guess-emails">Guess Emails</h2>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
+<span class="nb">require</span> <span class="s1">'json'</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre><pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://www.toofr.com/api/v1/guess_email.json'</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">post_form</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="s1">'key'</span> <span class="o">=&gt;</span> <span class="s1">'abc123yourkeyhere'</span><span class="p">,</span> <span class="s1">'first_name'</span> <span class="o">=&gt;</span> <span class="s1">'ryan'</span><span class="p">,</span> <span class="s1">'last_name'</span> <span class="o">=&gt;</span> <span class="s1">'buckley'</span><span class="p">,</span> <span class="s1">'company_name'</span> <span class="o">=&gt;</span> <span class="s1">'toofr.com'</span><span class="p">)</span>
+<span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="nf">body</span><span class="p">)</span>
+</code></pre><pre class="highlight python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre><pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span>
+<span class="n">uri</span> <span class="o">=</span> <span class="s">'https://www.toofr.com/api/v1/guess_email.json'</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'key'</span><span class="p">:</span> <span class="s">'abc123yourkeyhere'</span><span class="p">,</span> <span class="s">'first_name'</span><span class="p">:</span> <span class="s">'ryan'</span><span class="p">,</span> <span class="s">'last_name'</span><span class="p">:</span> <span class="s">'buckley'</span><span class="p">,</span> <span class="s">'company_name'</span><span class="p">:</span> <span class="s">'toofr.com'</span><span class="p">}</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://www.toofr.com/api/v1/guess_email.json'</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">payload</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre><pre class="highlight shell"><code>curl --data <span class="s2">"key=abc123yourkeyhere&amp;first_name=ryan&amp;last_name=buckley&amp;company_name=toofr.com"</span> https://www.toofr.com/api/v1/guess_email.json
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"ryan@toofr.com"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"confidence"</span><span class="p">:</span><span class="mi">119</span><span class="p">,</span><span class="nt">"email"</span><span class="p">:</span><span class="s2">"ryan@toofr.com"</span><span class="p">,</span><span class="nt">"default"</span><span class="p">:</span><span class="mi">20</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+  </span><span class="nt">"rbuckley@toofr.com"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"confidence"</span><span class="p">:</span><span class="mi">20</span><span class="p">,</span><span class="nt">"email"</span><span class="p">:</span><span class="s2">"rbuckley@toofr.com"</span><span class="p">,</span><span class="nt">"default"</span><span class="p">:</span><span class="mi">15</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"ryan.buckley@toofr.com"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"confidence"</span><span class="p">:</span><span class="mi">18</span><span class="p">,</span><span class="nt">"email"</span><span class="p">:</span><span class="s2">"ryan.buckley@toofr.com"</span><span class="p">,</span><span class="nt">"default"</span><span class="p">:</span><span class="mi">16</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"ryanbuckley@toofr.com"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"confidence"</span><span class="p">:</span><span class="mi">17</span><span class="p">,</span><span class="nt">"email"</span><span class="p">:</span><span class="s2">"ryanbuckley@toofr.com"</span><span class="p">,</span><span class="nt">"default"</span><span class="p">:</span><span class="mi">17</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"ryan_buckley@toofr.com"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"confidence"</span><span class="p">:</span><span class="mi">16</span><span class="p">,</span><span class="nt">"email"</span><span class="p">:</span><span class="s2">"ryan_buckley@toofr.com"</span><span class="p">,</span><span class="nt">"default"</span><span class="p">:</span><span class="mi">18</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"ryan-buckley@toofr.com"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"confidence"</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span><span class="nt">"email"</span><span class="p">:</span><span class="s2">"ryan-buckley@toofr.com"</span><span class="p">,</span><span class="nt">"default"</span><span class="p">:</span><span class="mi">19</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"ryanb@toofr.com"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"confidence"</span><span class="p">:</span><span class="mi">14</span><span class="p">,</span><span class="nt">"email"</span><span class="p">:</span><span class="s2">"ryanb@toofr.com"</span><span class="p">,</span><span class="nt">"default"</span><span class="p">:</span><span class="mi">14</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nt">"buckley@toofr.com"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"confidence"</span><span class="p">:</span><span class="mi">13</span><span class="p">,</span><span class="nt">"email"</span><span class="p">:</span><span class="s2">"buckley@toofr.com"</span><span class="p">,</span><span class="nt">"default"</span><span class="p">:</span><span class="mi">13</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves all kittens.</p>
+<p>This endpoint discovers emails based on the first name, last name, and company name.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET http://example.com/api/kittens</code></p>
+<p><code class="prettyprint">POST https://www.toofr.com/api/v1/guess_email.json</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Default</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
+<td>key</td>
+<td>Your key is required for any request and is found on your <a href="https://www.toofr.com/account">Toofr account page</a></td>
 </tr>
 <tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
+<td>first_name</td>
+<td>This is the text of the first name of your prospect, cleansed of spaces and non-ASCII characters (por favor!)</td>
+</tr>
+<tr>
+<td>last_name</td>
+<td>This is the text of the last name of your prospect, cleansed of spaces and non-ASCII characters (por favor!)</td>
+</tr>
+<tr>
+<td>company_name</td>
+<td>This is the text of either the company name or website</td>
 </tr>
 </tbody></table>
 
 <aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+Toofr works best when you give it websites or domains, but we&rsquo;ll also take company names. (e.g. apple.com works better than Apple)
 </aside>
 
-<h2 id="get-a-specific-kitten">Get a Specific Kitten</h2>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<h2 id="test-emails">Test Emails</h2>
+<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
+<span class="nb">require</span> <span class="s1">'json'</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://www.toofr.com/api/v1/test_email.json'</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">post_form</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="s1">'key'</span> <span class="o">=&gt;</span> <span class="s1">'abc123yourkeyhere'</span><span class="p">,</span> <span class="s1">'email'</span> <span class="o">=&gt;</span> <span class="s1">'ryan@toofr.com'</span><span class="p">)</span>
+<span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="nf">body</span><span class="p">)</span>
+</code></pre><pre class="highlight python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">uri</span> <span class="o">=</span> <span class="s">'https://www.toofr.com/api/v1/guess_email.json'</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'key'</span><span class="p">:</span> <span class="s">'abc123yourkeyhere'</span><span class="p">,</span> <span class="s">'email'</span><span class="p">:</span> <span class="s">'ryan@toofr.com'</span><span class="p">}</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s">'https://www.toofr.com/api/v1/test_email.json'</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">payload</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre><pre class="highlight shell"><code>curl --data <span class="s2">"key=abc123yourkeyhere&amp;email=ryan@scripted.com"</span> https://www.toofr.com/api/v1/test_email.json
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-</span><span class="p">}</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w"> </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ryan@toofr.com"</span><span class="p">,</span><span class="w"> </span><span class="nt">"confidence"</span><span class="p">:</span><span class="w"> </span><span class="mi">119</span><span class="w"> </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
-
-<aside class="warning">Inside HTML code blocks like this one, you can&rsquo;t use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+<p>This endpoint discovers our <a href="http://blog.toofr.com/how-to-lower-your-bounce-rates-with-our-confidence-score/">confidence score</a> for a given email address.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET http://example.com/kittens/&lt;ID&gt;</code></p>
+<p><code class="prettyprint">POST https://www.toofr.com/api/v1/test_email.json</code></p>
 
-<h3 id="url-parameters">URL Parameters</h3>
+<h3 id="query-parameters">Query Parameters</h3>
 
 <table><thead>
 <tr>
@@ -252,8 +259,12 @@ Remember — a happy kitten is an authenticated kitten!
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
+<td>key</td>
+<td>Your key is required for any request and is found on your <a href="https://www.toofr.com/account">Toofr account page</a></td>
+</tr>
+<tr>
+<td>email</td>
+<td>The properly formatted email address you want to test</td>
 </tr>
 </tbody></table>
 
