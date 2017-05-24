@@ -99,7 +99,7 @@ curl https://www.toofr.com/api/v1/lists/:id?key=abc123yourkeyhere
 }
 ```
 
-This endpoint delivers the array of lists seen in your account at https://www.toofr.com/lists/owned.
+This endpoint delivers the JSON hash of a specific list.
 
 ### HTTP Request
 
@@ -153,10 +153,21 @@ This endpoint delivers the array of lists seen in your account at https://www.to
 
 ### HTTP Request
 
-`GET https://www.toofr.com/api/v1/lists/:id`
+`POST https://www.toofr.com/api/v1/lists`
 
 ### Query Parameters
 
 Parameter | Description
 --------- | -----------
 key | Your key is required for any request and is found on your [Toofr account page](https://www.toofr.com/account)
+name | A short string to name your list
+description | A longer string to describe your list
+file_type | For bulk processing, select the type of file it would be if you were to import it rather than use the API. See acceptable values below or leave blank if no processing is required.  
+
+File Type | Description
+--------- | -----------
+guess | You provide the names and companies of prospects and Toofr appends the best email and confidence score
+guess_all | Like guess, but Toofr gives all emails and confidence scores, not just the best one
+test | You provide emails and Toofr appends a confidence score
+get | You provide companies (names or websites) and Toofr returns all the related emails with confidence scores in our database 
+pattern | You provide companies (names or websites) and Toofr returns the best related email pattern
