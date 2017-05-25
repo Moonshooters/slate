@@ -21,7 +21,7 @@ r.json()
 ```
 
 ```shell
-curl https://www.toofr.com/api/v1/get_prospects?key=abc123yourkeyhere&company=toofr.com
+curl https://www.toofr.com/api/v1/prospect?key=abc123yourkeyhere&company=toofr.com
 ```
 
 > The above command returns JSON structured like this:
@@ -49,7 +49,7 @@ This endpoint delivers the prospects in our database based on company name or we
 
 ### HTTP Request
 
-`GET https://www.toofr.com/api/v1/get_prospects`
+`GET https://www.toofr.com/api/v1/prospect`
 
 ### Query Parameters
 
