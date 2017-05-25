@@ -12,6 +12,7 @@ toc_footers:
 
 includes:
   - emails
+  - companies
   - lists
   - list_records
   - errors
