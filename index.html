@@ -1,0 +1,918 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Toofr Sales Hacking API Reference</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+  </head>
+
+  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="images/logo.png" alt="Logo" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">shell</a>
+              <a href="#" data-language-name="ruby">ruby</a>
+              <a href="#" data-language-name="python">python</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+      </div>
+        <ul class="toc-footer">
+            <li><a href='https://www.toofr.com/registration'>Sign Up for a Developer Key</a></li>
+            <li><a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="introduction">Introduction</h1>
+
+<p>Welcome to the Toofr Sales Hacking API! You can use our API to guess business emails, test emails, and extract prospects from webpages and our database.</p>
+
+<p>We have language examples in Shell, Ruby, and Python. You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+
+<h1 id="authentication">Authentication</h1>
+
+<p>Every Toofr user has access to our API. API calls use credits in the same way that our web application use credits. For more information on how credits are used, view our <a href="https://www.toofr.com/faq">FAQ</a>.</p>
+
+<p>To get an API key, first <a href="https://www.toofr.com/registration">register for a free Toofr account</a>. Check your email for a confirmation message, click through the link, and log in. Your API key is available on your <a href="https://www.toofr.com/account">Account page</a>.</p>
+
+<p>If you run out of credits, you&rsquo;ll need to sign up for a <a href="https://www.toofr.com/pricing">monthly plan</a> to get more. Currenty they start at just $19/mo.</p>
+
+<p>Your API key is a long alphanumeric string that looks similar to this:</p>
+
+<p><code class="prettyprint">e3eabc123ccabcd3efg233hij06b7031</code></p>
+
+<aside class="notice">
+Keep your API key secure! If you don&rsquo;t, someone can use all of your credits for the month, and even send you into overage. You&rsquo;re responsible for all API usage.
+</aside>
+
+          <h1 id="emails">Emails</h1>
+
+<h2 id="guess-emails">Guess Emails</h2>
+<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
+<span class="nb">require</span> <span class="s1">'json'</span>
+
+<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://www.toofr.com/api/v1/guess_email.json'</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">post_form</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="s1">'key'</span> <span class="o">=&gt;</span> <span class="s1">'abc123yourkeyhere'</span><span class="p">,</span> <span class="s1">'first_name'</span> <span class="o">=&gt;</span> <span class="s1">'ryan'</span><span class="p">,</span> <span class="s1">'last_name'</span> <span class="o">=&gt;</span> <span class="s1">'buckley'</span><span class="p">,</span> <span class="s1">'company_name'</span> <span class="o">=&gt;</span> <span class="s1">'toofr.com'</span><span class="p">)</span>
+<span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="nf">body</span><span class="p">)</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">uri</span> <span class="o">=</span> <span class="s">'https://www.toofr.com/api/v1/guess_email.json'</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'key'</span><span class="p">:</span> <span class="s">'abc123yourkeyhere'</span><span class="p">,</span> <span class="s">'first_name'</span><span class="p">:</span> <span class="s">'ryan'</span><span class="p">,</span> <span class="s">'last_name'</span><span class="p">:</span> <span class="s">'buckley'</span><span class="p">,</span> <span class="s">'company_name'</span><span class="p">:</span> <span class="s">'toofr.com'</span><span class="p">}</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">payload</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl --data <span class="s2">"key=abc123yourkeyhere&amp;first_name=ryan&amp;last_name=buckley&amp;company_name=toofr.com"</span> https://www.toofr.com/api/v1/guess_email.json
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"ryan@toofr.com"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"confidence"</span><span class="p">:</span><span class="mi">119</span><span class="p">,</span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"ryan@toofr.com"</span><span class="p">,</span><span class="s2">"default"</span><span class="p">:</span><span class="mi">20</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"rbuckley@toofr.com"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"confidence"</span><span class="p">:</span><span class="mi">20</span><span class="p">,</span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"rbuckley@toofr.com"</span><span class="p">,</span><span class="s2">"default"</span><span class="p">:</span><span class="mi">15</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"ryan.buckley@toofr.com"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"confidence"</span><span class="p">:</span><span class="mi">18</span><span class="p">,</span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"ryan.buckley@toofr.com"</span><span class="p">,</span><span class="s2">"default"</span><span class="p">:</span><span class="mi">16</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"ryanbuckley@toofr.com"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"confidence"</span><span class="p">:</span><span class="mi">17</span><span class="p">,</span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"ryanbuckley@toofr.com"</span><span class="p">,</span><span class="s2">"default"</span><span class="p">:</span><span class="mi">17</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"ryan_buckley@toofr.com"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"confidence"</span><span class="p">:</span><span class="mi">16</span><span class="p">,</span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"ryan_buckley@toofr.com"</span><span class="p">,</span><span class="s2">"default"</span><span class="p">:</span><span class="mi">18</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"ryan-buckley@toofr.com"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"confidence"</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"ryan-buckley@toofr.com"</span><span class="p">,</span><span class="s2">"default"</span><span class="p">:</span><span class="mi">19</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"ryanb@toofr.com"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"confidence"</span><span class="p">:</span><span class="mi">14</span><span class="p">,</span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"ryanb@toofr.com"</span><span class="p">,</span><span class="s2">"default"</span><span class="p">:</span><span class="mi">14</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"buckley@toofr.com"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"confidence"</span><span class="p">:</span><span class="mi">13</span><span class="p">,</span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"buckley@toofr.com"</span><span class="p">,</span><span class="s2">"default"</span><span class="p">:</span><span class="mi">13</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint discovers emails based on the first name, last name, and company name.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://www.toofr.com/api/v1/guess_email.json</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td>Your key is required for any request and is found on your <a href="https://www.toofr.com/account">Toofr account page</a></td>
+</tr>
+<tr>
+<td>first_name</td>
+<td>This is the text of the first name of your prospect, cleansed of spaces and non-ASCII characters (por favor!)</td>
+</tr>
+<tr>
+<td>last_name</td>
+<td>This is the text of the last name of your prospect, cleansed of spaces and non-ASCII characters (por favor!)</td>
+</tr>
+<tr>
+<td>company_name</td>
+<td>This is the text of either the company name or website</td>
+</tr>
+</tbody></table>
+
+<aside class="success">
+Toofr works best when you give it websites or domains, but we&rsquo;ll also take company names. (e.g. apple.com works better than Apple). Company names take an additional credit.
+</aside>
+
+<h2 id="test-emails">Test Emails</h2>
+<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
+<span class="nb">require</span> <span class="s1">'json'</span>
+
+<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://www.toofr.com/api/v1/test_email.json'</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">post_form</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="s1">'key'</span> <span class="o">=&gt;</span> <span class="s1">'abc123yourkeyhere'</span><span class="p">,</span> <span class="s1">'email'</span> <span class="o">=&gt;</span> <span class="s1">'ryan@toofr.com'</span><span class="p">)</span>
+<span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="nf">body</span><span class="p">)</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">uri</span> <span class="o">=</span> <span class="s">'https://www.toofr.com/api/v1/guess_email.json'</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'key'</span><span class="p">:</span> <span class="s">'abc123yourkeyhere'</span><span class="p">,</span> <span class="s">'email'</span><span class="p">:</span> <span class="s">'ryan@toofr.com'</span><span class="p">}</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">payload</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl --data <span class="s2">"key=abc123yourkeyhere&amp;email=ryan@scripted.com"</span> https://www.toofr.com/api/v1/test_email.json
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ryan@toofr.com"</span><span class="p">,</span><span class="w"> </span><span class="s2">"confidence"</span><span class="p">:</span><span class="w"> </span><span class="mi">119</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint delivers our <a href="http://blog.toofr.com/how-to-lower-your-bounce-rates-with-our-confidence-score/">confidence score</a> for a given email address.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://www.toofr.com/api/v1/test_email.json</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td>Your key is required for any request and is found on your <a href="https://www.toofr.com/account">Toofr account page</a></td>
+</tr>
+<tr>
+<td>email</td>
+<td>The properly formatted email address you want to test</td>
+</tr>
+</tbody></table>
+
+          <h1 id="companies">Companies</h1>
+
+<h2 id="get-prospects-and-patterns">Get Prospects and Patterns</h2>
+<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
+<span class="nb">require</span> <span class="s1">'json'</span>
+
+<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://www.toofr.com/api/v1/prospect'</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="s1">'key'</span> <span class="o">=&gt;</span> <span class="s1">'abc123yourkeyhere'</span><span class="p">,</span> <span class="s1">'company'</span> <span class="o">=&gt;</span> <span class="s1">'toofr.com'</span><span class="p">)</span>
+<span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="nf">body</span><span class="p">)</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">uri</span> <span class="o">=</span> <span class="s">'https://www.toofr.com/api/v1/prospect'</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'key'</span><span class="p">:</span> <span class="s">'abc123yourkeyhere'</span><span class="p">,</span> <span class="s">'company'</span><span class="p">:</span> <span class="s">'toofr.com'</span><span class="p">}</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">payload</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl https://www.toofr.com/api/v1/prospect?key<span class="o">=</span>abc123yourkeyhere&amp;company<span class="o">=</span>toofr.com
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"prospects"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"domain"</span><span class="p">:</span><span class="s2">"toofr.com"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"prospects"</span><span class="p">:</span><span class="w">    
+    </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="s2">"id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"ryan@toofr.com"</span><span class="p">,</span><span class="s2">"first_name"</span><span class="p">:</span><span class="s2">"Ryan"</span><span class="p">,</span><span class="s2">"last_name"</span><span class="p">:</span><span class="s2">"Buckley"</span><span class="p">,</span><span class="s2">"confidence"</span><span class="p">:</span><span class="mi">119</span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="s2">"id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"pinak@toofr.com"</span><span class="p">,</span><span class="s2">"first_name"</span><span class="p">:</span><span class="s2">"Pinak"</span><span class="p">,</span><span class="s2">"last_name"</span><span class="p">:</span><span class="s2">"Thakkar"</span><span class="p">,</span><span class="s2">"confidence"</span><span class="p">:</span><span class="mi">79</span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="s2">"id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"Ryan@toofr.com"</span><span class="p">,</span><span class="s2">"first_name"</span><span class="p">:</span><span class="s2">"Ryan"</span><span class="p">,</span><span class="s2">"last_name"</span><span class="p">:</span><span class="s2">"Buckley"</span><span class="p">,</span><span class="s2">"confidence"</span><span class="p">:</span><span class="mi">60</span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="s2">"id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"ryan.buckley@toofr.com"</span><span class="p">,</span><span class="s2">"first_name"</span><span class="p">:</span><span class="s2">"ryan"</span><span class="p">,</span><span class="s2">"last_name"</span><span class="p">:</span><span class="s2">"buckley"</span><span class="p">,</span><span class="s2">"confidence"</span><span class="p">:</span><span class="mi">46</span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="s2">"id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"ryanbuckley@toofr.com"</span><span class="p">,</span><span class="s2">"first_name"</span><span class="p">:</span><span class="s2">"ryan"</span><span class="p">,</span><span class="s2">"last_name"</span><span class="p">:</span><span class="s2">"buckley"</span><span class="p">,</span><span class="s2">"confidence"</span><span class="p">:</span><span class="mi">45</span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="s2">"id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"ryan_buckley@toofr.com"</span><span class="p">,</span><span class="s2">"first_name"</span><span class="p">:</span><span class="s2">"ryan"</span><span class="p">,</span><span class="s2">"last_name"</span><span class="p">:</span><span class="s2">"buckley"</span><span class="p">,</span><span class="s2">"confidence"</span><span class="p">:</span><span class="mi">44</span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="s2">"id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"ryan-buckley@toofr.com"</span><span class="p">,</span><span class="s2">"first_name"</span><span class="p">:</span><span class="s2">"ryan"</span><span class="p">,</span><span class="s2">"last_name"</span><span class="p">:</span><span class="s2">"buckley"</span><span class="p">,</span><span class="s2">"confidence"</span><span class="p">:</span><span class="mi">43</span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"top_pattern"</span><span class="p">:</span><span class="w">
+  </span><span class="p">[</span><span class="w"> </span><span class="s2">"first name"</span><span class="p">,</span><span class="w"> </span><span class="s2">"miles@toofr.com"</span><span class="w"> </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint delivers the prospects in our database based on company name or website.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://www.toofr.com/api/v1/prospect</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td>Your key is required for any request and is found on your <a href="https://www.toofr.com/account">Toofr account page</a></td>
+</tr>
+<tr>
+<td>company</td>
+<td>This is the text of either the company name or website.</td>
+</tr>
+</tbody></table>
+
+<aside class="success">
+Toofr works best when you give it websites or domains, but we&rsquo;ll also take company names. (e.g. apple.com works better than Apple). Company names take an additional credit.
+</aside>
+
+<h2 id="get-company-industry-and-agency-data">Get Company Industry and Agency Data</h2>
+<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
+<span class="nb">require</span> <span class="s1">'json'</span>
+
+<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://www.toofr.com/api/v1/classify'</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="s1">'key'</span> <span class="o">=&gt;</span> <span class="s1">'abc123yourkeyhere'</span><span class="p">,</span> <span class="s1">'company'</span> <span class="o">=&gt;</span> <span class="s1">'toofr.com'</span><span class="p">)</span>
+<span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="nf">body</span><span class="p">)</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">uri</span> <span class="o">=</span> <span class="s">'https://www.toofr.com/api/v1/classify'</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'key'</span><span class="p">:</span> <span class="s">'abc123yourkeyhere'</span><span class="p">,</span> <span class="s">'company'</span><span class="p">:</span> <span class="s">'toofr.com'</span><span class="p">}</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">payload</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl https://www.toofr.com/api/v1/classify?key<span class="o">=</span>abc123yourkeyhere&amp;company<span class="o">=</span>toofr.com
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"industry"</span><span class="p">:</span><span class="s2">"marketing_and_advertising"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"agency_category"</span><span class="p">:</span><span class="s2">"advertising"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"is_agency"</span><span class="p">:</span><span class="s2">"no"</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint uses our natural language processing engine to determine the industry and agency category and status of any website.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://www.toofr.com/api/v1/classify</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td>Your key is required for any request and is found on your <a href="https://www.toofr.com/account">Toofr account page</a></td>
+</tr>
+<tr>
+<td>company</td>
+<td>This is the text of either the company name or website.</td>
+</tr>
+</tbody></table>
+
+<aside class="success">
+Toofr works best when you give it websites or domains, but we&rsquo;ll also take company names. (e.g. apple.com works better than Apple). Company names take an additional credit.
+</aside>
+
+<h3 id="query-responses">Query Responses</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>industry</td>
+<td>The general industry our artificial intelligence believes the website to be in.</td>
+</tr>
+<tr>
+<td>is_agency</td>
+<td>A boolean (true / false) response on whether we believe the company is an agency.</td>
+</tr>
+<tr>
+<td>agency_category</td>
+<td>If we believe the company is an agency, this is the more specific agency category it falls under.</td>
+</tr>
+</tbody></table>
+
+          <h1 id="lists">Lists</h1>
+
+<h2 id="get-all-lists">Get All Lists</h2>
+<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
+<span class="nb">require</span> <span class="s1">'json'</span>
+
+<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://www.toofr.com/api/v1/lists'</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="s1">'key'</span> <span class="o">=&gt;</span> <span class="s1">'abc123yourkeyhere'</span><span class="p">)</span>
+<span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="nf">body</span><span class="p">)</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">uri</span> <span class="o">=</span> <span class="s">'https://www.toofr.com/api/v1/lists'</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'key'</span><span class="p">:</span> <span class="s">'abc123yourkeyhere'</span><span class="p">}</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">payload</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl https://www.toofr.com/api/v1/lists?key<span class="o">=</span>abc123yourkeyhere
+</code></pre>
+<blockquote>
+<p>The above command returns a JSON array structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w"> 
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">137</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"My first file upload"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">"Prospects generated from web scrape."</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2017-05-20T20:55:44.635Z"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"state"</span><span class="p">:</span><span class="s2">"finished"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"records_count_in"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"records_count_processed"</span><span class="p">:</span><span class="mi">5</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">134</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Web results"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">"Good emails found by my VA."</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2017-05-16T19:56:10.155Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"state"</span><span class="p">:</span><span class="s2">"finished"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"records_count_in"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"records_count_processed"</span><span class="p">:</span><span class="kc">null</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint delivers the array of lists seen in your account at https://www.toofr.com/lists/owned.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://www.toofr.com/api/v1/lists</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td>Your key is required for any request and is found on your <a href="https://www.toofr.com/account">Toofr account page</a></td>
+</tr>
+</tbody></table>
+
+<h2 id="get-a-specific-list">Get A Specific List</h2>
+<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
+<span class="nb">require</span> <span class="s1">'json'</span>
+
+<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://www.toofr.com/api/v1/lists/:id'</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="s1">'key'</span> <span class="o">=&gt;</span> <span class="s1">'abc123yourkeyhere'</span><span class="p">)</span>
+<span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="nf">body</span><span class="p">)</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">uri</span> <span class="o">=</span> <span class="s">'https://www.toofr.com/api/v1/lists/:id'</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'key'</span><span class="p">:</span> <span class="s">'abc123yourkeyhere'</span><span class="p">}</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">payload</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl https://www.toofr.com/api/v1/lists/:id?key<span class="o">=</span>abc123yourkeyhere
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">137</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"My first file upload"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">"Prospects generated from web scrape."</span><span class="p">,</span><span class="w"> 
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2017-05-20T20:55:44.635Z"</span><span class="p">,</span><span class="w"> 
+  </span><span class="s2">"state"</span><span class="p">:</span><span class="s2">"finished"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"records_count_in"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"records_count_processed"</span><span class="p">:</span><span class="mi">5</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint delivers the JSON hash of a specific list.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://www.toofr.com/api/v1/lists/:id</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td>Your key is required for any request and is found on your <a href="https://www.toofr.com/account">Toofr account page</a></td>
+</tr>
+</tbody></table>
+
+<h2 id="create-a-list">Create A List</h2>
+<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
+<span class="nb">require</span> <span class="s1">'json'</span>
+
+<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://www.toofr.com/api/v1/lists'</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">post_form</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="s1">'key'</span> <span class="o">=&gt;</span> <span class="s1">'abc123yourkeyhere'</span><span class="p">,</span> <span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s1">'API list'</span><span class="p">,</span> <span class="s1">'description'</span> <span class="o">=&gt;</span> <span class="s1">'Created via API'</span><span class="p">)</span>
+<span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="nf">body</span><span class="p">)</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">uri</span> <span class="o">=</span> <span class="s">'https://www.toofr.com/api/v1/lists'</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'key'</span><span class="p">:</span> <span class="s">'abc123yourkeyhere'</span><span class="p">,</span> <span class="s">'name'</span><span class="p">:</span> <span class="s">'API list'</span><span class="p">,</span> <span class="s">'description'</span><span class="p">:</span> <span class="s">'Created via API'</span><span class="p">}</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">payload</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl --data <span class="s2">"key=abc123yourkeyhere&amp;name='API list'&amp;description='Created via API'"</span> https://www.toofr.com/api/v1/lists
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">137</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"My first file upload"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">"Prospects generated from web scrape."</span><span class="p">,</span><span class="w"> 
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2017-05-20T20:55:44.635Z"</span><span class="p">,</span><span class="w"> 
+  </span><span class="s2">"state"</span><span class="p">:</span><span class="s2">"finished"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"records_count_in"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"records_count_processed"</span><span class="p">:</span><span class="mi">5</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint delivers the array of lists seen in your account at https://www.toofr.com/lists/owned.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://www.toofr.com/api/v1/lists</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td>Your key is required for any request and is found on your <a href="https://www.toofr.com/account">Toofr account page</a></td>
+</tr>
+<tr>
+<td>name</td>
+<td>A short string to name your list</td>
+</tr>
+<tr>
+<td>description</td>
+<td>A longer string to describe your list</td>
+</tr>
+<tr>
+<td>file_type</td>
+<td>For bulk processing, select the type of file it would be if you were to import it rather than use the API. See acceptable values below or leave blank if no processing is required.</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>File Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>guess</td>
+<td>You provide the names and companies of prospects and Toofr appends the best email and confidence score</td>
+</tr>
+<tr>
+<td>guess_all</td>
+<td>Like guess, but Toofr gives all emails and confidence scores, not just the best one</td>
+</tr>
+<tr>
+<td>test</td>
+<td>You provide emails and Toofr appends a confidence score</td>
+</tr>
+<tr>
+<td>get</td>
+<td>You provide companies (names or websites) and Toofr returns all the related emails with confidence scores in our database</td>
+</tr>
+<tr>
+<td>pattern</td>
+<td>You provide companies (names or websites) and Toofr returns the best related email pattern</td>
+</tr>
+</tbody></table>
+
+          <h1 id="list-records">List Records</h1>
+
+<h2 id="get-all-list-records-on-a-list">Get All List Records On A List</h2>
+<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
+<span class="nb">require</span> <span class="s1">'json'</span>
+
+<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://www.toofr.com/api/v1/lists/:list_id/list_records'</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="s1">'key'</span> <span class="o">=&gt;</span> <span class="s1">'abc123yourkeyhere'</span><span class="p">)</span>
+<span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="nf">body</span><span class="p">)</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">uri</span> <span class="o">=</span> <span class="s">'https://www.toofr.com/api/v1/lists/:list_id/list_records'</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'key'</span><span class="p">:</span> <span class="s">'abc123yourkeyhere'</span><span class="p">}</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">payload</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl https://www.toofr.com/api/v1/lists/:list_id/list_records?key<span class="o">=</span>abc123yourkeyhere
+</code></pre>
+<blockquote>
+<p>The above command returns a JSON array structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">16347</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="s2">"ryan"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"last_name"</span><span class="p">:</span><span class="s2">"buckerooski"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"company"</span><span class="p">:</span><span class="s2">"toofr.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email_address"</span><span class="p">:</span><span class="s2">"ryan@toofr.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"meta"</span><span class="p">:{</span><span class="w">
+      </span><span class="s2">"top"</span><span class="p">:</span><span class="s2">"true"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2017-05-24T03:33:37.234Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"processed_at"</span><span class="p">:</span><span class="s2">"2017-05-24T03:33:53.325Z"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">16346</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="s2">"james"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_name"</span><span class="p">:</span><span class="s2">"bond"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"company"</span><span class="p">:</span><span class="s2">"toofr.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email_address"</span><span class="p">:</span><span class="s2">"bondjamesbond@toofr.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"meta"</span><span class="p">:{</span><span class="w">
+      </span><span class="s2">"top"</span><span class="p">:</span><span class="s2">"true"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2017-05-24T03:32:29.271Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"processed_at"</span><span class="p">:</span><span class="s2">"2017-05-24T03:32:34.876Z"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint delivers the array of list records you would see if you exported your list from https://www.toofr.com/lists/:id.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://www.toofr.com/api/v1/lists/:list_id/list_records</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td>Your key is required for any request and is found on your <a href="https://www.toofr.com/account">Toofr account page</a></td>
+</tr>
+</tbody></table>
+
+<h2 id="get-a-specific-list-record">Get A Specific List Record</h2>
+<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
+<span class="nb">require</span> <span class="s1">'json'</span>
+
+<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://www.toofr.com/api/v1/lists/:list_id/list_records/:id'</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="s1">'key'</span> <span class="o">=&gt;</span> <span class="s1">'abc123yourkeyhere'</span><span class="p">)</span>
+<span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="nf">body</span><span class="p">)</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">uri</span> <span class="o">=</span> <span class="s">'https://www.toofr.com/api/v1/lists/:list_id/list_records/:id'</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'key'</span><span class="p">:</span> <span class="s">'abc123yourkeyhere'</span><span class="p">}</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">payload</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl https://www.toofr.com/api/v1/lists/:list_id/list_records/:id?key<span class="o">=</span>abc123yourkeyhere
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">16347</span><span class="p">,</span><span class="w"> 
+  </span><span class="s2">"first_name"</span><span class="p">:</span><span class="s2">"ryan"</span><span class="p">,</span><span class="w"> 
+  </span><span class="s2">"last_name"</span><span class="p">:</span><span class="s2">"buckerooski"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"company"</span><span class="p">:</span><span class="s2">"toofr.com"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"email_address"</span><span class="p">:</span><span class="s2">"ryan@toofr.com"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:{</span><span class="w">
+    </span><span class="s2">"top"</span><span class="p">:</span><span class="s2">"true"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2017-05-24T03:33:37.234Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"processed_at"</span><span class="p">:</span><span class="s2">"2017-05-24T03:33:53.325Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint delivers the JSON hash of a specific list_record.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://www.toofr.com/api/v1/lists/:id</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td>Your key is required for any request and is found on your <a href="https://www.toofr.com/account">Toofr account page</a></td>
+</tr>
+</tbody></table>
+
+<h2 id="create-a-list-record">Create A List Record</h2>
+<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
+<span class="nb">require</span> <span class="s1">'json'</span>
+
+<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://www.toofr.com/api/v1/lists/:list_id/list_records'</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">post_form</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="s1">'key'</span> <span class="o">=&gt;</span> <span class="s1">'abc123yourkeyhere'</span><span class="p">,</span> <span class="s1">'first_name'</span> <span class="o">=&gt;</span> <span class="s1">'Ryan'</span><span class="p">,</span> <span class="s1">'last_name'</span> <span class="o">=&gt;</span> <span class="s1">'Buckley'</span><span class="p">,</span> <span class="s1">'company'</span> <span class="o">=&gt;</span> <span class="s1">'toofr.com'</span><span class="p">)</span>
+<span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="nf">body</span><span class="p">)</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">uri</span> <span class="o">=</span> <span class="s">'https://www.toofr.com/api/v1/lists/:list_id/list_records'</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'key'</span><span class="p">:</span> <span class="s">'abc123yourkeyhere'</span><span class="p">,</span> <span class="s">'first_name'</span><span class="p">:</span> <span class="s">'Ryan'</span><span class="p">,</span> <span class="s">'last_name'</span><span class="p">:</span> <span class="s">'Buckley'</span><span class="p">,</span> <span class="s">'company'</span><span class="p">:</span> <span class="s">'toofr.com'</span><span class="p">}</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">payload</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl --data <span class="s2">"key=abc123yourkeyhere&amp;first_name=Ryan&amp;last_name=Buckley&amp;company=toofr.com"</span> https://www.toofr.com/api/v1/lists/:list_id/list_records
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">16348</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"first_name"</span><span class="p">:</span><span class="s2">"ryan"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"last_name"</span><span class="p">:</span><span class="s2">"buckerooski"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"company"</span><span class="p">:</span><span class="s2">"toofr.com"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"email_address"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"meta"</span><span class="p">:{}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint creates and initiates a background process on the created list record. The type of process run will be based on the file_type of its associated list (the :list_id it&rsquo;s created on). </p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://www.toofr.com/api/v1/lists/:list_id/list_records</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td>Your key is required for any request and is found on your <a href="https://www.toofr.com/account">Toofr account page</a></td>
+</tr>
+</tbody></table>
+
+          <h1 id="errors">Errors</h1>
+
+<p>The Toofr API uses the following error codes:</p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>401</td>
+<td>Unauthorized &ndash; There was a problem with your API key.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found &ndash; The resource you requested could not be found.</td>
+</tr>
+<tr>
+<td>406</td>
+<td>Not Acceptable &ndash; You requested a format that isn&rsquo;t compatible with our API.</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error &ndash; We had an unexpected problem with your request.</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">shell</a>
+                <a href="#" data-language-name="ruby">ruby</a>
+                <a href="#" data-language-name="python">python</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
