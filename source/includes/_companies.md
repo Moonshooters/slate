@@ -140,7 +140,7 @@ This endpoint returns the profile data we have on a given prospect and attempts 
 
 ### HTTP Request
 
-`GET https://www.toofr.com/api/v1/prospect`
+`GET https://www.toofr.com/api/v1/profile`
 
 ### Query Parameters
 
