@@ -31,13 +31,50 @@ curl https://www.toofr.com/api/v1/prospect?key=abc123yourkeyhere&company=toofr.c
   "domain":"toofr.com",
   "prospects":    
     [
-      {"id":null,"email":"ryan@toofr.com","first_name":"Ryan","last_name":"Buckley","confidence":119},
-      {"id":null,"email":"pinak@toofr.com","first_name":"Pinak","last_name":"Thakkar","confidence":79},
-      {"id":null,"email":"Ryan@toofr.com","first_name":"Ryan","last_name":"Buckley","confidence":60},
-      {"id":null,"email":"ryan.buckley@toofr.com","first_name":"ryan","last_name":"buckley","confidence":46},
-      {"id":null,"email":"ryanbuckley@toofr.com","first_name":"ryan","last_name":"buckley","confidence":45},
-      {"id":null,"email":"ryan_buckley@toofr.com","first_name":"ryan","last_name":"buckley","confidence":44},
-      {"id":null,"email":"ryan-buckley@toofr.com","first_name":"ryan","last_name":"buckley","confidence":43}
+      { 
+        "email":"ryan@toofr.com", 
+        "first_name":"Ryan",
+        "last_name":"Buckley",
+        "confidence":119,
+        "profile": {
+          "fn"=>"Ryan Buckley", "photo"=>"https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAniAAAAJGU1MjAxMWI1LTU1ZDItNDQ3OS1iYWVlLWNhNTNhNmIzZWU1Yw.jpg", 
+          "title"=>"Founder of Toofr.com, eNPS.co, and Thinboxapp.com", 
+          "linkedin_profile"=>"https://www.linkedin.com/in/rbuckley"
+        }
+      },
+      { 
+        "email":"kurdt@toofr.com", 
+        "first_name":"Kurt",
+        "last_name":"Cobain",
+        "confidence":89,
+        "profile": {
+          "fn"=>"Kurdt Cobain", "photo"=>"https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAniAAAAJGU1MjAxMWI1LTU1ZDItNDQ3OS1iYWVlLWNhNTNhNmIzZWU1Yw.jpg", 
+          "title"=>"Singer / songwriter", 
+          "linkedin_profile"=>"https://www.linkedin.com/in/rbuckley"
+        }
+      },
+      { 
+        "email":"dave@toofr.com", 
+        "first_name":"Dave",
+        "last_name":"Grohl",
+        "confidence":104,
+        "profile": {
+          "fn"=>"David Grohl", "photo"=>"https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAniAAAAJGU1MjAxMWI1LTU1ZDItNDQ3OS1iYWVlLWNhNTNhNmIzZWU1Yw.jpg", 
+          "title"=>"Drummer extraordinaire and future stadium rocker", 
+          "linkedin_profile"=>"https://www.linkedin.com/in/rbuckley"
+        }
+      },
+      { 
+        "email":"krist@toofr.com", 
+        "first_name":"Krist",
+        "last_name":"Novoselic",
+        "confidence":93,
+        "profile": {
+          "fn"=>"Krist Novoselic", "photo"=>"https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAniAAAAJGU1MjAxMWI1LTU1ZDItNDQ3OS1iYWVlLWNhNTNhNmIzZWU1Yw.jpg", 
+          "title"=>"The quiet bassist", 
+          "linkedin_profile"=>"https://www.linkedin.com/in/rbuckley"
+        }
+      }
     ]
   },
   "top_pattern":
