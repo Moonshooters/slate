@@ -7,7 +7,7 @@ require 'net/http'
 require 'json'
 
 uri = URI('https://www.toofr.com/api/v1/lists/:list_id/list_records')
-res = Net::HTTP.get(uri, 'key' => 'abc123yourkeyhere')
+res = Net::HTTP.get(uri, 'key' => 'abc123yourkeyhere', 'page' => 1)
 JSON.parse(res.body)
 ```
 
@@ -15,13 +15,13 @@ JSON.parse(res.body)
 import requests
 
 uri = 'https://www.toofr.com/api/v1/lists/:list_id/list_records'
-payload = {'key': 'abc123yourkeyhere'}
+payload = {'key': 'abc123yourkeyhere', 'page': 1}
 r = requests.get(uri, data = payload)
 r.json()
 ```
 
 ```shell
-curl https://www.toofr.com/api/v1/lists/:list_id/list_records?key=abc123yourkeyhere
+curl https://www.toofr.com/api/v1/lists/:list_id/list_records?key=abc123yourkeyhere&page=1
 ```
 
 > The above command returns a JSON array structured like this:
@@ -66,6 +66,7 @@ This endpoint delivers the array of list records you would see if you exported y
 Parameter | Description
 --------- | -----------
 key | Your key is required for any request and is found on your [Toofr account page](https://www.toofr.com/account)
+page | Results are paginated 100 at a time so you can iterate through the pages numerically to extract list records
 
 ## Get A Specific List Record
 
