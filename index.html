@@ -384,71 +384,68 @@ Toofr works best when you give it websites or domains, but we&rsquo;ll also take
 <span class="nb">require</span> <span class="s1">'json'</span>
 
 <span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://www.toofr.com/api/v1/prospect'</span><span class="p">)</span>
-<span class="n">res</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="s1">'key'</span> <span class="o">=&gt;</span> <span class="s1">'abc123yourkeyhere'</span><span class="p">,</span> <span class="s1">'company'</span> <span class="o">=&gt;</span> <span class="s1">'toofr.com'</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="s1">'key'</span> <span class="o">=&gt;</span> <span class="s1">'abc123yourkeyhere'</span><span class="p">,</span> <span class="s1">'company_name'</span> <span class="o">=&gt;</span> <span class="s1">'toofr.com'</span><span class="p">)</span>
 <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="nf">body</span><span class="p">)</span>
 </code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">uri</span> <span class="o">=</span> <span class="s">'https://www.toofr.com/api/v1/prospect'</span>
-<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'key'</span><span class="p">:</span> <span class="s">'abc123yourkeyhere'</span><span class="p">,</span> <span class="s">'company'</span><span class="p">:</span> <span class="s">'toofr.com'</span><span class="p">}</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'key'</span><span class="p">:</span> <span class="s">'abc123yourkeyhere'</span><span class="p">,</span> <span class="s">'company_name'</span><span class="p">:</span> <span class="s">'toofr.com'</span><span class="p">}</span>
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">payload</span><span class="p">)</span>
 <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl https://www.toofr.com/api/v1/prospect?key<span class="o">=</span>abc123yourkeyhere&amp;company<span class="o">=</span>toofr.com
+</code></pre><pre class="highlight shell tab-shell"><code>curl https://www.toofr.com/api/v1/prospect?key<span class="o">=</span>abc123yourkeyhere&amp;company_name_<span class="o">=</span>toofr.com
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"prospects"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-  </span><span class="s2">"domain"</span><span class="p">:</span><span class="s2">"toofr.com"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"prospects"</span><span class="p">:</span><span class="w">    
-    </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w"> 
-        </span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"ryan@toofr.com"</span><span class="p">,</span><span class="w"> 
-        </span><span class="s2">"first_name"</span><span class="p">:</span><span class="s2">"Ryan"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"last_name"</span><span class="p">:</span><span class="s2">"Buckley"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"confidence"</span><span class="p">:</span><span class="mi">119</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"fn"</span><span class="err">=&gt;</span><span class="s2">"Ryan Buckley"</span><span class="p">,</span><span class="w"> </span><span class="s2">"photo"</span><span class="err">=&gt;</span><span class="s2">"https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAniAAAAJGU1MjAxMWI1LTU1ZDItNDQ3OS1iYWVlLWNhNTNhNmIzZWU1Yw.jpg"</span><span class="p">,</span><span class="w"> 
-          </span><span class="s2">"title"</span><span class="err">=&gt;</span><span class="s2">"Founder of Toofr.com, eNPS.co, and Thinboxapp.com"</span><span class="p">,</span><span class="w"> 
-          </span><span class="s2">"linkedin_profile"</span><span class="err">=&gt;</span><span class="s2">"https://www.linkedin.com/in/rbuckley"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w"> 
-        </span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"kurdt@toofr.com"</span><span class="p">,</span><span class="w"> 
-        </span><span class="s2">"first_name"</span><span class="p">:</span><span class="s2">"Kurt"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"last_name"</span><span class="p">:</span><span class="s2">"Cobain"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"confidence"</span><span class="p">:</span><span class="mi">89</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"fn"</span><span class="err">=&gt;</span><span class="s2">"Kurdt Cobain"</span><span class="p">,</span><span class="w"> </span><span class="s2">"photo"</span><span class="err">=&gt;</span><span class="s2">"https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAniAAAAJGU1MjAxMWI1LTU1ZDItNDQ3OS1iYWVlLWNhNTNhNmIzZWU1Yw.jpg"</span><span class="p">,</span><span class="w"> 
-          </span><span class="s2">"title"</span><span class="err">=&gt;</span><span class="s2">"Singer / songwriter"</span><span class="p">,</span><span class="w"> 
-          </span><span class="s2">"linkedin_profile"</span><span class="err">=&gt;</span><span class="s2">"https://www.linkedin.com/in/rbuckley"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w"> 
-        </span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"dave@toofr.com"</span><span class="p">,</span><span class="w"> 
-        </span><span class="s2">"first_name"</span><span class="p">:</span><span class="s2">"Dave"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"last_name"</span><span class="p">:</span><span class="s2">"Grohl"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"confidence"</span><span class="p">:</span><span class="mi">104</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"fn"</span><span class="err">=&gt;</span><span class="s2">"David Grohl"</span><span class="p">,</span><span class="w"> </span><span class="s2">"photo"</span><span class="err">=&gt;</span><span class="s2">"https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAniAAAAJGU1MjAxMWI1LTU1ZDItNDQ3OS1iYWVlLWNhNTNhNmIzZWU1Yw.jpg"</span><span class="p">,</span><span class="w"> 
-          </span><span class="s2">"title"</span><span class="err">=&gt;</span><span class="s2">"Drummer extraordinaire and future stadium rocker"</span><span class="p">,</span><span class="w"> 
-          </span><span class="s2">"linkedin_profile"</span><span class="err">=&gt;</span><span class="s2">"https://www.linkedin.com/in/rbuckley"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w"> 
-        </span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"krist@toofr.com"</span><span class="p">,</span><span class="w"> 
-        </span><span class="s2">"first_name"</span><span class="p">:</span><span class="s2">"Krist"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"last_name"</span><span class="p">:</span><span class="s2">"Novoselic"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"confidence"</span><span class="p">:</span><span class="mi">93</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"fn"</span><span class="err">=&gt;</span><span class="s2">"Krist Novoselic"</span><span class="p">,</span><span class="w"> </span><span class="s2">"photo"</span><span class="err">=&gt;</span><span class="s2">"https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAniAAAAJGU1MjAxMWI1LTU1ZDItNDQ3OS1iYWVlLWNhNTNhNmIzZWU1Yw.jpg"</span><span class="p">,</span><span class="w"> 
-          </span><span class="s2">"title"</span><span class="err">=&gt;</span><span class="s2">"The quiet bassist"</span><span class="p">,</span><span class="w"> 
-          </span><span class="s2">"linkedin_profile"</span><span class="err">=&gt;</span><span class="s2">"https://www.linkedin.com/in/rbuckley"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"prospects"</span><span class="p">:</span><span class="w">    
+  </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w"> 
+      </span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"ryan@toofr.com"</span><span class="p">,</span><span class="w"> 
+      </span><span class="s2">"first_name"</span><span class="p">:</span><span class="s2">"Ryan"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_name"</span><span class="p">:</span><span class="s2">"Buckley"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"confidence"</span><span class="p">:</span><span class="mi">119</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"fn"</span><span class="err">=&gt;</span><span class="s2">"Ryan Buckley"</span><span class="p">,</span><span class="w"> </span><span class="s2">"photo"</span><span class="err">=&gt;</span><span class="s2">"https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAniAAAAJGU1MjAxMWI1LTU1ZDItNDQ3OS1iYWVlLWNhNTNhNmIzZWU1Yw.jpg"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"title"</span><span class="err">=&gt;</span><span class="s2">"Founder of Toofr.com, eNPS.co, and Thinboxapp.com"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"linkedin_profile"</span><span class="err">=&gt;</span><span class="s2">"https://www.linkedin.com/in/rbuckley"</span><span class="w">
       </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-  </span><span class="p">},</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w"> 
+      </span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"kurdt@toofr.com"</span><span class="p">,</span><span class="w"> 
+      </span><span class="s2">"first_name"</span><span class="p">:</span><span class="s2">"Kurt"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_name"</span><span class="p">:</span><span class="s2">"Cobain"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"confidence"</span><span class="p">:</span><span class="mi">89</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"fn"</span><span class="err">=&gt;</span><span class="s2">"Kurdt Cobain"</span><span class="p">,</span><span class="w"> </span><span class="s2">"photo"</span><span class="err">=&gt;</span><span class="s2">"https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAniAAAAJGU1MjAxMWI1LTU1ZDItNDQ3OS1iYWVlLWNhNTNhNmIzZWU1Yw.jpg"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"title"</span><span class="err">=&gt;</span><span class="s2">"Singer / songwriter"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"linkedin_profile"</span><span class="err">=&gt;</span><span class="s2">"https://www.linkedin.com/in/rbuckley"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w"> 
+      </span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"dave@toofr.com"</span><span class="p">,</span><span class="w"> 
+      </span><span class="s2">"first_name"</span><span class="p">:</span><span class="s2">"Dave"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_name"</span><span class="p">:</span><span class="s2">"Grohl"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"confidence"</span><span class="p">:</span><span class="mi">104</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"fn"</span><span class="err">=&gt;</span><span class="s2">"David Grohl"</span><span class="p">,</span><span class="w"> </span><span class="s2">"photo"</span><span class="err">=&gt;</span><span class="s2">"https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAniAAAAJGU1MjAxMWI1LTU1ZDItNDQ3OS1iYWVlLWNhNTNhNmIzZWU1Yw.jpg"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"title"</span><span class="err">=&gt;</span><span class="s2">"Drummer extraordinaire and future stadium rocker"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"linkedin_profile"</span><span class="err">=&gt;</span><span class="s2">"https://www.linkedin.com/in/rbuckley"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w"> 
+      </span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"krist@toofr.com"</span><span class="p">,</span><span class="w"> 
+      </span><span class="s2">"first_name"</span><span class="p">:</span><span class="s2">"Krist"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_name"</span><span class="p">:</span><span class="s2">"Novoselic"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"confidence"</span><span class="p">:</span><span class="mi">93</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"fn"</span><span class="err">=&gt;</span><span class="s2">"Krist Novoselic"</span><span class="p">,</span><span class="w"> </span><span class="s2">"photo"</span><span class="err">=&gt;</span><span class="s2">"https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAniAAAAJGU1MjAxMWI1LTU1ZDItNDQ3OS1iYWVlLWNhNTNhNmIzZWU1Yw.jpg"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"title"</span><span class="err">=&gt;</span><span class="s2">"The quiet bassist"</span><span class="p">,</span><span class="w"> 
+        </span><span class="s2">"linkedin_profile"</span><span class="err">=&gt;</span><span class="s2">"https://www.linkedin.com/in/rbuckley"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
   </span><span class="s2">"top_pattern"</span><span class="p">:</span><span class="w">
-  </span><span class="p">[</span><span class="w"> </span><span class="s2">"first name"</span><span class="p">,</span><span class="w"> </span><span class="s2">"miles@toofr.com"</span><span class="w"> </span><span class="p">]</span><span class="w">
+    </span><span class="p">[</span><span class="w"> </span><span class="s2">"first name"</span><span class="p">,</span><span class="w"> </span><span class="s2">"miles@toofr.com"</span><span class="w"> </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint delivers the prospects in our database based on company name or website.</p>
@@ -470,7 +467,7 @@ Toofr works best when you give it websites or domains, but we&rsquo;ll also take
 <td>Your key is required for any request and is found on your <a href="https://www.toofr.com/account">Toofr account page</a></td>
 </tr>
 <tr>
-<td>company</td>
+<td>company_name</td>
 <td>This is the text of either the company name or website.</td>
 </tr>
 </tbody></table>
@@ -543,15 +540,15 @@ Toofr works best when you give it websites or domains, but we&rsquo;ll also take
 <span class="nb">require</span> <span class="s1">'json'</span>
 
 <span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://www.toofr.com/api/v1/classify'</span><span class="p">)</span>
-<span class="n">res</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="s1">'key'</span> <span class="o">=&gt;</span> <span class="s1">'abc123yourkeyhere'</span><span class="p">,</span> <span class="s1">'company'</span> <span class="o">=&gt;</span> <span class="s1">'toofr.com'</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="s1">'key'</span> <span class="o">=&gt;</span> <span class="s1">'abc123yourkeyhere'</span><span class="p">,</span> <span class="s1">'company_name'</span> <span class="o">=&gt;</span> <span class="s1">'toofr.com'</span><span class="p">)</span>
 <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="nf">body</span><span class="p">)</span>
 </code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">uri</span> <span class="o">=</span> <span class="s">'https://www.toofr.com/api/v1/classify'</span>
-<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'key'</span><span class="p">:</span> <span class="s">'abc123yourkeyhere'</span><span class="p">,</span> <span class="s">'company'</span><span class="p">:</span> <span class="s">'toofr.com'</span><span class="p">}</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'key'</span><span class="p">:</span> <span class="s">'abc123yourkeyhere'</span><span class="p">,</span> <span class="s">'company_name'</span><span class="p">:</span> <span class="s">'toofr.com'</span><span class="p">}</span>
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">payload</span><span class="p">)</span>
 <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl https://www.toofr.com/api/v1/classify?key<span class="o">=</span>abc123yourkeyhere&amp;company<span class="o">=</span>toofr.com
+</code></pre><pre class="highlight shell tab-shell"><code>curl https://www.toofr.com/api/v1/classify?key<span class="o">=</span>abc123yourkeyhere&amp;company_name<span class="o">=</span>toofr.com
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -581,7 +578,7 @@ Toofr works best when you give it websites or domains, but we&rsquo;ll also take
 <td>Your key is required for any request and is found on your <a href="https://www.toofr.com/account">Toofr account page</a></td>
 </tr>
 <tr>
-<td>company</td>
+<td>company_name</td>
 <td>This is the text of either the company name or website.</td>
 </tr>
 </tbody></table>
