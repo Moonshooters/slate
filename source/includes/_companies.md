@@ -7,7 +7,7 @@ require 'net/http'
 require 'json'
 
 uri = URI('https://www.toofr.com/api/v1/prospect')
-res = Net::HTTP.get(uri, 'key' => 'abc123yourkeyhere', 'company_name' => 'toofr.com')
+res = Net::HTTP.get(uri, 'key' => 'abc123yourkeyhere', 'company_name' => 'toofr.com', 'page' => 2)
 JSON.parse(res.body)
 ```
 
@@ -15,7 +15,7 @@ JSON.parse(res.body)
 import requests
 
 uri = 'https://www.toofr.com/api/v1/prospect'
-payload = {'key': 'abc123yourkeyhere', 'company_name': 'toofr.com'}
+payload = {'key': 'abc123yourkeyhere', 'company_name': 'toofr.com', 'page': 2}
 r = requests.get(uri, data = payload)
 r.json()
 ```
@@ -91,6 +91,7 @@ Parameter | Description
 --------- | -----------
 key | Your key is required for any request and is found on your [Toofr account page](https://www.toofr.com/account)
 company_name | This is the text of either the company name or website.
+page | Optional integer to get another page of results (25 returned per page).
 
 <aside class="success">
 Toofr works best when you give it websites or domains, but we'll also take company names. (e.g. apple.com works better than Apple). Company names take an additional credit.
