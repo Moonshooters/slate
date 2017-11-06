@@ -74,12 +74,12 @@ curl https://www.toofr.com/api/v1/prospect?key=abc123yourkeyhere&company_name_=t
       }
     }
   ],
-  "top_pattern":
-    [ "first name", "miles@toofr.com" ]
+  "top_pattern": [ "first name", "miles@toofr.com" ],
+  "next_page": 3
 }
 ```
 
-This endpoint delivers the prospects in our database based on company name or website.
+This endpoint delivers the prospects in our database based on company name or website. The response includes `top_pattern` which is the most common email pattern for the company and `next_page` to tell you if there are more results.
 
 ### HTTP Request
 
@@ -91,7 +91,7 @@ Parameter | Description
 --------- | -----------
 key | Your key is required for any request and is found on your [Toofr account page](https://www.toofr.com/account)
 company_name | This is the text of either the company name or website.
-page | Optional integer to get another page of results (25 returned per page).
+page | Optional integer to get another page of results (10 returned per page, 1 credit per page response).
 
 <aside class="success">
 Toofr works best when you give it websites or domains, but we'll also take company names. (e.g. apple.com works better than Apple). Company names take an additional credit.
