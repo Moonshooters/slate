@@ -444,11 +444,11 @@ Toofr works best when you give it websites or domains, but we&rsquo;ll also take
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="s2">"top_pattern"</span><span class="p">:</span><span class="w">
-    </span><span class="p">[</span><span class="w"> </span><span class="s2">"first name"</span><span class="p">,</span><span class="w"> </span><span class="s2">"miles@toofr.com"</span><span class="w"> </span><span class="p">]</span><span class="w">
+  </span><span class="s2">"top_pattern"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"first name"</span><span class="p">,</span><span class="w"> </span><span class="s2">"miles@toofr.com"</span><span class="w"> </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"next_page"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint delivers the prospects in our database based on company name or website.</p>
+<p>This endpoint delivers the prospects in our database based on company name or website. The response includes <code class="prettyprint">top_pattern</code> which is the most common email pattern for the company and <code class="prettyprint">next_page</code> to tell you if there are more results.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -472,7 +472,7 @@ Toofr works best when you give it websites or domains, but we&rsquo;ll also take
 </tr>
 <tr>
 <td>page</td>
-<td>Optional integer to get another page of results (25 returned per page).</td>
+<td>Optional integer to get another page of results (10 returned per page, 1 credit per page response).</td>
 </tr>
 </tbody></table>
 
