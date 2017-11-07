@@ -21,7 +21,7 @@ r.json()
 ```
 
 ```shell
-curl https://www.toofr.com/api/v1/prospect?key=abc123yourkeyhere&company_name_=toofr.com
+curl https://www.toofr.com/api/v1/prospect?key=abc123yourkeyhere&company_name=toofr.com
 ```
 
 > The above command returns JSON structured like this:

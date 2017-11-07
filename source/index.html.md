@@ -13,6 +13,7 @@ toc_footers:
 includes:
   - emails
   - companies
+  - audiences
   - lists
   - list_records
   - errors
