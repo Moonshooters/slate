@@ -76,6 +76,7 @@ curl https://www.toofr.com/api/v1/prospect?key=abc123yourkeyhere&company_name=to
   ],
   "top_pattern": [ "first name", "miles@toofr.com" ],
   "next_page": 3
+  "total_pages": 5
 }
 ```
 
