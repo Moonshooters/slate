@@ -618,12 +618,12 @@ Toofr works best when you give it websites or domains, but we&rsquo;ll also take
 <pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
 <span class="nb">require</span> <span class="s1">'json'</span>
 
-<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://www.toofr.com/api/v1/get_domain_'</span><span class="p">)</span>
+<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://www.toofr.com/api/v1/get_domain'</span><span class="p">)</span>
 <span class="n">res</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="s1">'key'</span> <span class="o">=&gt;</span> <span class="s1">'abc123yourkeyhere'</span><span class="p">,</span> <span class="s1">'company_name'</span> <span class="o">=&gt;</span> <span class="s1">'toofr'</span><span class="p">)</span>
 <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="nf">body</span><span class="p">)</span>
 </code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">uri</span> <span class="o">=</span> <span class="s">'https://www.toofr.com/api/v1/get_domain_'</span>
+<span class="n">uri</span> <span class="o">=</span> <span class="s">'https://www.toofr.com/api/v1/get_domain'</span>
 <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'key'</span><span class="p">:</span> <span class="s">'abc123yourkeyhere'</span><span class="p">,</span> <span class="s">'company_name'</span><span class="p">:</span> <span class="s">'toofr'</span><span class="p">}</span>
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">payload</span><span class="p">)</span>
 <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
