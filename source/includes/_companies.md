@@ -215,7 +215,7 @@ agency_category | If we believe the company is an agency, this is the more speci
 require 'net/http'
 require 'json'
 
-uri = URI('https://www.toofr.com/api/v1/get_domain_')
+uri = URI('https://www.toofr.com/api/v1/get_domain')
 res = Net::HTTP.get(uri, 'key' => 'abc123yourkeyhere', 'company_name' => 'toofr')
 JSON.parse(res.body)
 ```
@@ -223,7 +223,7 @@ JSON.parse(res.body)
 ```python
 import requests
 
-uri = 'https://www.toofr.com/api/v1/get_domain_'
+uri = 'https://www.toofr.com/api/v1/get_domain'
 payload = {'key': 'abc123yourkeyhere', 'company_name': 'toofr'}
 r = requests.get(uri, data = payload)
 r.json()
