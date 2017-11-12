@@ -28,19 +28,48 @@ curl https://www.toofr.com/api/v1/audiences?key=abc123yourkeyhere&websites=toofr
 
 ```json
 {
-  "total":1,
-  "prospects":[
-    {
-      "first_name":"ryan",
-      "last_name":"buckley",
-      "title":"Founder of Toofr.com, eNPS.co, and Thinboxapp.com",
-      "domain":{
-        "company":"toofr",
-        "domain":"toofr.com"
-      }
+  "total":10,
+  "prospects": [
+  {
+    "first_name":"biz",
+    "last_name":"stone",
+    "title":"Head of social media",
+    "profile": {
+      "fn":"Biz Stone",
+      "photo":"https://media.licdn.com/media/p/2/005/018/3d3/11bf5c3.jpg",
+      "title":"Internet Guy",
+      "linkedin_profile":"https://www.linkedin.com/in/bizstone/"
+    },
+    "email": {
+      "email":"biz@scripted.com",
+      "confidence":140,
+      "state":"high"
+    },
+    "domain": {
+      "company":"scripted",
+      "domain":"scripted.com"
     }
-  ]
-}
+  },
+  {
+    "first_name":"kurdt",
+    "last_name":"cobain",
+    "title":"Nevermind",
+    "profile": {},
+    "email": {
+      "email":"kurdt@scripted.com",
+      "confidence":1994,
+      "state":"high"
+    },
+    "domain": {
+      "company":"scripted",
+      "domain":"scripted.com"
+    }
+  },
+  etc...
+  ],
+  "next_page":3,
+  "total_pages":3
+  }
 ```
 
 This endpoint delivers the prospects in our database based on websites or industries and titles. The response includes `total` which is the number of results delivered to the page and the credits consumed for the query.
