@@ -791,19 +791,48 @@ Toofr works best when you give it websites or domains, but we&rsquo;ll also take
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"total"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"prospects"</span><span class="p">:[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"first_name"</span><span class="p">:</span><span class="s2">"ryan"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"last_name"</span><span class="p">:</span><span class="s2">"buckley"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"title"</span><span class="p">:</span><span class="s2">"Founder of Toofr.com, eNPS.co, and Thinboxapp.com"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"domain"</span><span class="p">:{</span><span class="w">
-        </span><span class="s2">"company"</span><span class="p">:</span><span class="s2">"toofr"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"domain"</span><span class="p">:</span><span class="s2">"toofr.com"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
+  </span><span class="s2">"total"</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"prospects"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="s2">"biz"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_name"</span><span class="p">:</span><span class="s2">"stone"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="s2">"Head of social media"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"fn"</span><span class="p">:</span><span class="s2">"Biz Stone"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"photo"</span><span class="p">:</span><span class="s2">"https://media.licdn.com/media/p/2/005/018/3d3/11bf5c3.jpg"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"title"</span><span class="p">:</span><span class="s2">"Internet Guy"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"linkedin_profile"</span><span class="p">:</span><span class="s2">"https://www.linkedin.com/in/bizstone/"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"biz@scripted.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"confidence"</span><span class="p">:</span><span class="mi">140</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"state"</span><span class="p">:</span><span class="s2">"high"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"company"</span><span class="p">:</span><span class="s2">"scripted"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"domain"</span><span class="p">:</span><span class="s2">"scripted.com"</span><span class="w">
     </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="s2">"kurdt"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_name"</span><span class="p">:</span><span class="s2">"cobain"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="s2">"Nevermind"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"kurdt@scripted.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"confidence"</span><span class="p">:</span><span class="mi">1994</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"state"</span><span class="p">:</span><span class="s2">"high"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"company"</span><span class="p">:</span><span class="s2">"scripted"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"domain"</span><span class="p">:</span><span class="s2">"scripted.com"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="err">etc...</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"next_page"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"total_pages"</span><span class="p">:</span><span class="mi">3</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint delivers the prospects in our database based on websites or industries and titles. The response includes <code class="prettyprint">total</code> which is the number of results delivered to the page and the credits consumed for the query.</p>
 
