@@ -44,10 +44,6 @@ curl https://www.toofr.com/api/v1/audiences?key=abc123yourkeyhere&websites=toofr
       "email":"biz@scripted.com",
       "confidence":140,
       "state":"high"
-    },
-    "domain": {
-      "company":"scripted",
-      "domain":"scripted.com"
     }
   },
   {
@@ -59,10 +55,6 @@ curl https://www.toofr.com/api/v1/audiences?key=abc123yourkeyhere&websites=toofr
       "email":"kurdt@scripted.com",
       "confidence":1994,
       "state":"high"
-    },
-    "domain": {
-      "company":"scripted",
-      "domain":"scripted.com"
     }
   },
   etc...
@@ -72,7 +64,9 @@ curl https://www.toofr.com/api/v1/audiences?key=abc123yourkeyhere&websites=toofr
   }
 ```
 
-This endpoint delivers the prospects in our database based on websites or industries and titles. The response includes `total` which is the number of results delivered to the page and the credits consumed for the query.
+This endpoint delivers the prospects in our database based on websites or industries and titles. The response includes `total` which is the number of results delivered to the page and the credits consumed for the query as well as the pagination keys `next_page` and `total_pages`.
+
+The results are sorted by title, so complete profiles are first, and then by confidence score.
 
 ### HTTP Request
 
