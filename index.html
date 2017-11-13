@@ -807,10 +807,6 @@ Toofr works best when you give it websites or domains, but we&rsquo;ll also take
       </span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"biz@scripted.com"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"confidence"</span><span class="p">:</span><span class="mi">140</span><span class="p">,</span><span class="w">
       </span><span class="s2">"state"</span><span class="p">:</span><span class="s2">"high"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"company"</span><span class="p">:</span><span class="s2">"scripted"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"domain"</span><span class="p">:</span><span class="s2">"scripted.com"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
@@ -822,10 +818,6 @@ Toofr works best when you give it websites or domains, but we&rsquo;ll also take
       </span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"kurdt@scripted.com"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"confidence"</span><span class="p">:</span><span class="mi">1994</span><span class="p">,</span><span class="w">
       </span><span class="s2">"state"</span><span class="p">:</span><span class="s2">"high"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"company"</span><span class="p">:</span><span class="s2">"scripted"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"domain"</span><span class="p">:</span><span class="s2">"scripted.com"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="err">etc...</span><span class="w">
@@ -834,7 +826,9 @@ Toofr works best when you give it websites or domains, but we&rsquo;ll also take
   </span><span class="s2">"total_pages"</span><span class="p">:</span><span class="mi">3</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint delivers the prospects in our database based on websites or industries and titles. The response includes <code class="prettyprint">total</code> which is the number of results delivered to the page and the credits consumed for the query.</p>
+<p>This endpoint delivers the prospects in our database based on websites or industries and titles. The response includes <code class="prettyprint">total</code> which is the number of results delivered to the page and the credits consumed for the query as well as the pagination keys <code class="prettyprint">next_page</code> and <code class="prettyprint">total_pages</code>.</p>
+
+<p>The results are sorted by title, so complete profiles are first, and then by confidence score.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
