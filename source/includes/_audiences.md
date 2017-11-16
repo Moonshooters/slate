@@ -44,6 +44,9 @@ curl https://www.toofr.com/api/v1/audiences?key=abc123yourkeyhere&websites=toofr
       "email":"biz@scripted.com",
       "confidence":140,
       "state":"high"
+    },
+    "domain": {
+      "domain":"scripted.com"
     }
   },
   {
@@ -55,18 +58,22 @@ curl https://www.toofr.com/api/v1/audiences?key=abc123yourkeyhere&websites=toofr
       "email":"kurdt@scripted.com",
       "confidence":1994,
       "state":"high"
+    },
+    "domain": {
+      "domain":"scripted.com"
     }
   },
   etc...
   ],
   "next_page":3,
-  "total_pages":3
+  "total_pages":3,
+  "status":"Succeeded."
   }
 ```
 
-This endpoint delivers the prospects in our database based on websites or industries and titles. The response includes `total` which is the number of results delivered to the page and the credits consumed for the query as well as the pagination keys `next_page` and `total_pages`.
+This endpoint delivers the prospects in our database based on websites or industries and titles. The response includes `total` which is the number of results delivered to the page and the credits consumed for the query as well as the pagination keys `next_page` and `total_pages`. A `status` message will alert you of any 202 status responses which require background processing. 
 
-The results are sorted by title, so complete profiles are first, and then by confidence score.
+The results are sorted by title, so complete profiles are first, and then by confidence score. When your request doesn't yield any titles in the database, the API returns a 202 status and triggers a background process to search the internet. Run your request again in a minute to get the results.
 
 ### HTTP Request
 
@@ -84,7 +91,7 @@ page | Optional integer to get another page of results (10 returned per page, so
 
 ### Title Categories
 
-Use one of these title categories: `ceo`, `cmo`, `cto`, `cfo`, `finance`, `marketing`, `engineering`, `product`, `sales`, `operations`,
+Use one of these title categories: `ceo`, `founder`, `cmo`, `cto`, `cfo`, `finance`, `marketing`, `engineering`, `product`, `sales`, `operations`,
 `account_management`, `information_technology`, `data_science`, `human_resources`, `c_level`, `directors`, `presidents_and_vps`, `managers`
 
 ### Industry Categories

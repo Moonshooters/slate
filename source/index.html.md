@@ -18,6 +18,7 @@ includes:
   - lists
   - list_records
   - errors
+  - statuses
 
 search: true
 ---

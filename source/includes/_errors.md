@@ -1,6 +1,6 @@
-# Errors
+# HTTP Error Codes
 
-The Toofr API uses the following error codes:
+The Toofr API returns the following HTTP status codes for faulty queries:
 
 
 Error Code | Meaning
