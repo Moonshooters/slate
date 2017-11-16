@@ -807,6 +807,9 @@ Toofr works best when you give it websites or domains, but we&rsquo;ll also take
       </span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"biz@scripted.com"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"confidence"</span><span class="p">:</span><span class="mi">140</span><span class="p">,</span><span class="w">
       </span><span class="s2">"state"</span><span class="p">:</span><span class="s2">"high"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"domain"</span><span class="p">:</span><span class="s2">"scripted.com"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="p">{</span><span class="w">
@@ -818,17 +821,21 @@ Toofr works best when you give it websites or domains, but we&rsquo;ll also take
       </span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"kurdt@scripted.com"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"confidence"</span><span class="p">:</span><span class="mi">1994</span><span class="p">,</span><span class="w">
       </span><span class="s2">"state"</span><span class="p">:</span><span class="s2">"high"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"domain"</span><span class="p">:</span><span class="s2">"scripted.com"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="err">etc...</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="s2">"next_page"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"total_pages"</span><span class="p">:</span><span class="mi">3</span><span class="w">
+  </span><span class="s2">"total_pages"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="s2">"Succeeded."</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint delivers the prospects in our database based on websites or industries and titles. The response includes <code class="prettyprint">total</code> which is the number of results delivered to the page and the credits consumed for the query as well as the pagination keys <code class="prettyprint">next_page</code> and <code class="prettyprint">total_pages</code>.</p>
+<p>This endpoint delivers the prospects in our database based on websites or industries and titles. The response includes <code class="prettyprint">total</code> which is the number of results delivered to the page and the credits consumed for the query as well as the pagination keys <code class="prettyprint">next_page</code> and <code class="prettyprint">total_pages</code>. A <code class="prettyprint">status</code> message will alert you of any 202 status responses which require background processing. </p>
 
-<p>The results are sorted by title, so complete profiles are first, and then by confidence score.</p>
+<p>The results are sorted by title, so complete profiles are first, and then by confidence score. When your request doesn&rsquo;t yield any titles in the database, the API returns a 202 status and triggers a background process to search the internet. Run your request again in a minute to get the results.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -866,7 +873,7 @@ Toofr works best when you give it websites or domains, but we&rsquo;ll also take
 
 <h3 id="title-categories">Title Categories</h3>
 
-<p>Use one of these title categories: <code class="prettyprint">ceo</code>, <code class="prettyprint">cmo</code>, <code class="prettyprint">cto</code>, <code class="prettyprint">cfo</code>, <code class="prettyprint">finance</code>, <code class="prettyprint">marketing</code>, <code class="prettyprint">engineering</code>, <code class="prettyprint">product</code>, <code class="prettyprint">sales</code>, <code class="prettyprint">operations</code>,
+<p>Use one of these title categories: <code class="prettyprint">ceo</code>, <code class="prettyprint">founder</code>, <code class="prettyprint">cmo</code>, <code class="prettyprint">cto</code>, <code class="prettyprint">cfo</code>, <code class="prettyprint">finance</code>, <code class="prettyprint">marketing</code>, <code class="prettyprint">engineering</code>, <code class="prettyprint">product</code>, <code class="prettyprint">sales</code>, <code class="prettyprint">operations</code>,
 <code class="prettyprint">account_management</code>, <code class="prettyprint">information_technology</code>, <code class="prettyprint">data_science</code>, <code class="prettyprint">human_resources</code>, <code class="prettyprint">c_level</code>, <code class="prettyprint">directors</code>, <code class="prettyprint">presidents_and_vps</code>, <code class="prettyprint">managers</code></p>
 
 <h3 id="industry-categories">Industry Categories</h3>
@@ -1239,9 +1246,9 @@ Toofr works best when you give it websites or domains, but we&rsquo;ll also take
 </tr>
 </tbody></table>
 
-          <h1 id="errors">Errors</h1>
+          <h1 id="http-error-codes">HTTP Error Codes</h1>
 
-<p>The Toofr API uses the following error codes:</p>
+<p>The Toofr API returns the following HTTP status codes for faulty queries:</p>
 
 <table><thead>
 <tr>
@@ -1264,6 +1271,26 @@ Toofr works best when you give it websites or domains, but we&rsquo;ll also take
 <tr>
 <td>500</td>
 <td>Internal Server Error &ndash; We had an unexpected problem with your request.</td>
+</tr>
+</tbody></table>
+
+          <h1 id="http-success-codes">HTTP Success Codes</h1>
+
+<p>The Toofr API returns the following HTTP status codes for successful queries:</p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Successful &ndash; The request was completely successful.</td>
+</tr>
+<tr>
+<td>202</td>
+<td>Wait and Try Again &ndash; The request was successful but requires background processing. Try the request with the same parameters again in a minute.</td>
 </tr>
 </tbody></table>
 
