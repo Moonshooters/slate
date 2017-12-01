@@ -250,154 +250,80 @@
 Keep your API key secure! If you don&rsquo;t, someone can use all of your credits for the month, and even send you into overage. You&rsquo;re responsible for all API usage.
 </aside>
 
-          <h1 id="credits">Credits</h1>
+          <h1 id="audiences">Audiences</h1>
 
-<h2 id="view-your-credit-balance-and-subscription-plan">View Your Credit Balance and Subscription Plan</h2>
+<h2 id="build-email-lists-and-audiences">Build Email Lists and Audiences</h2>
 <pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
 <span class="nb">require</span> <span class="s1">'json'</span>
 
-<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://www.toofr.com/api/v1/credits/balance'</span><span class="p">)</span>
-<span class="n">res</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="s1">'key'</span> <span class="o">=&gt;</span> <span class="s1">'abc123yourkeyhere'</span><span class="p">)</span>
+<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://www.toofr.com/api/v1/audiences'</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="s1">'key'</span> <span class="o">=&gt;</span> <span class="s1">'abc123yourkeyhere'</span><span class="p">,</span> <span class="s1">'websites'</span> <span class="o">=&gt;</span> <span class="s1">'toofr.com'</span><span class="p">,</span> <span class="s1">'titles'</span> <span class="o">=&gt;</span> <span class="s1">'ceo'</span><span class="p">,</span> <span class="s1">'page'</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">)</span>
 <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="nf">body</span><span class="p">)</span>
 </code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">uri</span> <span class="o">=</span> <span class="s">'https://www.toofr.com/api/v1/credits/balance'</span>
-<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'key'</span><span class="p">:</span> <span class="s">'abc123yourkeyhere'</span><span class="p">}</span>
+<span class="n">uri</span> <span class="o">=</span> <span class="s">'https://www.toofr.com/api/v1/audiences'</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'key'</span><span class="p">:</span> <span class="s">'abc123yourkeyhere'</span><span class="p">,</span> <span class="s">'websites'</span><span class="p">:</span> <span class="s">'toofr.com'</span><span class="p">,</span> <span class="s">'titles'</span><span class="p">:</span> <span class="s">'ceo'</span><span class="p">,</span> <span class="s">'page'</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">payload</span><span class="p">)</span>
 <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl https://www.toofr.com/api/v1/credits/balance?key<span class="o">=</span>abc123yourkeyhere
+</code></pre><pre class="highlight shell tab-shell"><code>curl https://www.toofr.com/api/v1/audiences?key<span class="o">=</span>abc123yourkeyhere&amp;websites<span class="o">=</span>toofr.com&amp;titles<span class="o">=</span>ceo&amp;page<span class="o">=</span>1
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"credits"</span><span class="p">:</span><span class="w"> </span><span class="mi">2047</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"plan_name"</span><span class="p">:</span><span class="w"> </span><span class="err">'Expert'</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"overage_rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint delivers the number of credits in your account, the plan you&rsquo;re on (response is <code class="prettyprint">null</code> if no plan is present) and the overage rate that Toofr will charge for negative balances.</p>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET https://www.toofr.com/api/v1/credits/balance</code></p>
-
-<h3 id="query-parameters">Query Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>key</td>
-<td>Your key is required for any request and is found on your <a href="https://www.toofr.com/account">Toofr account page</a></td>
-</tr>
-</tbody></table>
-
-<h2 id="purchase-credits">Purchase Credits</h2>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
-<span class="nb">require</span> <span class="s1">'json'</span>
-
-<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://www.toofr.com/api/v1/credits/purchase'</span><span class="p">)</span>
-<span class="n">res</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="s1">'key'</span> <span class="o">=&gt;</span> <span class="s1">'abc123yourkeyhere'</span><span class="p">,</span> <span class="s1">'credits'</span> <span class="o">=&gt;</span> <span class="mi">2000</span><span class="p">)</span>
-<span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="nf">body</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
-
-<span class="n">uri</span> <span class="o">=</span> <span class="s">'https://www.toofr.com/api/v1/credits/purchase'</span>
-<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'key'</span><span class="p">:</span> <span class="s">'abc123yourkeyhere'</span><span class="p">,</span> <span class="s">'credits'</span><span class="p">:</span> <span class="mi">2000</span><span class="p">}</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">payload</span><span class="p">)</span>
-<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl https://www.toofr.com/api/v1/credits/balance?key<span class="o">=</span>abc123yourkeyhere&amp;credits<span class="o">=</span>2000
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"credits"</span><span class="p">:</span><span class="w"> </span><span class="mi">2047</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"plan_name"</span><span class="p">:</span><span class="w"> </span><span class="err">'Expert'</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"overage_rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"charge_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"failed"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"charge_message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful API purchase of 2000 credits at $0.01/ea"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint delivers the number of credits in your account, the plan you&rsquo;re on (response is <code class="prettyprint">null</code> if no plan is present) and the overage rate that Toofr will charge for negative balances.</p>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET https://www.toofr.com/api/v1/credits/purchase</code></p>
-
-<h3 id="query-parameters">Query Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>key</td>
-<td>Your key is required for any request and is found on your <a href="https://www.toofr.com/account">Toofr account page</a></td>
-</tr>
-<tr>
-<td>credits</td>
-<td>The number of credits you want to purchase. It must be greater than 1000.</td>
-</tr>
-</tbody></table>
-
-          <h1 id="emails">Emails</h1>
-
-<h2 id="guess-emails">Guess Emails</h2>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
-<span class="nb">require</span> <span class="s1">'json'</span>
-
-<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://www.toofr.com/api/v1/guess_email.json'</span><span class="p">)</span>
-<span class="n">res</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">post_form</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="s1">'key'</span> <span class="o">=&gt;</span> <span class="s1">'abc123yourkeyhere'</span><span class="p">,</span> <span class="s1">'first_name'</span> <span class="o">=&gt;</span> <span class="s1">'ryan'</span><span class="p">,</span> <span class="s1">'last_name'</span> <span class="o">=&gt;</span> <span class="s1">'buckley'</span><span class="p">,</span> <span class="s1">'company_name'</span> <span class="o">=&gt;</span> <span class="s1">'toofr.com'</span><span class="p">)</span>
-<span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="nf">body</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
-
-<span class="n">uri</span> <span class="o">=</span> <span class="s">'https://www.toofr.com/api/v1/guess_email.json'</span>
-<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'key'</span><span class="p">:</span> <span class="s">'abc123yourkeyhere'</span><span class="p">,</span> <span class="s">'first_name'</span><span class="p">:</span> <span class="s">'ryan'</span><span class="p">,</span> <span class="s">'last_name'</span><span class="p">:</span> <span class="s">'buckley'</span><span class="p">,</span> <span class="s">'company_name'</span><span class="p">:</span> <span class="s">'toofr.com'</span><span class="p">}</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">payload</span><span class="p">)</span>
-<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl --data <span class="s2">"key=abc123yourkeyhere&amp;first_name=ryan&amp;last_name=buckley&amp;company_name=toofr.com"</span> https://www.toofr.com/api/v1/guess_email.json
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"ryan@toofr.com"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"confidence"</span><span class="p">:</span><span class="mi">119</span><span class="p">,</span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"ryan@toofr.com"</span><span class="p">,</span><span class="s2">"default"</span><span class="p">:</span><span class="mi">20</span><span class="w">
+  </span><span class="s2">"total"</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"prospects"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">2</span><span class="w">
+    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="s2">"biz"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_name"</span><span class="p">:</span><span class="s2">"stone"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="s2">"Head of social media"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"fn"</span><span class="p">:</span><span class="s2">"Biz Stone"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"photo"</span><span class="p">:</span><span class="s2">"https://media.licdn.com/media/p/2/005/018/3d3/11bf5c3.jpg"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"title"</span><span class="p">:</span><span class="s2">"Internet Guy"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"linkedin_profile"</span><span class="p">:</span><span class="s2">"https://www.linkedin.com/in/bizstone/"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"biz@scripted.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"confidence"</span><span class="p">:</span><span class="mi">140</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"state"</span><span class="p">:</span><span class="s2">"high"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"domain"</span><span class="p">:</span><span class="s2">"scripted.com"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"title_confidence"</span><span class="p">:</span><span class="mi">280</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"rbuckley@toofr.com"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"confidence"</span><span class="p">:</span><span class="mi">20</span><span class="p">,</span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"rbuckley@toofr.com"</span><span class="p">,</span><span class="s2">"default"</span><span class="p">:</span><span class="mi">15</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">1994</span><span class="w">
+    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="s2">"kurdt"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_name"</span><span class="p">:</span><span class="s2">"cobain"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="s2">"Nevermind"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"kurdt@scripted.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"confidence"</span><span class="p">:</span><span class="mi">1994</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"state"</span><span class="p">:</span><span class="s2">"high"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"domain"</span><span class="p">:</span><span class="s2">"scripted.com"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"title_confidence"</span><span class="p">:</span><span class="mi">100</span><span class="w">
   </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"ryan.buckley@toofr.com"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"confidence"</span><span class="p">:</span><span class="mi">18</span><span class="p">,</span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"ryan.buckley@toofr.com"</span><span class="p">,</span><span class="s2">"default"</span><span class="p">:</span><span class="mi">16</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"ryanbuckley@toofr.com"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"confidence"</span><span class="p">:</span><span class="mi">17</span><span class="p">,</span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"ryanbuckley@toofr.com"</span><span class="p">,</span><span class="s2">"default"</span><span class="p">:</span><span class="mi">17</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"ryan_buckley@toofr.com"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"confidence"</span><span class="p">:</span><span class="mi">16</span><span class="p">,</span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"ryan_buckley@toofr.com"</span><span class="p">,</span><span class="s2">"default"</span><span class="p">:</span><span class="mi">18</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"ryan-buckley@toofr.com"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"confidence"</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"ryan-buckley@toofr.com"</span><span class="p">,</span><span class="s2">"default"</span><span class="p">:</span><span class="mi">19</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"ryanb@toofr.com"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"confidence"</span><span class="p">:</span><span class="mi">14</span><span class="p">,</span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"ryanb@toofr.com"</span><span class="p">,</span><span class="s2">"default"</span><span class="p">:</span><span class="mi">14</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"buckley@toofr.com"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"confidence"</span><span class="p">:</span><span class="mi">13</span><span class="p">,</span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"buckley@toofr.com"</span><span class="p">,</span><span class="s2">"default"</span><span class="p">:</span><span class="mi">13</span><span class="w">
+  </span><span class="err">etc...</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"next_page"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"total_pages"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="s2">"Succeeded."</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint discovers emails based on the first name, last name, and company name.</p>
+<p>This endpoint delivers the prospects in our database based on websites or industries and titles. The response includes <code class="prettyprint">total</code> which is the number of results delivered to the page and the credits consumed for the query as well as the pagination keys <code class="prettyprint">next_page</code> and <code class="prettyprint">total_pages</code>. A <code class="prettyprint">status</code> message will alert you of any 202 status responses which require background processing. </p>
+
+<p>The results are sorted by title, so complete profiles are first, and then by confidence score. When your request doesn&rsquo;t yield any titles in the database, the API returns a 202 status and triggers a background process to search the internet. Run your request again in a minute to get the results.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://www.toofr.com/api/v1/guess_email.json</code></p>
+<p><code class="prettyprint">GET https://www.toofr.com/api/v1/audiences</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
@@ -412,66 +338,31 @@ Keep your API key secure! If you don&rsquo;t, someone can use all of your credit
 <td>Your key is required for any request and is found on your <a href="https://www.toofr.com/account">Toofr account page</a></td>
 </tr>
 <tr>
-<td>first_name</td>
-<td>This is the text of the first name of your prospect, cleansed of spaces and non-ASCII characters (por favor!)</td>
+<td>websites</td>
+<td>This is the website. It should be either a bare domain (like <code class="prettyprint">google.com</code>) or a properly formed URL (like <code class="prettyprint">https://www.google.com</code>). Include multiple websites by separating them with a comma.</td>
 </tr>
 <tr>
-<td>last_name</td>
-<td>This is the text of the last name of your prospect, cleansed of spaces and non-ASCII characters (por favor!)</td>
+<td>industries</td>
+<td>This is the industry category. It must match one or of the industry categories below. It must be an exact match. If you include both industries and websites, industries will be ignored.</td>
 </tr>
 <tr>
-<td>company_name</td>
-<td>This is the text of either the company name or website</td>
+<td>titles</td>
+<td>This is the title category. It must match one or of the title categories below. It must be an exact match.</td>
+</tr>
+<tr>
+<td>page</td>
+<td>Optional integer to get another page of results (10 returned per page, so max of 10 credits consumed per page response).</td>
 </tr>
 </tbody></table>
 
-<aside class="success">
-Toofr works best when you give it websites or domains, but we&rsquo;ll also take company names. (e.g. apple.com works better than Apple). Company names take an additional credit.
-</aside>
+<h3 id="title-categories">Title Categories</h3>
 
-<h2 id="test-emails">Test Emails</h2>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
-<span class="nb">require</span> <span class="s1">'json'</span>
+<p>Use one of these title categories: <code class="prettyprint">ceo</code>, <code class="prettyprint">founder</code>, <code class="prettyprint">cmo</code>, <code class="prettyprint">cto</code>, <code class="prettyprint">cfo</code>, <code class="prettyprint">finance</code>, <code class="prettyprint">marketing</code>, <code class="prettyprint">engineering</code>, <code class="prettyprint">product</code>, <code class="prettyprint">sales</code>, <code class="prettyprint">operations</code>,
+<code class="prettyprint">account_management</code>, <code class="prettyprint">information_technology</code>, <code class="prettyprint">data_science</code>, <code class="prettyprint">human_resources</code>, <code class="prettyprint">c_level</code>, <code class="prettyprint">directors</code>, <code class="prettyprint">presidents_and_vps</code>, <code class="prettyprint">managers</code></p>
 
-<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://www.toofr.com/api/v1/test_email.json'</span><span class="p">)</span>
-<span class="n">res</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">post_form</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="s1">'key'</span> <span class="o">=&gt;</span> <span class="s1">'abc123yourkeyhere'</span><span class="p">,</span> <span class="s1">'email'</span> <span class="o">=&gt;</span> <span class="s1">'ryan@toofr.com'</span><span class="p">)</span>
-<span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="nf">body</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<h3 id="industry-categories">Industry Categories</h3>
 
-<span class="n">uri</span> <span class="o">=</span> <span class="s">'https://www.toofr.com/api/v1/guess_email.json'</span>
-<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'key'</span><span class="p">:</span> <span class="s">'abc123yourkeyhere'</span><span class="p">,</span> <span class="s">'email'</span><span class="p">:</span> <span class="s">'ryan@toofr.com'</span><span class="p">}</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">payload</span><span class="p">)</span>
-<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl --data <span class="s2">"key=abc123yourkeyhere&amp;email=ryan@scripted.com"</span> https://www.toofr.com/api/v1/test_email.json
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ryan@toofr.com"</span><span class="p">,</span><span class="w"> </span><span class="s2">"confidence"</span><span class="p">:</span><span class="w"> </span><span class="mi">119</span><span class="w"> </span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint delivers our <a href="http://blog.toofr.com/how-to-lower-your-bounce-rates-with-our-confidence-score/">confidence score</a> for a given email address.</p>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">POST https://www.toofr.com/api/v1/test_email.json</code></p>
-
-<h3 id="query-parameters">Query Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>key</td>
-<td>Your key is required for any request and is found on your <a href="https://www.toofr.com/account">Toofr account page</a></td>
-</tr>
-<tr>
-<td>email</td>
-<td>The properly formatted email address you want to test</td>
-</tr>
-</tbody></table>
+<p>Use one of these industry categories: <code class="prettyprint">construction</code>, <code class="prettyprint">marketing_and_advertising</code>, <code class="prettyprint">professional_training_coaching</code>, <code class="prettyprint">consumer_services</code>, <code class="prettyprint">leisure_travel_tourism</code>, <code class="prettyprint">industrial_automation</code>, <code class="prettyprint">computer_hardware</code>, <code class="prettyprint">management_consulting</code>, <code class="prettyprint">mining_metals</code>, <code class="prettyprint">financial_services</code>, <code class="prettyprint">medical_devices</code>, <code class="prettyprint">information_technology_and_services</code>, <code class="prettyprint">real_estate</code>, <code class="prettyprint">consumer_electronics</code>, <code class="prettyprint">computer_software</code>, <code class="prettyprint">internet</code>, <code class="prettyprint">hospitality</code>, <code class="prettyprint">retail</code>, <code class="prettyprint">accounting</code>, <code class="prettyprint">research</code>, <code class="prettyprint">hospital_health_care</code>, <code class="prettyprint">oil_energy</code>, <code class="prettyprint">music</code>, <code class="prettyprint">computer_games</code>, <code class="prettyprint">building_materials</code>, <code class="prettyprint">law_practice</code>, <code class="prettyprint">sporting_goods</code>, <code class="prettyprint">nonprofit_organization_management</code>, <code class="prettyprint">civic_social_organization</code>, <code class="prettyprint">online_media</code>, <code class="prettyprint">apparel_fashion</code>, <code class="prettyprint">entertainment</code>, <code class="prettyprint">individual_family_services</code>, <code class="prettyprint">machinery</code>, <code class="prettyprint">health_wellness_and_fitness</code>, <code class="prettyprint">investment_banking</code>, <code class="prettyprint">publishing</code>, <code class="prettyprint">newspapers</code>, <code class="prettyprint">architecture_planning</code>, <code class="prettyprint">photography</code>, <code class="prettyprint">shipbuilding</code>, <code class="prettyprint">commercial_real_estate</code>, <code class="prettyprint">cosmetics</code>, <code class="prettyprint">import_and_export</code>, <code class="prettyprint">medical_practice</code>, <code class="prettyprint">fund_raising</code>, <code class="prettyprint">media_production</code>, <code class="prettyprint">insurance</code>, <code class="prettyprint">printing</code>, <code class="prettyprint">automotive</code>, <code class="prettyprint">events_services</code>, <code class="prettyprint">arts_and_crafts</code>, <code class="prettyprint">renewables_environment</code>, <code class="prettyprint">airlines_aviation</code>, <code class="prettyprint">international_trade_and_development</code>, <code class="prettyprint">telecommunications</code>, <code class="prettyprint">philanthropy</code>, <code class="prettyprint">design</code>, <code class="prettyprint">human_resources</code>, <code class="prettyprint">facilities_services</code>, <code class="prettyprint">logistics_and_supply_chain</code>, <code class="prettyprint">wholesale</code>, <code class="prettyprint">farming</code>, <code class="prettyprint">sports</code>, <code class="prettyprint">transportation_trucking_railroad</code>, <code class="prettyprint">staffing_and_recruiting</code>, <code class="prettyprint">performing_arts</code>, <code class="prettyprint">wine_and_spirits</code>, <code class="prettyprint">environmental_services</code>, <code class="prettyprint">packaging_and_containers</code>, <code class="prettyprint">education_management</code>, <code class="prettyprint">government_relations</code>, <code class="prettyprint">chemicals</code>, <code class="prettyprint">graphic_design</code>, <code class="prettyprint">mental_health_care</code>, <code class="prettyprint">plastics</code>, <code class="prettyprint">computer_networking</code>, <code class="prettyprint">mechanical_or_industrial_engineering</code>, <code class="prettyprint">consumer_goods</code>, <code class="prettyprint">military</code>, <code class="prettyprint">food_beverages</code>, <code class="prettyprint">computer_network_security</code>, <code class="prettyprint">recreational_facilities_and_services</code>, <code class="prettyprint">alternative_medicine</code>, <code class="prettyprint">banking</code>, <code class="prettyprint">information_services</code>, <code class="prettyprint">government_administration</code>, <code class="prettyprint">motion_pictures_and_film</code>, <code class="prettyprint">outsourcing_offshoring</code>, <code class="prettyprint">venture_capital_private_equity</code>, <code class="prettyprint">legal_services</code>, <code class="prettyprint">broadcast_media</code>, <code class="prettyprint">biotechnology</code>, <code class="prettyprint">pharmaceuticals</code>, <code class="prettyprint">market_research</code>, <code class="prettyprint">security_and_investigations</code>, <code class="prettyprint">program_development</code>, <code class="prettyprint">food_production</code>, <code class="prettyprint">museums_and_institutions</code>, <code class="prettyprint">luxury_goods_jewelry</code>, <code class="prettyprint">fine_art</code>, <code class="prettyprint">electrical_electronic_manufacturing</code>, <code class="prettyprint">e_learning</code>, <code class="prettyprint">higher_education</code>, <code class="prettyprint">investment_management</code>, <code class="prettyprint">religious_institutions</code>, <code class="prettyprint">wireless</code>, <code class="prettyprint">business_supplies_and_equipment</code>, <code class="prettyprint">think_tanks</code>, <code class="prettyprint">furniture</code>, <code class="prettyprint">civil_engineering</code>, <code class="prettyprint">capital_markets</code>, <code class="prettyprint">executive_office</code>, <code class="prettyprint">public_relations_and_communications</code>, <code class="prettyprint">utilities</code>, <code class="prettyprint">gambling_casinos</code>, <code class="prettyprint">veterinary</code>, <code class="prettyprint">translation_and_localization</code>, <code class="prettyprint">maritime</code>, <code class="prettyprint">textiles</code>, <code class="prettyprint">writing_and_editing</code>, <code class="prettyprint">primary_secondary_education</code>, <code class="prettyprint">political_organization</code>, <code class="prettyprint">international_affairs</code>, <code class="prettyprint">public_policy</code>, <code class="prettyprint">semiconductors</code>, <code class="prettyprint">railroad_manufacture</code>, <code class="prettyprint">aviation_aerospace</code>, <code class="prettyprint">package_freight_delivery</code>, <code class="prettyprint">animation</code>, <code class="prettyprint">defense_space</code>, <code class="prettyprint">restaurants</code>, <code class="prettyprint">paper_forest_products</code>, <code class="prettyprint">supermarkets</code>, <code class="prettyprint">public_safety</code>, <code class="prettyprint">glass_ceramics_concrete</code>, <code class="prettyprint">ranching</code>, <code class="prettyprint">tobacco</code>, <code class="prettyprint">law_enforcement</code>, <code class="prettyprint">warehousing</code>, <code class="prettyprint">judiciary</code>, <code class="prettyprint">alternative_dispute_resolution</code>, <code class="prettyprint">dairy</code>, <code class="prettyprint">fishery</code>, <code class="prettyprint">libraries</code>, <code class="prettyprint">nanotechnology</code>, <code class="prettyprint">legislative_office</code></p>
 
           <h1 id="companies">Companies</h1>
 
@@ -770,76 +661,83 @@ Toofr works best when you give it websites or domains, but we&rsquo;ll also take
 </tr>
 </tbody></table>
 
-          <h1 id="audiences">Audiences</h1>
+          <h1 id="credits">Credits</h1>
 
-<h2 id="build-email-lists-and-audiences">Build Email Lists and Audiences</h2>
+<h2 id="view-your-credit-balance-and-subscription-plan">View Your Credit Balance and Subscription Plan</h2>
 <pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
 <span class="nb">require</span> <span class="s1">'json'</span>
 
-<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://www.toofr.com/api/v1/audiences'</span><span class="p">)</span>
-<span class="n">res</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="s1">'key'</span> <span class="o">=&gt;</span> <span class="s1">'abc123yourkeyhere'</span><span class="p">,</span> <span class="s1">'websites'</span> <span class="o">=&gt;</span> <span class="s1">'toofr.com'</span><span class="p">,</span> <span class="s1">'titles'</span> <span class="o">=&gt;</span> <span class="s1">'ceo'</span><span class="p">,</span> <span class="s1">'page'</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://www.toofr.com/api/v1/credits/balance'</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="s1">'key'</span> <span class="o">=&gt;</span> <span class="s1">'abc123yourkeyhere'</span><span class="p">)</span>
 <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="nf">body</span><span class="p">)</span>
 </code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<span class="n">uri</span> <span class="o">=</span> <span class="s">'https://www.toofr.com/api/v1/audiences'</span>
-<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'key'</span><span class="p">:</span> <span class="s">'abc123yourkeyhere'</span><span class="p">,</span> <span class="s">'websites'</span><span class="p">:</span> <span class="s">'toofr.com'</span><span class="p">,</span> <span class="s">'titles'</span><span class="p">:</span> <span class="s">'ceo'</span><span class="p">,</span> <span class="s">'page'</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+<span class="n">uri</span> <span class="o">=</span> <span class="s">'https://www.toofr.com/api/v1/credits/balance'</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'key'</span><span class="p">:</span> <span class="s">'abc123yourkeyhere'</span><span class="p">}</span>
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">payload</span><span class="p">)</span>
 <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl https://www.toofr.com/api/v1/audiences?key<span class="o">=</span>abc123yourkeyhere&amp;websites<span class="o">=</span>toofr.com&amp;titles<span class="o">=</span>ceo&amp;page<span class="o">=</span>1
+</code></pre><pre class="highlight shell tab-shell"><code>curl https://www.toofr.com/api/v1/credits/balance?key<span class="o">=</span>abc123yourkeyhere
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"total"</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"prospects"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="s2">"biz"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"last_name"</span><span class="p">:</span><span class="s2">"stone"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"title"</span><span class="p">:</span><span class="s2">"Head of social media"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"fn"</span><span class="p">:</span><span class="s2">"Biz Stone"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"photo"</span><span class="p">:</span><span class="s2">"https://media.licdn.com/media/p/2/005/018/3d3/11bf5c3.jpg"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"title"</span><span class="p">:</span><span class="s2">"Internet Guy"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"linkedin_profile"</span><span class="p">:</span><span class="s2">"https://www.linkedin.com/in/bizstone/"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"biz@scripted.com"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"confidence"</span><span class="p">:</span><span class="mi">140</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"state"</span><span class="p">:</span><span class="s2">"high"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"domain"</span><span class="p">:</span><span class="s2">"scripted.com"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="s2">"kurdt"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"last_name"</span><span class="p">:</span><span class="s2">"cobain"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"title"</span><span class="p">:</span><span class="s2">"Nevermind"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"kurdt@scripted.com"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"confidence"</span><span class="p">:</span><span class="mi">1994</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"state"</span><span class="p">:</span><span class="s2">"high"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"domain"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"domain"</span><span class="p">:</span><span class="s2">"scripted.com"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="err">etc...</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="s2">"next_page"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"total_pages"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"status"</span><span class="p">:</span><span class="s2">"Succeeded."</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+  </span><span class="s2">"credits"</span><span class="p">:</span><span class="w"> </span><span class="mi">2047</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"plan_name"</span><span class="p">:</span><span class="w"> </span><span class="err">'Expert'</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"overage_rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint delivers the prospects in our database based on websites or industries and titles. The response includes <code class="prettyprint">total</code> which is the number of results delivered to the page and the credits consumed for the query as well as the pagination keys <code class="prettyprint">next_page</code> and <code class="prettyprint">total_pages</code>. A <code class="prettyprint">status</code> message will alert you of any 202 status responses which require background processing. </p>
-
-<p>The results are sorted by title, so complete profiles are first, and then by confidence score. When your request doesn&rsquo;t yield any titles in the database, the API returns a 202 status and triggers a background process to search the internet. Run your request again in a minute to get the results.</p>
+<p>This endpoint delivers the number of credits in your account, the plan you&rsquo;re on (response is <code class="prettyprint">null</code> if no plan is present) and the overage rate that Toofr will charge for negative balances.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://www.toofr.com/api/v1/audiences</code></p>
+<p><code class="prettyprint">GET https://www.toofr.com/api/v1/credits/balance</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td>Your key is required for any request and is found on your <a href="https://www.toofr.com/account">Toofr account page</a></td>
+</tr>
+</tbody></table>
+
+<h2 id="purchase-credits">Purchase Credits</h2>
+<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
+<span class="nb">require</span> <span class="s1">'json'</span>
+
+<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://www.toofr.com/api/v1/credits/purchase'</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="s1">'key'</span> <span class="o">=&gt;</span> <span class="s1">'abc123yourkeyhere'</span><span class="p">,</span> <span class="s1">'credits'</span> <span class="o">=&gt;</span> <span class="mi">2000</span><span class="p">)</span>
+<span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="nf">body</span><span class="p">)</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">uri</span> <span class="o">=</span> <span class="s">'https://www.toofr.com/api/v1/credits/purchase'</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'key'</span><span class="p">:</span> <span class="s">'abc123yourkeyhere'</span><span class="p">,</span> <span class="s">'credits'</span><span class="p">:</span> <span class="mi">2000</span><span class="p">}</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">payload</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl https://www.toofr.com/api/v1/credits/purchase?key<span class="o">=</span>abc123yourkeyhere&amp;credits<span class="o">=</span>2000
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"credits"</span><span class="p">:</span><span class="w"> </span><span class="mi">2047</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"plan_name"</span><span class="p">:</span><span class="w"> </span><span class="err">'Expert'</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"overage_rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"charge_status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"failed"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"charge_message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Successful API purchase of 2000 credits at $0.01/ea"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint delivers the number of credits in your account, the plan you&rsquo;re on (response is <code class="prettyprint">null</code> if no plan is present) and the overage rate that Toofr will charge for negative balances.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://www.toofr.com/api/v1/credits/purchase</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
@@ -854,31 +752,239 @@ Toofr works best when you give it websites or domains, but we&rsquo;ll also take
 <td>Your key is required for any request and is found on your <a href="https://www.toofr.com/account">Toofr account page</a></td>
 </tr>
 <tr>
-<td>websites</td>
-<td>This is the website. It should be either a bare domain (like <code class="prettyprint">google.com</code>) or a properly formed URL (like <code class="prettyprint">https://www.google.com</code>). Include multiple websites by separating them with a comma.</td>
-</tr>
-<tr>
-<td>industries</td>
-<td>This is the industry category. It must match one or of the industry categories below. It must be an exact match. If you include both industries and websites, industries will be ignored.</td>
-</tr>
-<tr>
-<td>titles</td>
-<td>This is the title category. It must match one or of the title categories below. It must be an exact match.</td>
-</tr>
-<tr>
-<td>page</td>
-<td>Optional integer to get another page of results (10 returned per page, so max of 10 credits consumed per page response).</td>
+<td>credits</td>
+<td>The number of credits you want to purchase. It must be greater than 1000.</td>
 </tr>
 </tbody></table>
 
-<h3 id="title-categories">Title Categories</h3>
+<h2 id="reimburse-credits-with-flag-reports">Reimburse Credits with Flag Reports</h2>
+<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
+<span class="nb">require</span> <span class="s1">'json'</span>
 
-<p>Use one of these title categories: <code class="prettyprint">ceo</code>, <code class="prettyprint">founder</code>, <code class="prettyprint">cmo</code>, <code class="prettyprint">cto</code>, <code class="prettyprint">cfo</code>, <code class="prettyprint">finance</code>, <code class="prettyprint">marketing</code>, <code class="prettyprint">engineering</code>, <code class="prettyprint">product</code>, <code class="prettyprint">sales</code>, <code class="prettyprint">operations</code>,
-<code class="prettyprint">account_management</code>, <code class="prettyprint">information_technology</code>, <code class="prettyprint">data_science</code>, <code class="prettyprint">human_resources</code>, <code class="prettyprint">c_level</code>, <code class="prettyprint">directors</code>, <code class="prettyprint">presidents_and_vps</code>, <code class="prettyprint">managers</code></p>
+<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://www.toofr.com/api/v1/credits/flag'</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="s1">'key'</span> <span class="o">=&gt;</span> <span class="s1">'abc123yourkeyhere'</span><span class="p">,</span> <span class="s1">'employee_id'</span> <span class="o">=&gt;</span> <span class="mi">19821994</span><span class="p">,</span> <span class="s1">'reason'</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="p">)</span>
+<span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="nf">body</span><span class="p">)</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
-<h3 id="industry-categories">Industry Categories</h3>
+<span class="n">uri</span> <span class="o">=</span> <span class="s">'https://www.toofr.com/api/v1/credits/purchase'</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'key'</span><span class="p">:</span> <span class="s">'abc123yourkeyhere'</span><span class="p">,</span> <span class="s">'employee_id'</span><span class="p">:</span> <span class="mi">19821994</span><span class="p">,</span> <span class="s">'reason'</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="p">}</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">payload</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl https://www.toofr.com/api/v1/credits/flag?key<span class="o">=</span>abc123yourkeyhere&amp;employee_id<span class="o">=</span>19821994&amp;reason<span class="o">=</span>2
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"credits"</span><span class="p">:</span><span class="w"> </span><span class="mi">2047</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"plan_name"</span><span class="p">:</span><span class="w"> </span><span class="err">'Expert'</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"overage_rate"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.1</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint accepts a flag report in exchange for a credit added to the account associated with the API key used to submit the report. Only one report is accepted per Employee ID.</p>
 
-<p>Use one of these industry categories: <code class="prettyprint">construction</code>, <code class="prettyprint">marketing_and_advertising</code>, <code class="prettyprint">professional_training_coaching</code>, <code class="prettyprint">consumer_services</code>, <code class="prettyprint">leisure_travel_tourism</code>, <code class="prettyprint">industrial_automation</code>, <code class="prettyprint">computer_hardware</code>, <code class="prettyprint">management_consulting</code>, <code class="prettyprint">mining_metals</code>, <code class="prettyprint">financial_services</code>, <code class="prettyprint">medical_devices</code>, <code class="prettyprint">information_technology_and_services</code>, <code class="prettyprint">real_estate</code>, <code class="prettyprint">consumer_electronics</code>, <code class="prettyprint">computer_software</code>, <code class="prettyprint">internet</code>, <code class="prettyprint">hospitality</code>, <code class="prettyprint">retail</code>, <code class="prettyprint">accounting</code>, <code class="prettyprint">research</code>, <code class="prettyprint">hospital_health_care</code>, <code class="prettyprint">oil_energy</code>, <code class="prettyprint">music</code>, <code class="prettyprint">computer_games</code>, <code class="prettyprint">building_materials</code>, <code class="prettyprint">law_practice</code>, <code class="prettyprint">sporting_goods</code>, <code class="prettyprint">nonprofit_organization_management</code>, <code class="prettyprint">civic_social_organization</code>, <code class="prettyprint">online_media</code>, <code class="prettyprint">apparel_fashion</code>, <code class="prettyprint">entertainment</code>, <code class="prettyprint">individual_family_services</code>, <code class="prettyprint">machinery</code>, <code class="prettyprint">health_wellness_and_fitness</code>, <code class="prettyprint">investment_banking</code>, <code class="prettyprint">publishing</code>, <code class="prettyprint">newspapers</code>, <code class="prettyprint">architecture_planning</code>, <code class="prettyprint">photography</code>, <code class="prettyprint">shipbuilding</code>, <code class="prettyprint">commercial_real_estate</code>, <code class="prettyprint">cosmetics</code>, <code class="prettyprint">import_and_export</code>, <code class="prettyprint">medical_practice</code>, <code class="prettyprint">fund_raising</code>, <code class="prettyprint">media_production</code>, <code class="prettyprint">insurance</code>, <code class="prettyprint">printing</code>, <code class="prettyprint">automotive</code>, <code class="prettyprint">events_services</code>, <code class="prettyprint">arts_and_crafts</code>, <code class="prettyprint">renewables_environment</code>, <code class="prettyprint">airlines_aviation</code>, <code class="prettyprint">international_trade_and_development</code>, <code class="prettyprint">telecommunications</code>, <code class="prettyprint">philanthropy</code>, <code class="prettyprint">design</code>, <code class="prettyprint">human_resources</code>, <code class="prettyprint">facilities_services</code>, <code class="prettyprint">logistics_and_supply_chain</code>, <code class="prettyprint">wholesale</code>, <code class="prettyprint">farming</code>, <code class="prettyprint">sports</code>, <code class="prettyprint">transportation_trucking_railroad</code>, <code class="prettyprint">staffing_and_recruiting</code>, <code class="prettyprint">performing_arts</code>, <code class="prettyprint">wine_and_spirits</code>, <code class="prettyprint">environmental_services</code>, <code class="prettyprint">packaging_and_containers</code>, <code class="prettyprint">education_management</code>, <code class="prettyprint">government_relations</code>, <code class="prettyprint">chemicals</code>, <code class="prettyprint">graphic_design</code>, <code class="prettyprint">mental_health_care</code>, <code class="prettyprint">plastics</code>, <code class="prettyprint">computer_networking</code>, <code class="prettyprint">mechanical_or_industrial_engineering</code>, <code class="prettyprint">consumer_goods</code>, <code class="prettyprint">military</code>, <code class="prettyprint">food_beverages</code>, <code class="prettyprint">computer_network_security</code>, <code class="prettyprint">recreational_facilities_and_services</code>, <code class="prettyprint">alternative_medicine</code>, <code class="prettyprint">banking</code>, <code class="prettyprint">information_services</code>, <code class="prettyprint">government_administration</code>, <code class="prettyprint">motion_pictures_and_film</code>, <code class="prettyprint">outsourcing_offshoring</code>, <code class="prettyprint">venture_capital_private_equity</code>, <code class="prettyprint">legal_services</code>, <code class="prettyprint">broadcast_media</code>, <code class="prettyprint">biotechnology</code>, <code class="prettyprint">pharmaceuticals</code>, <code class="prettyprint">market_research</code>, <code class="prettyprint">security_and_investigations</code>, <code class="prettyprint">program_development</code>, <code class="prettyprint">food_production</code>, <code class="prettyprint">museums_and_institutions</code>, <code class="prettyprint">luxury_goods_jewelry</code>, <code class="prettyprint">fine_art</code>, <code class="prettyprint">electrical_electronic_manufacturing</code>, <code class="prettyprint">e_learning</code>, <code class="prettyprint">higher_education</code>, <code class="prettyprint">investment_management</code>, <code class="prettyprint">religious_institutions</code>, <code class="prettyprint">wireless</code>, <code class="prettyprint">business_supplies_and_equipment</code>, <code class="prettyprint">think_tanks</code>, <code class="prettyprint">furniture</code>, <code class="prettyprint">civil_engineering</code>, <code class="prettyprint">capital_markets</code>, <code class="prettyprint">executive_office</code>, <code class="prettyprint">public_relations_and_communications</code>, <code class="prettyprint">utilities</code>, <code class="prettyprint">gambling_casinos</code>, <code class="prettyprint">veterinary</code>, <code class="prettyprint">translation_and_localization</code>, <code class="prettyprint">maritime</code>, <code class="prettyprint">textiles</code>, <code class="prettyprint">writing_and_editing</code>, <code class="prettyprint">primary_secondary_education</code>, <code class="prettyprint">political_organization</code>, <code class="prettyprint">international_affairs</code>, <code class="prettyprint">public_policy</code>, <code class="prettyprint">semiconductors</code>, <code class="prettyprint">railroad_manufacture</code>, <code class="prettyprint">aviation_aerospace</code>, <code class="prettyprint">package_freight_delivery</code>, <code class="prettyprint">animation</code>, <code class="prettyprint">defense_space</code>, <code class="prettyprint">restaurants</code>, <code class="prettyprint">paper_forest_products</code>, <code class="prettyprint">supermarkets</code>, <code class="prettyprint">public_safety</code>, <code class="prettyprint">glass_ceramics_concrete</code>, <code class="prettyprint">ranching</code>, <code class="prettyprint">tobacco</code>, <code class="prettyprint">law_enforcement</code>, <code class="prettyprint">warehousing</code>, <code class="prettyprint">judiciary</code>, <code class="prettyprint">alternative_dispute_resolution</code>, <code class="prettyprint">dairy</code>, <code class="prettyprint">fishery</code>, <code class="prettyprint">libraries</code>, <code class="prettyprint">nanotechnology</code>, <code class="prettyprint">legislative_office</code></p>
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://www.toofr.com/api/v1/credits/flag</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td>Your key is required for any request and is found on your <a href="https://www.toofr.com/account">Toofr account page</a></td>
+</tr>
+<tr>
+<td>employee_id</td>
+<td>The integer ID number of the employee you&rsquo;re flagging. Get the ID from an Audiences query.</td>
+</tr>
+<tr>
+<td>reason</td>
+<td>The integer associated with the reason in the table shown below.</td>
+</tr>
+</tbody></table>
+
+<h3 id="flag-reasons">Flag Reasons</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>1</td>
+<td>The employee has the wrong title.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>The employee is no longer at the company.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>The employee has the wrong email.</td>
+</tr>
+</tbody></table>
+
+          <h1 id="emails">Emails</h1>
+
+<h2 id="guess-emails">Guess Emails</h2>
+<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
+<span class="nb">require</span> <span class="s1">'json'</span>
+
+<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://www.toofr.com/api/v1/guess_email.json'</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">post_form</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="s1">'key'</span> <span class="o">=&gt;</span> <span class="s1">'abc123yourkeyhere'</span><span class="p">,</span> <span class="s1">'first_name'</span> <span class="o">=&gt;</span> <span class="s1">'ryan'</span><span class="p">,</span> <span class="s1">'last_name'</span> <span class="o">=&gt;</span> <span class="s1">'buckley'</span><span class="p">,</span> <span class="s1">'company_name'</span> <span class="o">=&gt;</span> <span class="s1">'toofr.com'</span><span class="p">)</span>
+<span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="nf">body</span><span class="p">)</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">uri</span> <span class="o">=</span> <span class="s">'https://www.toofr.com/api/v1/guess_email.json'</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'key'</span><span class="p">:</span> <span class="s">'abc123yourkeyhere'</span><span class="p">,</span> <span class="s">'first_name'</span><span class="p">:</span> <span class="s">'ryan'</span><span class="p">,</span> <span class="s">'last_name'</span><span class="p">:</span> <span class="s">'buckley'</span><span class="p">,</span> <span class="s">'company_name'</span><span class="p">:</span> <span class="s">'toofr.com'</span><span class="p">}</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">payload</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl --data <span class="s2">"key=abc123yourkeyhere&amp;first_name=ryan&amp;last_name=buckley&amp;company_name=toofr.com"</span> https://www.toofr.com/api/v1/guess_email.json
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"ryan@toofr.com"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"confidence"</span><span class="p">:</span><span class="mi">119</span><span class="p">,</span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"ryan@toofr.com"</span><span class="p">,</span><span class="s2">"default"</span><span class="p">:</span><span class="mi">20</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"rbuckley@toofr.com"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"confidence"</span><span class="p">:</span><span class="mi">20</span><span class="p">,</span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"rbuckley@toofr.com"</span><span class="p">,</span><span class="s2">"default"</span><span class="p">:</span><span class="mi">15</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"ryan.buckley@toofr.com"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"confidence"</span><span class="p">:</span><span class="mi">18</span><span class="p">,</span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"ryan.buckley@toofr.com"</span><span class="p">,</span><span class="s2">"default"</span><span class="p">:</span><span class="mi">16</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"ryanbuckley@toofr.com"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"confidence"</span><span class="p">:</span><span class="mi">17</span><span class="p">,</span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"ryanbuckley@toofr.com"</span><span class="p">,</span><span class="s2">"default"</span><span class="p">:</span><span class="mi">17</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"ryan_buckley@toofr.com"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"confidence"</span><span class="p">:</span><span class="mi">16</span><span class="p">,</span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"ryan_buckley@toofr.com"</span><span class="p">,</span><span class="s2">"default"</span><span class="p">:</span><span class="mi">18</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"ryan-buckley@toofr.com"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"confidence"</span><span class="p">:</span><span class="mi">15</span><span class="p">,</span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"ryan-buckley@toofr.com"</span><span class="p">,</span><span class="s2">"default"</span><span class="p">:</span><span class="mi">19</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"ryanb@toofr.com"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"confidence"</span><span class="p">:</span><span class="mi">14</span><span class="p">,</span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"ryanb@toofr.com"</span><span class="p">,</span><span class="s2">"default"</span><span class="p">:</span><span class="mi">14</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"buckley@toofr.com"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"confidence"</span><span class="p">:</span><span class="mi">13</span><span class="p">,</span><span class="s2">"email"</span><span class="p">:</span><span class="s2">"buckley@toofr.com"</span><span class="p">,</span><span class="s2">"default"</span><span class="p">:</span><span class="mi">13</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint discovers emails based on the first name, last name, and company name.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://www.toofr.com/api/v1/guess_email.json</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td>Your key is required for any request and is found on your <a href="https://www.toofr.com/account">Toofr account page</a></td>
+</tr>
+<tr>
+<td>first_name</td>
+<td>This is the text of the first name of your prospect, cleansed of spaces and non-ASCII characters (por favor!)</td>
+</tr>
+<tr>
+<td>last_name</td>
+<td>This is the text of the last name of your prospect, cleansed of spaces and non-ASCII characters (por favor!)</td>
+</tr>
+<tr>
+<td>company_name</td>
+<td>This is the text of either the company name or website</td>
+</tr>
+</tbody></table>
+
+<aside class="success">
+Toofr works best when you give it websites or domains, but we&rsquo;ll also take company names. (e.g. apple.com works better than Apple). Company names take an additional credit.
+</aside>
+
+<h2 id="test-emails">Test Emails</h2>
+<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
+<span class="nb">require</span> <span class="s1">'json'</span>
+
+<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://www.toofr.com/api/v1/test_email.json'</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">post_form</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="s1">'key'</span> <span class="o">=&gt;</span> <span class="s1">'abc123yourkeyhere'</span><span class="p">,</span> <span class="s1">'email'</span> <span class="o">=&gt;</span> <span class="s1">'ryan@toofr.com'</span><span class="p">)</span>
+<span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="nf">body</span><span class="p">)</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">uri</span> <span class="o">=</span> <span class="s">'https://www.toofr.com/api/v1/guess_email.json'</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'key'</span><span class="p">:</span> <span class="s">'abc123yourkeyhere'</span><span class="p">,</span> <span class="s">'email'</span><span class="p">:</span> <span class="s">'ryan@toofr.com'</span><span class="p">}</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">payload</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl --data <span class="s2">"key=abc123yourkeyhere&amp;email=ryan@scripted.com"</span> https://www.toofr.com/api/v1/test_email.json
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ryan@toofr.com"</span><span class="p">,</span><span class="w"> </span><span class="s2">"confidence"</span><span class="p">:</span><span class="w"> </span><span class="mi">119</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint delivers our <a href="http://blog.toofr.com/how-to-lower-your-bounce-rates-with-our-confidence-score/">confidence score</a> for a given email address.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://www.toofr.com/api/v1/test_email.json</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td>Your key is required for any request and is found on your <a href="https://www.toofr.com/account">Toofr account page</a></td>
+</tr>
+<tr>
+<td>email</td>
+<td>The properly formatted email address you want to test</td>
+</tr>
+</tbody></table>
+
+          <h1 id="http-error-codes">HTTP Error Codes</h1>
+
+<p>The Toofr API returns the following HTTP status codes for faulty queries:</p>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>401</td>
+<td>Unauthorized &ndash; There was a problem with your API key.</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found &ndash; The resource you requested could not be found.</td>
+</tr>
+<tr>
+<td>406</td>
+<td>Not Acceptable &ndash; You requested a format that isn&rsquo;t compatible with our API.</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error &ndash; We had an unexpected problem with your request.</td>
+</tr>
+</tbody></table>
 
           <h1 id="lists">Lists</h1>
 
@@ -1243,34 +1349,6 @@ Toofr works best when you give it websites or domains, but we&rsquo;ll also take
 <tr>
 <td>key</td>
 <td>Your key is required for any request and is found on your <a href="https://www.toofr.com/account">Toofr account page</a></td>
-</tr>
-</tbody></table>
-
-          <h1 id="http-error-codes">HTTP Error Codes</h1>
-
-<p>The Toofr API returns the following HTTP status codes for faulty queries:</p>
-
-<table><thead>
-<tr>
-<th>Error Code</th>
-<th>Meaning</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>401</td>
-<td>Unauthorized &ndash; There was a problem with your API key.</td>
-</tr>
-<tr>
-<td>404</td>
-<td>Not Found &ndash; The resource you requested could not be found.</td>
-</tr>
-<tr>
-<td>406</td>
-<td>Not Acceptable &ndash; You requested a format that isn&rsquo;t compatible with our API.</td>
-</tr>
-<tr>
-<td>500</td>
-<td>Internal Server Error &ndash; We had an unexpected problem with your request.</td>
 </tr>
 </tbody></table>
 
