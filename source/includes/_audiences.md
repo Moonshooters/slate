@@ -31,6 +31,7 @@ curl https://www.toofr.com/api/v1/audiences?key=abc123yourkeyhere&websites=toofr
   "total":10,
   "prospects": [
   {
+    "id":2
     "first_name":"biz",
     "last_name":"stone",
     "title":"Head of social media",
@@ -47,9 +48,11 @@ curl https://www.toofr.com/api/v1/audiences?key=abc123yourkeyhere&websites=toofr
     },
     "domain": {
       "domain":"scripted.com"
-    }
+    },
+    "title_confidence":280
   },
   {
+    "id":1994
     "first_name":"kurdt",
     "last_name":"cobain",
     "title":"Nevermind",
@@ -61,7 +64,8 @@ curl https://www.toofr.com/api/v1/audiences?key=abc123yourkeyhere&websites=toofr
     },
     "domain": {
       "domain":"scripted.com"
-    }
+    },
+    "title_confidence":100
   },
   etc...
   ],

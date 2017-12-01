@@ -11,13 +11,13 @@ toc_footers:
   - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
 
 includes:
+  - audiences
+  - companies
   - credits
   - emails
-  - companies
-  - audiences
+  - errors
   - lists
   - list_records
-  - errors
   - statuses
 
 search: true
