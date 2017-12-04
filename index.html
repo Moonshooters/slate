@@ -712,15 +712,15 @@ Toofr works best when you give it websites or domains, but we&rsquo;ll also take
 <span class="nb">require</span> <span class="s1">'json'</span>
 
 <span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://www.toofr.com/api/v1/credits/purchase'</span><span class="p">)</span>
-<span class="n">res</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="s1">'key'</span> <span class="o">=&gt;</span> <span class="s1">'abc123yourkeyhere'</span><span class="p">,</span> <span class="s1">'credits'</span> <span class="o">=&gt;</span> <span class="mi">2000</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">post_form</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="s1">'key'</span> <span class="o">=&gt;</span> <span class="s1">'abc123yourkeyhere'</span><span class="p">,</span> <span class="s1">'credits'</span> <span class="o">=&gt;</span> <span class="mi">2000</span><span class="p">)</span>
 <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="nf">body</span><span class="p">)</span>
 </code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">uri</span> <span class="o">=</span> <span class="s">'https://www.toofr.com/api/v1/credits/purchase'</span>
 <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'key'</span><span class="p">:</span> <span class="s">'abc123yourkeyhere'</span><span class="p">,</span> <span class="s">'credits'</span><span class="p">:</span> <span class="mi">2000</span><span class="p">}</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">payload</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">payload</span><span class="p">)</span>
 <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl https://www.toofr.com/api/v1/credits/purchase?key<span class="o">=</span>abc123yourkeyhere&amp;credits<span class="o">=</span>2000
+</code></pre><pre class="highlight shell tab-shell"><code>curl --data <span class="s2">"key=abc123yourkeyhere&amp;credits=2000"</span> https://www.toofr.com/api/v1/credits/purchase
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -737,7 +737,7 @@ Toofr works best when you give it websites or domains, but we&rsquo;ll also take
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://www.toofr.com/api/v1/credits/purchase</code></p>
+<p><code class="prettyprint">POST https://www.toofr.com/api/v1/credits/purchase</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
@@ -762,15 +762,15 @@ Toofr works best when you give it websites or domains, but we&rsquo;ll also take
 <span class="nb">require</span> <span class="s1">'json'</span>
 
 <span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://www.toofr.com/api/v1/credits/flag'</span><span class="p">)</span>
-<span class="n">res</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="s1">'key'</span> <span class="o">=&gt;</span> <span class="s1">'abc123yourkeyhere'</span><span class="p">,</span> <span class="s1">'employee_id'</span> <span class="o">=&gt;</span> <span class="mi">19821994</span><span class="p">,</span> <span class="s1">'reason'</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">post_form</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="s1">'key'</span> <span class="o">=&gt;</span> <span class="s1">'abc123yourkeyhere'</span><span class="p">,</span> <span class="s1">'employee_id'</span> <span class="o">=&gt;</span> <span class="mi">19821994</span><span class="p">,</span> <span class="s1">'reason'</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="p">)</span>
 <span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="nf">body</span><span class="p">)</span>
 </code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">uri</span> <span class="o">=</span> <span class="s">'https://www.toofr.com/api/v1/credits/purchase'</span>
 <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'key'</span><span class="p">:</span> <span class="s">'abc123yourkeyhere'</span><span class="p">,</span> <span class="s">'employee_id'</span><span class="p">:</span> <span class="mi">19821994</span><span class="p">,</span> <span class="s">'reason'</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="p">}</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">payload</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">payload</span><span class="p">)</span>
 <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl https://www.toofr.com/api/v1/credits/flag?key<span class="o">=</span>abc123yourkeyhere&amp;employee_id<span class="o">=</span>19821994&amp;reason<span class="o">=</span>2
+</code></pre><pre class="highlight shell tab-shell"><code>curl --data <span class="s2">"key=abc123yourkeyhere&amp;employee_id=19821994&amp;reason=2"</span> https://www.toofr.com/api/v1/credits/flag
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -785,7 +785,7 @@ Toofr works best when you give it websites or domains, but we&rsquo;ll also take
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://www.toofr.com/api/v1/credits/flag</code></p>
+<p><code class="prettyprint">POST https://www.toofr.com/api/v1/credits/flag</code></p>
 
 <h3 id="query-parameters">Query Parameters</h3>
 
