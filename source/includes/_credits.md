@@ -53,7 +53,7 @@ require 'net/http'
 require 'json'
 
 uri = URI('https://www.toofr.com/api/v1/credits/purchase')
-res = Net::HTTP.get(uri, 'key' => 'abc123yourkeyhere', 'credits' => 2000)
+res = Net::HTTP.post_form(uri, 'key' => 'abc123yourkeyhere', 'credits' => 2000)
 JSON.parse(res.body)
 ```
 
@@ -62,12 +62,12 @@ import requests
 
 uri = 'https://www.toofr.com/api/v1/credits/purchase'
 payload = {'key': 'abc123yourkeyhere', 'credits': 2000}
-r = requests.get(uri, data = payload)
+r = requests.post(uri, data = payload)
 r.json()
 ```
 
 ```shell
-curl https://www.toofr.com/api/v1/credits/purchase?key=abc123yourkeyhere&credits=2000
+curl --data "key=abc123yourkeyhere&credits=2000" https://www.toofr.com/api/v1/credits/purchase
 ```
 
 > The above command returns JSON structured like this:
@@ -86,7 +86,7 @@ This endpoint delivers the number of credits in your account, the plan you're on
 
 ### HTTP Request
 
-`GET https://www.toofr.com/api/v1/credits/purchase`
+`POST https://www.toofr.com/api/v1/credits/purchase`
 
 ### Query Parameters
 
@@ -102,7 +102,7 @@ require 'net/http'
 require 'json'
 
 uri = URI('https://www.toofr.com/api/v1/credits/flag')
-res = Net::HTTP.get(uri, 'key' => 'abc123yourkeyhere', 'employee_id' => 19821994, 'reason' => 2)
+res = Net::HTTP.post_form(uri, 'key' => 'abc123yourkeyhere', 'employee_id' => 19821994, 'reason' => 2)
 JSON.parse(res.body)
 ```
 
@@ -111,12 +111,12 @@ import requests
 
 uri = 'https://www.toofr.com/api/v1/credits/purchase'
 payload = {'key': 'abc123yourkeyhere', 'employee_id': 19821994, 'reason' => 2}
-r = requests.get(uri, data = payload)
+r = requests.post(uri, data = payload)
 r.json()
 ```
 
 ```shell
-curl https://www.toofr.com/api/v1/credits/flag?key=abc123yourkeyhere&employee_id=19821994&reason=2
+curl --data "key=abc123yourkeyhere&employee_id=19821994&reason=2" https://www.toofr.com/api/v1/credits/flag
 ```
 
 > The above command returns JSON structured like this:
@@ -133,7 +133,7 @@ This endpoint accepts a flag report in exchange for a credit added to the accoun
 
 ### HTTP Request
 
-`GET https://www.toofr.com/api/v1/credits/flag`
+`POST https://www.toofr.com/api/v1/credits/flag`
 
 ### Query Parameters
 
