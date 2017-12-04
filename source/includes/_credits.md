@@ -150,4 +150,7 @@ Parameter | Description
 1 | The employee has the wrong title. 
 2 | The employee is no longer at the company.
 3 | The employee has the wrong email.
+4 | The employee has the wrong name.
+5 | The employee never worked at the company.
+6 | The employee is a duplicate record.
 
