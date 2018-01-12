@@ -91,6 +91,7 @@ key | Your key is required for any request and is found on your [Toofr account p
 websites | This is the website. It should be either a bare domain (like `google.com`) or a properly formed URL (like `https://www.google.com`). Include multiple websites by separating them with a comma.
 industries | This is the industry category. It must match one or of the industry categories below. It must be an exact match. If you include both industries and websites, industries will be ignored.
 titles | This is the title category. It must match one or of the title categories below. It must be an exact match. 
+tld | (optional) This is the top-level domain constraint that will only return employees whose TLD matches the country in the table below. You may only include one tld parameter per query.
 page | Optional integer to get another page of results (10 returned per page, so max of 10 credits consumed per page response).
 
 ### Title Categories
@@ -101,3 +102,106 @@ Use one of these title categories: `ceo`, `founder`, `cmo`, `cto`, `cfo`, `finan
 ### Industry Categories
 
 Use one of these industry categories: `construction`, `marketing_and_advertising`, `professional_training_coaching`, `consumer_services`, `leisure_travel_tourism`, `industrial_automation`, `computer_hardware`, `management_consulting`, `mining_metals`, `financial_services`, `medical_devices`, `information_technology_and_services`, `real_estate`, `consumer_electronics`, `computer_software`, `internet`, `hospitality`, `retail`, `accounting`, `research`, `hospital_health_care`, `oil_energy`, `music`, `computer_games`, `building_materials`, `law_practice`, `sporting_goods`, `nonprofit_organization_management`, `civic_social_organization`, `online_media`, `apparel_fashion`, `entertainment`, `individual_family_services`, `machinery`, `health_wellness_and_fitness`, `investment_banking`, `publishing`, `newspapers`, `architecture_planning`, `photography`, `shipbuilding`, `commercial_real_estate`, `cosmetics`, `import_and_export`, `medical_practice`, `fund_raising`, `media_production`, `insurance`, `printing`, `automotive`, `events_services`, `arts_and_crafts`, `renewables_environment`, `airlines_aviation`, `international_trade_and_development`, `telecommunications`, `philanthropy`, `design`, `human_resources`, `facilities_services`, `logistics_and_supply_chain`, `wholesale`, `farming`, `sports`, `transportation_trucking_railroad`, `staffing_and_recruiting`, `performing_arts`, `wine_and_spirits`, `environmental_services`, `packaging_and_containers`, `education_management`, `government_relations`, `chemicals`, `graphic_design`, `mental_health_care`, `plastics`, `computer_networking`, `mechanical_or_industrial_engineering`, `consumer_goods`, `military`, `food_beverages`, `computer_network_security`, `recreational_facilities_and_services`, `alternative_medicine`, `banking`, `information_services`, `government_administration`, `motion_pictures_and_film`, `outsourcing_offshoring`, `venture_capital_private_equity`, `legal_services`, `broadcast_media`, `biotechnology`, `pharmaceuticals`, `market_research`, `security_and_investigations`, `program_development`, `food_production`, `museums_and_institutions`, `luxury_goods_jewelry`, `fine_art`, `electrical_electronic_manufacturing`, `e_learning`, `higher_education`, `investment_management`, `religious_institutions`, `wireless`, `business_supplies_and_equipment`, `think_tanks`, `furniture`, `civil_engineering`, `capital_markets`, `executive_office`, `public_relations_and_communications`, `utilities`, `gambling_casinos`, `veterinary`, `translation_and_localization`, `maritime`, `textiles`, `writing_and_editing`, `primary_secondary_education`, `political_organization`, `international_affairs`, `public_policy`, `semiconductors`, `railroad_manufacture`, `aviation_aerospace`, `package_freight_delivery`, `animation`, `defense_space`, `restaurants`, `paper_forest_products`, `supermarkets`, `public_safety`, `glass_ceramics_concrete`, `ranching`, `tobacco`, `law_enforcement`, `warehousing`, `judiciary`, `alternative_dispute_resolution`, `dairy`, `fishery`, `libraries`, `nanotechnology`, `legislative_office`
+
+### Top-Level Domains (TLD)
+
+Country | TLD
+--------- | -----------
+Afghanistan|af
+Albania|al
+Algeria|dz
+Argentina|ar
+Australia|au
+Austria|at
+Bahrain|bh
+Bangladesh|bd
+Belgium|be
+Bolivia|bo
+Bosnia and Herzegovina|ba
+Brazil|br
+Bulgaria|bg
+Canada|ca
+Chile|cl
+China|cn
+Colombia|co
+Costa Rica|cr
+Croatia|hr
+Cyprus|cy
+Czech Republic|cz
+Denmark|dk
+Dominican Republic|do
+Ecuador|ec
+Egypt|eg
+El Salvador|sv
+Estonia|ee
+Finland|fi
+France|fr
+Germany|de
+Ghana|gh
+Greece|gr
+Guatemala|gt
+Hong Kong|hk
+Hungary|hu
+Iceland|is
+India|in
+Indonesia|id
+Iran|ir
+Ireland|ie
+Israel|il
+Italy|it
+Jamaica|jm
+Japan|jp
+Jordan|jo
+Kazakhstan|kz
+Kenya|ke
+Korea|kr
+Kuwait|kw
+Latvia|lv
+Lebanon|lb
+Lithuania|lt
+Luxembourg|lu
+Macedonia|mk
+Malaysia|my
+Malta|mt
+Mauritius|mu
+Mexico|mx
+Morocco|ma
+Nepal|np
+Netherlands|nl
+New Zealand|nz
+Nigeria|ng
+Norway|no
+Oman|om
+Pakistan|pk
+Panama|pa
+Peru|pe
+Philippines|ph
+Poland|pl
+Portugal|pt
+Puerto Rico|pr
+Qatar|qa
+Romania|ro
+Russian Federation|ru
+Saudi Arabia|sa
+Singapore|sg
+Slovak Republic|sk
+Slovenia|si
+South Africa|za
+Spain|es
+Sri Lanka|lk
+Sweden|se
+Switzerland|ch
+Taiwan|tw
+Tanzania|tz
+Thailand|th
+Trinidad and Tobago|tt
+Tunisia|tn
+Turkey|tr
+Uganda|ug
+Ukraine|ua
+United Arab Emirates|ae
+United Kingdom|uk
+Uruguay|uy
+Venezuela|ve
+Viet Nam|vn
+Zimbabwe|zw
