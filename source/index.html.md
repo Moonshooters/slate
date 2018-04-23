@@ -35,7 +35,7 @@ Every Toofr user has access to our API. API calls use credits in the same way th
 
 To get an API key, first [register for a free Toofr account](https://www.toofr.com/registration). Check your email for a confirmation message, click through the link, and log in. Your API key is available on your [Account page](https://www.toofr.com/account).
 
-If you run out of credits, you'll need to sign up for a [monthly plan](https://www.toofr.com/pricing) to get more. Currenty they start at just $19/mo.
+If you run out of credits, you'll need to sign up for a [monthly plan](https://www.toofr.com/pricing) to get more. Currently they start at just $19/mo.
 
 Your API key is a long alphanumeric string that looks similar to this:
 

@@ -60,6 +60,9 @@ This endpoint delivers the array of lists seen in your account at https://www.to
 Parameter | Description
 --------- | -----------
 key | Your key is required for any request and is found on your [Toofr account page](https://www.toofr.com/account)
+marketplace | (optional) Set to `true` if you want to list only the lists for sale in the Toofr marketplace
+page | (optional) Set to any integer to paginate through results 
+
 
 ## Get A Specific List
 
@@ -171,3 +174,55 @@ guess_all | Like guess, but Toofr gives all emails and confidence scores, not ju
 test | You provide emails and Toofr appends a confidence score
 get | You provide companies (names or websites) and Toofr returns all the related emails with confidence scores in our database 
 pattern | You provide companies (names or websites) and Toofr returns the best related email pattern
+
+
+
+## Purchase A Marketplace List
+
+```ruby
+require 'net/http'
+require 'json'
+
+uri = URI('https://www.toofr.com/api/v1/lists/:id/purchase')
+res = Net::HTTP.get(uri, 'key' => 'abc123yourkeyhere')
+JSON.parse(res.body)
+```
+
+```python
+import requests
+
+uri = 'https://www.toofr.com/api/v1/lists/:id/purchase'
+payload = {'key': 'abc123yourkeyhere'}
+r = requests.get(uri, data = payload)
+r.json()
+```
+
+```shell
+curl https://www.toofr.com/api/v1/lists/:id/purchase?key=abc123yourkeyhere
+```
+
+> The above command returns JSON structured like this. Use the List ID returned to access the list records in the list:
+
+```json
+{
+  "id":137,
+  "name":"My first file upload",
+  "description":"Prospects generated from web scrape.", 
+  "created_at":"2017-05-20T20:55:44.635Z", 
+  "state":"finished",
+  "records_count_in":5,
+  "records_count_processed":5
+}
+```
+
+This endpoint delivers the JSON hash of a specific list.
+
+### HTTP Request
+
+`POST https://www.toofr.com/api/v1/lists/:id/purchase`
+
+### Query Parameters
+
+Parameter | Description
+--------- | -----------
+key | Your key is required for any request and is found on your [Toofr account page](https://www.toofr.com/account)
