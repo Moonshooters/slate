@@ -64,6 +64,71 @@ marketplace | (optional) Set to `true` if you want to list only the lists for sa
 page | (optional) Set to any integer to paginate through results 
 
 
+## Search Lists
+
+```ruby
+require 'net/http'
+require 'json'
+
+uri = URI('https://www.toofr.com/api/v1/lists/search')
+res = Net::HTTP.get(uri, 'key' => 'abc123yourkeyhere',  'query' => 'foobar', 'marketplace' => true)
+JSON.parse(res.body)
+```
+
+```python
+import requests
+
+uri = 'https://www.toofr.com/api/v1/lists/search'
+payload = {'key': 'abc123yourkeyhere', 'query': 'foobar', 'marketplace': 'true'}
+r = requests.get(uri, data = payload)
+r.json()
+```
+
+```shell
+curl https://www.toofr.com/api/v1/lists?key=abc123yourkeyhere&query=foobar&marketplace=true
+```
+
+> The above command returns a JSON array structured like this:
+
+```json
+[
+  { 
+    "id":137,
+    "name":"List for sale",
+    "description":"Prospects generated from web scrape.", 
+    "created_at":"2017-05-20T20:55:44.635Z", 
+    "state":"finished",
+    "records_count_in":5,
+    "records_count_processed":5
+  },
+  {
+    "id":134,
+    "name":"Prospects for sale",
+    "description":"Good emails found by my VA.", 
+    "created_at":"2017-05-16T19:56:10.155Z",
+    "state":"finished",
+    "records_count_in":10,
+    "records_count_processed":10
+  }
+]
+```
+
+This endpoint delivers the array of lists seen in your own account at `https://www.toofr.com/lists/owned` or if you include the marketplace parameter then it will search the public marketplace lists at `https://www.toofr.com/email-lists`.
+
+### HTTP Request
+
+`GET https://www.toofr.com/api/v1/lists/search`
+
+### Query Parameters
+
+Parameter | Description
+--------- | -----------
+key | Your key is required for any request and is found on your [Toofr account page](https://www.toofr.com/account)
+query | The term(s) you want to search for
+marketplace | (optional) Set to `true` if you want to list only the lists for sale in the Toofr marketplace
+page | (optional) Set to any integer to paginate through results 
+
+
 ## Get A Specific List
 
 ```ruby
