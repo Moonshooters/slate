@@ -1473,6 +1473,77 @@ Toofr works best when you give it websites or domains, but we&rsquo;ll also take
 </tr>
 </tbody></table>
 
+<h2 id="search-lists">Search Lists</h2>
+<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
+<span class="nb">require</span> <span class="s1">'json'</span>
+
+<span class="n">uri</span> <span class="o">=</span> <span class="no">URI</span><span class="p">(</span><span class="s1">'https://www.toofr.com/api/v1/lists/search'</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="no">Net</span><span class="o">::</span><span class="no">HTTP</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="s1">'key'</span> <span class="o">=&gt;</span> <span class="s1">'abc123yourkeyhere'</span><span class="p">,</span>  <span class="s1">'query'</span> <span class="o">=&gt;</span> <span class="s1">'foobar'</span><span class="p">,</span> <span class="s1">'marketplace'</span> <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">)</span>
+<span class="no">JSON</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="nf">body</span><span class="p">)</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">uri</span> <span class="o">=</span> <span class="s">'https://www.toofr.com/api/v1/lists/search'</span>
+<span class="n">payload</span> <span class="o">=</span> <span class="p">{</span><span class="s">'key'</span><span class="p">:</span> <span class="s">'abc123yourkeyhere'</span><span class="p">,</span> <span class="s">'query'</span><span class="p">:</span> <span class="s">'foobar'</span><span class="p">,</span> <span class="s">'marketplace'</span><span class="p">:</span> <span class="s">'true'</span><span class="p">}</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">payload</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre><pre class="highlight shell tab-shell"><code>curl https://www.toofr.com/api/v1/lists?key<span class="o">=</span>abc123yourkeyhere&amp;query<span class="o">=</span>foobar&amp;marketplace<span class="o">=</span><span class="nb">true</span>
+</code></pre>
+<blockquote>
+<p>The above command returns a JSON array structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w"> 
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">137</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"List for sale"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">"Prospects generated from web scrape."</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2017-05-20T20:55:44.635Z"</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"state"</span><span class="p">:</span><span class="s2">"finished"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"records_count_in"</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"records_count_processed"</span><span class="p">:</span><span class="mi">5</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">134</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Prospects for sale"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">"Good emails found by my VA."</span><span class="p">,</span><span class="w"> 
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="s2">"2017-05-16T19:56:10.155Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"state"</span><span class="p">:</span><span class="s2">"finished"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"records_count_in"</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"records_count_processed"</span><span class="p">:</span><span class="mi">10</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+<p>This endpoint delivers the array of lists seen in your own account at <code class="prettyprint">https://www.toofr.com/lists/owned</code> or if you include the marketplace parameter then it will search the public marketplace lists at <code class="prettyprint">https://www.toofr.com/email-lists</code>.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://www.toofr.com/api/v1/lists/search</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td>Your key is required for any request and is found on your <a href="https://www.toofr.com/account">Toofr account page</a></td>
+</tr>
+<tr>
+<td>query</td>
+<td>The term(s) you want to search for</td>
+</tr>
+<tr>
+<td>marketplace</td>
+<td>(optional) Set to <code class="prettyprint">true</code> if you want to list only the lists for sale in the Toofr marketplace</td>
+</tr>
+<tr>
+<td>page</td>
+<td>(optional) Set to any integer to paginate through results</td>
+</tr>
+</tbody></table>
+
 <h2 id="get-a-specific-list">Get A Specific List</h2>
 <pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'net/http'</span>
 <span class="nb">require</span> <span class="s1">'json'</span>
