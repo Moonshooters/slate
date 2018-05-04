@@ -7,17 +7,17 @@ language_tabs:
   - python
 
 toc_footers:
-  - <a href='https://www.toofr.com/registration'>Sign Up for a Developer Key</a>
+  - <a href='https://www.toofr.com/registration'>Sign Up for a Toofr API Key</a>
   - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
 
 includes:
-  - audiences
   - companies
   - credits
   - emails
   - errors
   - lists
   - list_records
+  - prospects
   - statuses
 
 search: true
