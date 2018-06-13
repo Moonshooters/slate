@@ -12,7 +12,6 @@ toc_footers:
 
 includes:
   - companies
-  - credits
   - emails
   - errors
   - lists
