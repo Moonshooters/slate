@@ -59,8 +59,8 @@ This endpoint delivers the array of lists seen in your account at https://www.fi
 
 Parameter | Description
 --------- | -----------
-key | Your key is required for any request and is found on your [Toofr account page](https://www.findemails.com/account)
-marketplace | (optional) Set to `true` if you want to list only the lists for sale in the Toofr marketplace
+key | Your key is required for any request and is found on your [FindEmails account page](https://www.findemails.com/account)
+marketplace | (optional) Set to `true` if you want to list only the lists for sale in the FindEmails marketplace
 page | (optional) Set to any integer to paginate through results 
 
 
@@ -123,9 +123,9 @@ This endpoint delivers the array of lists seen in your own account at `https://w
 
 Parameter | Description
 --------- | -----------
-key | Your key is required for any request and is found on your [Toofr account page](https://www.findemails.com/account)
+key | Your key is required for any request and is found on your [FindEmails account page](https://www.findemails.com/account)
 query | The term(s) you want to search for
-marketplace | (optional) Set to `true` if you want to list only the lists for sale in the Toofr marketplace
+marketplace | (optional) Set to `true` if you want to list only the lists for sale in the FindEmails marketplace
 page | (optional) Set to any integer to paginate through results 
 
 
@@ -177,7 +177,7 @@ This endpoint delivers the JSON hash of a specific list.
 
 Parameter | Description
 --------- | -----------
-key | Your key is required for any request and is found on your [Toofr account page](https://www.findemails.com/account)
+key | Your key is required for any request and is found on your [FindEmails account page](https://www.findemails.com/account)
 
 ## Create A List
 
@@ -227,18 +227,18 @@ This endpoint delivers the array of lists seen in your account at https://www.fi
 
 Parameter | Description
 --------- | -----------
-key | Your key is required for any request and is found on your [Toofr account page](https://www.findemails.com/account)
+key | Your key is required for any request and is found on your [FindEmails account page](https://www.findemails.com/account)
 name | A short string to name your list
 description | A longer string to describe your list
 file_type | For bulk processing, select the type of file it would be if you were to import it rather than use the API. See acceptable values below or leave blank if no processing is required.  
 
 File Type | Description
 --------- | -----------
-guess | You provide the names and companies of prospects and Toofr appends the best email and confidence score
-guess_all | Like guess, but Toofr gives all emails and confidence scores, not just the best one
-test | You provide emails and Toofr appends a confidence score
-get | You provide companies (names or websites) and Toofr returns all the related emails with confidence scores in our database 
-pattern | You provide companies (names or websites) and Toofr returns the best related email pattern
+guess | You provide the names and companies of prospects and FindEmails appends the best email and confidence score
+guess_all | Like guess, but FindEmails gives all emails and confidence scores, not just the best one
+test | You provide emails and FindEmails appends a confidence score
+get | You provide companies (names or websites) and FindEmails returns all the related emails with confidence scores in our database 
+pattern | You provide companies (names or websites) and FindEmails returns the best related email pattern
 
 
 
@@ -290,4 +290,4 @@ This endpoint delivers the JSON hash of a specific list.
 
 Parameter | Description
 --------- | -----------
-key | Your key is required for any request and is found on your [Toofr account page](https://www.findemails.com/account)
+key | Your key is required for any request and is found on your [FindEmails account page](https://www.findemails.com/account)

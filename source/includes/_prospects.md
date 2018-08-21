@@ -48,7 +48,7 @@ This endpoint creates a list in your account of new prospects that match your su
 
 Parameter | Description
 --------- | -----------
-key | Your key is required for any request and is found on your [Toofr account page](https://www.findemails.com/account)
+key | Your key is required for any request and is found on your [FindEmails account page](https://www.findemails.com/account)
 company_name | This is the text of either the company name or website.
 title | This is a short title you want your prospects to have.
 count | This is how many prospects you want to find.
@@ -56,7 +56,7 @@ tld | This is the country code you want to use. Default is USA.
 page | Optional integer to get another page of results (10 returned per page, 1 credit per page response).
 
 <aside class="success">
-Toofr works best when you give it websites or domains, but we'll also take company names. (e.g. apple.com works better than Apple). Company names take an additional credit.
+FindEmails works best when you give it websites or domains, but we'll also take company names. (e.g. apple.com works better than Apple). Company names take an additional credit.
 </aside>
 
 ### TLD Options
@@ -198,7 +198,7 @@ curl https://www.findemails.com/api/v1/profile?key=abc123yourkeyhere&first_name=
   "profile": {
     "fn":"Ryan Buckley",
     "photo":"https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/3/000/063/38c/276e158.jpg",
-    "title":"CEO of Toofr",
+    "title":"CEO of FindEmails",
     "linkedin_profile":"https://www.linkedin.com/in/rbuckley"
   }
 }
@@ -214,7 +214,7 @@ This endpoint returns the profile data we have on a given prospect and attempts 
 
 Parameter | Description
 --------- | -----------
-key | Your key is required for any request and is found on your [Toofr account page](https://www.findemails.com/account)
+key | Your key is required for any request and is found on your [FindEmails account page](https://www.findemails.com/account)
 first_name | The first name of the prospect
 last_name | The last name of the prospect
 email | The known email address of the prospect

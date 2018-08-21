@@ -34,7 +34,7 @@ curl https://www.findemails.com/api/v1/credits/balance?key=abc123yourkeyhere
 }
 ```
 
-This endpoint delivers the number of credits in your account, the plan you're on (response is `null` if no plan is present) and the overage rate that Toofr will charge for negative balances.
+This endpoint delivers the number of credits in your account, the plan you're on (response is `null` if no plan is present) and the overage rate that FindEmails will charge for negative balances.
 
 ### HTTP Request
 
@@ -44,7 +44,7 @@ This endpoint delivers the number of credits in your account, the plan you're on
 
 Parameter | Description
 --------- | -----------
-key | Your key is required for any request and is found on your [Toofr account page](https://www.findemails.com/account)
+key | Your key is required for any request and is found on your [FindEmails account page](https://www.findemails.com/account)
 
 ## Purchase Credits
 
@@ -82,7 +82,7 @@ curl --data "key=abc123yourkeyhere&credits=2000" https://www.findemails.com/api/
 }
 ```
 
-This endpoint delivers the number of credits in your account, the plan you're on (response is `null` if no plan is present) and the overage rate that Toofr will charge for negative balances.
+This endpoint delivers the number of credits in your account, the plan you're on (response is `null` if no plan is present) and the overage rate that FindEmails will charge for negative balances.
 
 ### HTTP Request
 
@@ -92,7 +92,7 @@ This endpoint delivers the number of credits in your account, the plan you're on
 
 Parameter | Description
 --------- | -----------
-key | Your key is required for any request and is found on your [Toofr account page](https://www.findemails.com/account)
+key | Your key is required for any request and is found on your [FindEmails account page](https://www.findemails.com/account)
 credits | The number of credits you want to purchase. It must be greater than 1000.
 
 ## Reimburse Credits with Flag Reports
@@ -139,7 +139,7 @@ This endpoint accepts a flag report in exchange for a credit added to the accoun
 
 Parameter | Description
 --------- | -----------
-key | Your key is required for any request and is found on your [Toofr account page](https://www.findemails.com/account)
+key | Your key is required for any request and is found on your [FindEmails account page](https://www.findemails.com/account)
 employee_id | The integer ID number of the employee you're flagging. Get the ID from an Audiences query.
 reason | The integer associated with the reason in the table shown below. 
 

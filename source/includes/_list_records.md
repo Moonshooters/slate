@@ -65,7 +65,7 @@ This endpoint delivers the array of list records you would see if you exported y
 
 Parameter | Description
 --------- | -----------
-key | Your key is required for any request and is found on your [Toofr account page](https://www.findemails.com/account)
+key | Your key is required for any request and is found on your [FindEmails account page](https://www.findemails.com/account)
 page | Results are paginated 100 at a time so you can iterate through the pages numerically to extract list records
 
 ## Get A Specific List Record
@@ -119,7 +119,7 @@ This endpoint delivers the JSON hash of a specific list_record.
 
 Parameter | Description
 --------- | -----------
-key | Your key is required for any request and is found on your [Toofr account page](https://www.findemails.com/account)
+key | Your key is required for any request and is found on your [FindEmails account page](https://www.findemails.com/account)
 
 ## Create A List Record
 
@@ -168,4 +168,4 @@ This endpoint creates and initiates a background process on the created list rec
 
 Parameter | Description
 --------- | -----------
-key | Your key is required for any request and is found on your [Toofr account page](https://www.findemails.com/account)
+key | Your key is required for any request and is found on your [FindEmails account page](https://www.findemails.com/account)

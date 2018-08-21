@@ -1,6 +1,6 @@
 # HTTP Error Codes
 
-The Toofr API returns the following HTTP status codes for faulty queries:
+The FindEmails API returns the following HTTP status codes for faulty queries:
 
 
 Error Code | Meaning

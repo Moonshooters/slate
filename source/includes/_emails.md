@@ -65,13 +65,13 @@ This endpoint discovers emails based on the first name, last name, and company n
 
 Parameter | Description
 --------- | -----------
-key | Your key is required for any request and is found on your [Toofr account page](https://www.findemails.com/account)
+key | Your key is required for any request and is found on your [FindEmails account page](https://www.findemails.com/account)
 first_name | This is the text of the first name of your prospect, cleansed of spaces and non-ASCII characters (por favor!)
 last_name | This is the text of the last name of your prospect, cleansed of spaces and non-ASCII characters (por favor!)
 company_name | This is the text of either the company name or website
 
 <aside class="success">
-Toofr works best when you give it websites or domains, but we'll also take company names. (e.g. apple.com works better than Apple). Company names take an additional credit.
+FindEmails works best when you give it websites or domains, but we'll also take company names. (e.g. apple.com works better than Apple). Company names take an additional credit.
 </aside>
 
 ## Test Emails
@@ -114,5 +114,5 @@ This endpoint delivers our [confidence score](http://blog.toofr.com/how-to-lower
 
 Parameter | Description
 --------- | -----------
-key | Your key is required for any request and is found on your [Toofr account page](https://www.findemails.com/account)
+key | Your key is required for any request and is found on your [FindEmails account page](https://www.findemails.com/account)
 email | The properly formatted email address you want to test

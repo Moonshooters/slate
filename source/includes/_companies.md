@@ -44,11 +44,11 @@ This endpoint uses our natural language processing engine to determine the indus
 
 Parameter | Description
 --------- | -----------
-key | Your key is required for any request and is found on your [Toofr account page](https://www.findemails.com/account)
+key | Your key is required for any request and is found on your [FindEmails account page](https://www.findemails.com/account)
 company_name | This is the text of either the company name or website.
 
 <aside class="success">
-Toofr works best when you give it websites or domains, but we'll also take company names. (e.g. apple.com works better than Apple). Company names take an additional credit.
+FindEmails works best when you give it websites or domains, but we'll also take company names. (e.g. apple.com works better than Apple). Company names take an additional credit.
 </aside>
 
 ### Query Responses
@@ -105,7 +105,7 @@ This endpoint uses our natural language processing engine to determine the indus
 
 Parameter | Description
 --------- | -----------
-key | Your key is required for any request and is found on your [Toofr account page](https://www.findemails.com/account)
+key | Your key is required for any request and is found on your [FindEmails account page](https://www.findemails.com/account)
 company_name | This is the text of the company name you need the website for.
 
 ### Query Responses

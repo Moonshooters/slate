@@ -1,6 +1,6 @@
 # HTTP Success Codes
 
-The Toofr API returns the following HTTP status codes for successful queries:
+The FindEmails API returns the following HTTP status codes for successful queries:
 
 
 Error Code | Meaning
