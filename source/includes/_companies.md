@@ -95,7 +95,7 @@ curl https://www.findemails.com/api/v1/get_domain?key=abc123yourkeyhere&company_
 }
 ```
 
-This endpoint uses our natural language processing engine to determine the industry and agency category and status of any website.
+This endpoint uses our sophisticated processing engine and years of company name to domain matching to provide the best service on the internet for converting company names to domains.
 
 ### HTTP Request
 
