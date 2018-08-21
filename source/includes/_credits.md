@@ -6,7 +6,7 @@
 require 'net/http'
 require 'json'
 
-uri = URI('https://www.toofr.com/api/v1/credits/balance')
+uri = URI('https://www.findemails.com/api/v1/credits/balance')
 res = Net::HTTP.get(uri, 'key' => 'abc123yourkeyhere')
 JSON.parse(res.body)
 ```
@@ -14,14 +14,14 @@ JSON.parse(res.body)
 ```python
 import requests
 
-uri = 'https://www.toofr.com/api/v1/credits/balance'
+uri = 'https://www.findemails.com/api/v1/credits/balance'
 payload = {'key': 'abc123yourkeyhere'}
 r = requests.get(uri, data = payload)
 r.json()
 ```
 
 ```shell
-curl https://www.toofr.com/api/v1/credits/balance?key=abc123yourkeyhere
+curl https://www.findemails.com/api/v1/credits/balance?key=abc123yourkeyhere
 ```
 
 > The above command returns JSON structured like this:
@@ -38,13 +38,13 @@ This endpoint delivers the number of credits in your account, the plan you're on
 
 ### HTTP Request
 
-`GET https://www.toofr.com/api/v1/credits/balance`
+`GET https://www.findemails.com/api/v1/credits/balance`
 
 ### Query Parameters
 
 Parameter | Description
 --------- | -----------
-key | Your key is required for any request and is found on your [Toofr account page](https://www.toofr.com/account)
+key | Your key is required for any request and is found on your [Toofr account page](https://www.findemails.com/account)
 
 ## Purchase Credits
 
@@ -52,7 +52,7 @@ key | Your key is required for any request and is found on your [Toofr account p
 require 'net/http'
 require 'json'
 
-uri = URI('https://www.toofr.com/api/v1/credits/purchase')
+uri = URI('https://www.findemails.com/api/v1/credits/purchase')
 res = Net::HTTP.post_form(uri, 'key' => 'abc123yourkeyhere', 'credits' => 2000)
 JSON.parse(res.body)
 ```
@@ -60,14 +60,14 @@ JSON.parse(res.body)
 ```python
 import requests
 
-uri = 'https://www.toofr.com/api/v1/credits/purchase'
+uri = 'https://www.findemails.com/api/v1/credits/purchase'
 payload = {'key': 'abc123yourkeyhere', 'credits': 2000}
 r = requests.post(uri, data = payload)
 r.json()
 ```
 
 ```shell
-curl --data "key=abc123yourkeyhere&credits=2000" https://www.toofr.com/api/v1/credits/purchase
+curl --data "key=abc123yourkeyhere&credits=2000" https://www.findemails.com/api/v1/credits/purchase
 ```
 
 > The above command returns JSON structured like this:
@@ -86,13 +86,13 @@ This endpoint delivers the number of credits in your account, the plan you're on
 
 ### HTTP Request
 
-`POST https://www.toofr.com/api/v1/credits/purchase`
+`POST https://www.findemails.com/api/v1/credits/purchase`
 
 ### Query Parameters
 
 Parameter | Description
 --------- | -----------
-key | Your key is required for any request and is found on your [Toofr account page](https://www.toofr.com/account)
+key | Your key is required for any request and is found on your [Toofr account page](https://www.findemails.com/account)
 credits | The number of credits you want to purchase. It must be greater than 1000.
 
 ## Reimburse Credits with Flag Reports
@@ -101,7 +101,7 @@ credits | The number of credits you want to purchase. It must be greater than 10
 require 'net/http'
 require 'json'
 
-uri = URI('https://www.toofr.com/api/v1/credits/flag')
+uri = URI('https://www.findemails.com/api/v1/credits/flag')
 res = Net::HTTP.post_form(uri, 'key' => 'abc123yourkeyhere', 'employee_id' => 19821994, 'reason' => 2)
 JSON.parse(res.body)
 ```
@@ -109,14 +109,14 @@ JSON.parse(res.body)
 ```python
 import requests
 
-uri = 'https://www.toofr.com/api/v1/credits/purchase'
+uri = 'https://www.findemails.com/api/v1/credits/purchase'
 payload = {'key': 'abc123yourkeyhere', 'employee_id': 19821994, 'reason' => 2}
 r = requests.post(uri, data = payload)
 r.json()
 ```
 
 ```shell
-curl --data "key=abc123yourkeyhere&employee_id=19821994&reason=2" https://www.toofr.com/api/v1/credits/flag
+curl --data "key=abc123yourkeyhere&employee_id=19821994&reason=2" https://www.findemails.com/api/v1/credits/flag
 ```
 
 > The above command returns JSON structured like this:
@@ -133,13 +133,13 @@ This endpoint accepts a flag report in exchange for a credit added to the accoun
 
 ### HTTP Request
 
-`POST https://www.toofr.com/api/v1/credits/flag`
+`POST https://www.findemails.com/api/v1/credits/flag`
 
 ### Query Parameters
 
 Parameter | Description
 --------- | -----------
-key | Your key is required for any request and is found on your [Toofr account page](https://www.toofr.com/account)
+key | Your key is required for any request and is found on your [Toofr account page](https://www.findemails.com/account)
 employee_id | The integer ID number of the employee you're flagging. Get the ID from an Audiences query.
 reason | The integer associated with the reason in the table shown below. 
 

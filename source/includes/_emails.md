@@ -6,7 +6,7 @@
 require 'net/http'
 require 'json'
 
-uri = URI('https://www.toofr.com/api/v1/guess_email.json')
+uri = URI('https://www.findemails.com/api/v1/guess_email.json')
 res = Net::HTTP.post_form(uri, 'key' => 'abc123yourkeyhere', 'first_name' => 'ryan', 'last_name' => 'buckley', 'company_name' => 'toofr.com')
 JSON.parse(res.body)
 ```
@@ -14,14 +14,14 @@ JSON.parse(res.body)
 ```python
 import requests
 
-uri = 'https://www.toofr.com/api/v1/guess_email.json'
+uri = 'https://www.findemails.com/api/v1/guess_email.json'
 payload = {'key': 'abc123yourkeyhere', 'first_name': 'ryan', 'last_name': 'buckley', 'company_name': 'toofr.com'}
 r = requests.post(uri, data = payload)
 r.json()
 ```
 
 ```shell
-curl --data "key=abc123yourkeyhere&first_name=ryan&last_name=buckley&company_name=toofr.com" https://www.toofr.com/api/v1/guess_email.json
+curl --data "key=abc123yourkeyhere&first_name=ryan&last_name=buckley&company_name=toofr.com" https://www.findemails.com/api/v1/guess_email.json
 ```
 
 > The above command returns JSON structured like this:
@@ -59,13 +59,13 @@ This endpoint discovers emails based on the first name, last name, and company n
 
 ### HTTP Request
 
-`POST https://www.toofr.com/api/v1/guess_email.json`
+`POST https://www.findemails.com/api/v1/guess_email.json`
 
 ### Query Parameters
 
 Parameter | Description
 --------- | -----------
-key | Your key is required for any request and is found on your [Toofr account page](https://www.toofr.com/account)
+key | Your key is required for any request and is found on your [Toofr account page](https://www.findemails.com/account)
 first_name | This is the text of the first name of your prospect, cleansed of spaces and non-ASCII characters (por favor!)
 last_name | This is the text of the last name of your prospect, cleansed of spaces and non-ASCII characters (por favor!)
 company_name | This is the text of either the company name or website
@@ -80,7 +80,7 @@ Toofr works best when you give it websites or domains, but we'll also take compa
 require 'net/http'
 require 'json'
 
-uri = URI('https://www.toofr.com/api/v1/test_email.json')
+uri = URI('https://www.findemails.com/api/v1/test_email.json')
 res = Net::HTTP.post_form(uri, 'key' => 'abc123yourkeyhere', 'email' => 'ryan@toofr.com')
 JSON.parse(res.body)
 ```
@@ -88,14 +88,14 @@ JSON.parse(res.body)
 ```python
 import requests
 
-uri = 'https://www.toofr.com/api/v1/guess_email.json'
+uri = 'https://www.findemails.com/api/v1/guess_email.json'
 payload = {'key': 'abc123yourkeyhere', 'email': 'ryan@toofr.com'}
 r = requests.post(uri, data = payload)
 r.json()
 ```
 
 ```shell
-curl --data "key=abc123yourkeyhere&email=ryan@scripted.com" https://www.toofr.com/api/v1/test_email.json
+curl --data "key=abc123yourkeyhere&email=ryan@scripted.com" https://www.findemails.com/api/v1/test_email.json
 ```
 
 > The above command returns JSON structured like this:
@@ -108,11 +108,11 @@ This endpoint delivers our [confidence score](http://blog.toofr.com/how-to-lower
 
 ### HTTP Request
 
-`POST https://www.toofr.com/api/v1/test_email.json`
+`POST https://www.findemails.com/api/v1/test_email.json`
 
 ### Query Parameters
 
 Parameter | Description
 --------- | -----------
-key | Your key is required for any request and is found on your [Toofr account page](https://www.toofr.com/account)
+key | Your key is required for any request and is found on your [Toofr account page](https://www.findemails.com/account)
 email | The properly formatted email address you want to test

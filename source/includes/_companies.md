@@ -6,7 +6,7 @@
 require 'net/http'
 require 'json'
 
-uri = URI('https://www.toofr.com/api/v1/classify')
+uri = URI('https://www.findemails.com/api/v1/classify')
 res = Net::HTTP.get(uri, 'key' => 'abc123yourkeyhere', 'company_name' => 'toofr.com')
 JSON.parse(res.body)
 ```
@@ -14,14 +14,14 @@ JSON.parse(res.body)
 ```python
 import requests
 
-uri = 'https://www.toofr.com/api/v1/classify'
+uri = 'https://www.findemails.com/api/v1/classify'
 payload = {'key': 'abc123yourkeyhere', 'company_name': 'toofr.com'}
 r = requests.get(uri, data = payload)
 r.json()
 ```
 
 ```shell
-curl https://www.toofr.com/api/v1/classify?key=abc123yourkeyhere&company_name=toofr.com
+curl https://www.findemails.com/api/v1/classify?key=abc123yourkeyhere&company_name=toofr.com
 ```
 
 > The above command returns JSON structured like this:
@@ -38,13 +38,13 @@ This endpoint uses our natural language processing engine to determine the indus
 
 ### HTTP Request
 
-`GET https://www.toofr.com/api/v1/classify`
+`GET https://www.findemails.com/api/v1/classify`
 
 ### Query Parameters
 
 Parameter | Description
 --------- | -----------
-key | Your key is required for any request and is found on your [Toofr account page](https://www.toofr.com/account)
+key | Your key is required for any request and is found on your [Toofr account page](https://www.findemails.com/account)
 company_name | This is the text of either the company name or website.
 
 <aside class="success">
@@ -69,7 +69,7 @@ agency_category | If we believe the company is an agency, this is the more speci
 require 'net/http'
 require 'json'
 
-uri = URI('https://www.toofr.com/api/v1/get_domain')
+uri = URI('https://www.findemails.com/api/v1/get_domain')
 res = Net::HTTP.get(uri, 'key' => 'abc123yourkeyhere', 'company_name' => 'toofr')
 JSON.parse(res.body)
 ```
@@ -77,14 +77,14 @@ JSON.parse(res.body)
 ```python
 import requests
 
-uri = 'https://www.toofr.com/api/v1/get_domain'
+uri = 'https://www.findemails.com/api/v1/get_domain'
 payload = {'key': 'abc123yourkeyhere', 'company_name': 'toofr'}
 r = requests.get(uri, data = payload)
 r.json()
 ```
 
 ```shell
-curl https://www.toofr.com/api/v1/get_domain?key=abc123yourkeyhere&company_name=toofr
+curl https://www.findemails.com/api/v1/get_domain?key=abc123yourkeyhere&company_name=toofr
 ```
 
 > The above command returns JSON structured like this:
@@ -99,13 +99,13 @@ This endpoint uses our natural language processing engine to determine the indus
 
 ### HTTP Request
 
-`GET https://www.toofr.com/api/v1/get_domain`
+`GET https://www.findemails.com/api/v1/get_domain`
 
 ### Query Parameters
 
 Parameter | Description
 --------- | -----------
-key | Your key is required for any request and is found on your [Toofr account page](https://www.toofr.com/account)
+key | Your key is required for any request and is found on your [Toofr account page](https://www.findemails.com/account)
 company_name | This is the text of the company name you need the website for.
 
 ### Query Responses

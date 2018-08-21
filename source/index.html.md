@@ -7,7 +7,7 @@ language_tabs:
   - python
 
 toc_footers:
-  - <a href='https://www.toofr.com/registration'>Sign Up for a Toofr API Key</a>
+  - <a href='https://www.findemails.com/registration'>Sign Up for a Toofr API Key</a>
   - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
 
 includes:
@@ -30,11 +30,11 @@ We have language examples in Shell, Ruby, and Python. You can view code examples
 
 # Authentication
 
-Every Toofr user has access to our API. API calls use credits in the same way that our web application use credits. For more information on how credits are used, view our [FAQ](https://www.toofr.com/faq).
+Every Toofr user has access to our API. API calls use credits in the same way that our web application use credits. For more information on how credits are used, view our [FAQ](https://www.findemails.com/faq).
 
-To get an API key, first [register for a free Toofr account](https://www.toofr.com/registration). Check your email for a confirmation message, click through the link, and log in. Your API key is available on your [Account page](https://www.toofr.com/account).
+To get an API key, first [register for a free Toofr account](https://www.findemails.com/registration). Check your email for a confirmation message, click through the link, and log in. Your API key is available on your [Account page](https://www.findemails.com/account).
 
-If you run out of credits, you'll need to sign up for a [monthly plan](https://www.toofr.com/pricing) to get more. Currently they start at just $19/mo.
+If you run out of credits, you'll need to sign up for a [monthly plan](https://www.findemails.com/pricing) to get more. Currently they start at just $19/mo.
 
 Your API key is a long alphanumeric string that looks similar to this:
 

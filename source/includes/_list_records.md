@@ -6,7 +6,7 @@
 require 'net/http'
 require 'json'
 
-uri = URI('https://www.toofr.com/api/v1/lists/:list_id/list_records')
+uri = URI('https://www.findemails.com/api/v1/lists/:list_id/list_records')
 res = Net::HTTP.get(uri, 'key' => 'abc123yourkeyhere', 'page' => 1)
 JSON.parse(res.body)
 ```
@@ -14,14 +14,14 @@ JSON.parse(res.body)
 ```python
 import requests
 
-uri = 'https://www.toofr.com/api/v1/lists/:list_id/list_records'
+uri = 'https://www.findemails.com/api/v1/lists/:list_id/list_records'
 payload = {'key': 'abc123yourkeyhere', 'page': 1}
 r = requests.get(uri, data = payload)
 r.json()
 ```
 
 ```shell
-curl https://www.toofr.com/api/v1/lists/:list_id/list_records?key=abc123yourkeyhere&page=1
+curl https://www.findemails.com/api/v1/lists/:list_id/list_records?key=abc123yourkeyhere&page=1
 ```
 
 > The above command returns a JSON array structured like this:
@@ -55,17 +55,17 @@ curl https://www.toofr.com/api/v1/lists/:list_id/list_records?key=abc123yourkeyh
 ]
 ```
 
-This endpoint delivers the array of list records you would see if you exported your list from https://www.toofr.com/lists/:id.
+This endpoint delivers the array of list records you would see if you exported your list from https://www.findemails.com/lists/:id.
 
 ### HTTP Request
 
-`GET https://www.toofr.com/api/v1/lists/:list_id/list_records`
+`GET https://www.findemails.com/api/v1/lists/:list_id/list_records`
 
 ### Query Parameters
 
 Parameter | Description
 --------- | -----------
-key | Your key is required for any request and is found on your [Toofr account page](https://www.toofr.com/account)
+key | Your key is required for any request and is found on your [Toofr account page](https://www.findemails.com/account)
 page | Results are paginated 100 at a time so you can iterate through the pages numerically to extract list records
 
 ## Get A Specific List Record
@@ -74,7 +74,7 @@ page | Results are paginated 100 at a time so you can iterate through the pages 
 require 'net/http'
 require 'json'
 
-uri = URI('https://www.toofr.com/api/v1/lists/:list_id/list_records/:id')
+uri = URI('https://www.findemails.com/api/v1/lists/:list_id/list_records/:id')
 res = Net::HTTP.get(uri, 'key' => 'abc123yourkeyhere')
 JSON.parse(res.body)
 ```
@@ -82,14 +82,14 @@ JSON.parse(res.body)
 ```python
 import requests
 
-uri = 'https://www.toofr.com/api/v1/lists/:list_id/list_records/:id'
+uri = 'https://www.findemails.com/api/v1/lists/:list_id/list_records/:id'
 payload = {'key': 'abc123yourkeyhere'}
 r = requests.get(uri, data = payload)
 r.json()
 ```
 
 ```shell
-curl https://www.toofr.com/api/v1/lists/:list_id/list_records/:id?key=abc123yourkeyhere
+curl https://www.findemails.com/api/v1/lists/:list_id/list_records/:id?key=abc123yourkeyhere
 ```
 
 > The above command returns JSON structured like this:
@@ -113,13 +113,13 @@ This endpoint delivers the JSON hash of a specific list_record.
 
 ### HTTP Request
 
-`GET https://www.toofr.com/api/v1/lists/:id`
+`GET https://www.findemails.com/api/v1/lists/:id`
 
 ### Query Parameters
 
 Parameter | Description
 --------- | -----------
-key | Your key is required for any request and is found on your [Toofr account page](https://www.toofr.com/account)
+key | Your key is required for any request and is found on your [Toofr account page](https://www.findemails.com/account)
 
 ## Create A List Record
 
@@ -127,7 +127,7 @@ key | Your key is required for any request and is found on your [Toofr account p
 require 'net/http'
 require 'json'
 
-uri = URI('https://www.toofr.com/api/v1/lists/:list_id/list_records')
+uri = URI('https://www.findemails.com/api/v1/lists/:list_id/list_records')
 res = Net::HTTP.post_form(uri, 'key' => 'abc123yourkeyhere', 'first_name' => 'Ryan', 'last_name' => 'Buckley', 'company' => 'toofr.com')
 JSON.parse(res.body)
 ```
@@ -135,14 +135,14 @@ JSON.parse(res.body)
 ```python
 import requests
 
-uri = 'https://www.toofr.com/api/v1/lists/:list_id/list_records'
+uri = 'https://www.findemails.com/api/v1/lists/:list_id/list_records'
 payload = {'key': 'abc123yourkeyhere', 'first_name': 'Ryan', 'last_name': 'Buckley', 'company': 'toofr.com'}
 r = requests.post(uri, data = payload)
 r.json()
 ```
 
 ```shell
-curl --data "key=abc123yourkeyhere&first_name=Ryan&last_name=Buckley&company=toofr.com" https://www.toofr.com/api/v1/lists/:list_id/list_records
+curl --data "key=abc123yourkeyhere&first_name=Ryan&last_name=Buckley&company=toofr.com" https://www.findemails.com/api/v1/lists/:list_id/list_records
 ```
 
 > The above command returns JSON structured like this:
@@ -162,10 +162,10 @@ This endpoint creates and initiates a background process on the created list rec
 
 ### HTTP Request
 
-`POST https://www.toofr.com/api/v1/lists/:list_id/list_records`
+`POST https://www.findemails.com/api/v1/lists/:list_id/list_records`
 
 ### Query Parameters
 
 Parameter | Description
 --------- | -----------
-key | Your key is required for any request and is found on your [Toofr account page](https://www.toofr.com/account)
+key | Your key is required for any request and is found on your [Toofr account page](https://www.findemails.com/account)

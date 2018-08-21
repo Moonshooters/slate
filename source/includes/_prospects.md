@@ -6,7 +6,7 @@
 require 'net/http'
 require 'json'
 
-uri = URI('https://www.toofr.com/api/v1/prospect')
+uri = URI('https://www.findemails.com/api/v1/prospect')
 res = Net::HTTP.get(uri, 'key' => 'abc123yourkeyhere', 'company_name' => 'toofr.com', 'title' => 'ceo', 'count' => 10)
 JSON.parse(res.body)
 ```
@@ -14,14 +14,14 @@ JSON.parse(res.body)
 ```python
 import requests
 
-uri = 'https://www.toofr.com/api/v1/prospect'
+uri = 'https://www.findemails.com/api/v1/prospect'
 payload = {'key': 'abc123yourkeyhere', 'company_name': 'toofr.com', 'title': 'ceo', 'count': 10}
 r = requests.get(uri, data = payload)
 r.json()
 ```
 
 ```shell
-curl https://www.toofr.com/api/v1/prospect?key=abc123yourkeyhere&company_name=toofr.com&title=ceo&count=10
+curl https://www.findemails.com/api/v1/prospect?key=abc123yourkeyhere&company_name=toofr.com&title=ceo&count=10
 ```
 
 > The above command returns JSON structured like this:
@@ -42,13 +42,13 @@ This endpoint creates a list in your account of new prospects that match your su
 
 ### HTTP Request
 
-`GET https://www.toofr.com/api/v1/prospect`
+`GET https://www.findemails.com/api/v1/prospect`
 
 ### Query Parameters
 
 Parameter | Description
 --------- | -----------
-key | Your key is required for any request and is found on your [Toofr account page](https://www.toofr.com/account)
+key | Your key is required for any request and is found on your [Toofr account page](https://www.findemails.com/account)
 company_name | This is the text of either the company name or website.
 title | This is a short title you want your prospects to have.
 count | This is how many prospects you want to find.
@@ -173,7 +173,7 @@ Zimbabwe|zw
 require 'net/http'
 require 'json'
 
-uri = URI('https://www.toofr.com/api/v1/profile')
+uri = URI('https://www.findemails.com/api/v1/profile')
 res = Net::HTTP.get(uri, 'key' => 'abc123yourkeyhere', 'first_name' => 'ryan', 'last_name' => 'buckley', 'email' => 'ryan@toofr.com')
 JSON.parse(res.body)
 ```
@@ -181,14 +181,14 @@ JSON.parse(res.body)
 ```python
 import requests
 
-uri = 'https://www.toofr.com/api/v1/profile'
+uri = 'https://www.findemails.com/api/v1/profile'
 payload = {'key': 'abc123yourkeyhere', 'first_name': 'ryan', 'last_name': 'buckley', 'email': 'ryan@toofr.com'}
 r = requests.get(uri, data = payload)
 r.json()
 ```
 
 ```shell
-curl https://www.toofr.com/api/v1/profile?key=abc123yourkeyhere&first_name=ryan&last_name=buckley&email=ryan@toofr.com
+curl https://www.findemails.com/api/v1/profile?key=abc123yourkeyhere&first_name=ryan&last_name=buckley&email=ryan@toofr.com
 ```
 
 > The above command returns JSON structured like this:
@@ -208,13 +208,13 @@ This endpoint returns the profile data we have on a given prospect and attempts 
 
 ### HTTP Request
 
-`GET https://www.toofr.com/api/v1/profile`
+`GET https://www.findemails.com/api/v1/profile`
 
 ### Query Parameters
 
 Parameter | Description
 --------- | -----------
-key | Your key is required for any request and is found on your [Toofr account page](https://www.toofr.com/account)
+key | Your key is required for any request and is found on your [Toofr account page](https://www.findemails.com/account)
 first_name | The first name of the prospect
 last_name | The last name of the prospect
 email | The known email address of the prospect
