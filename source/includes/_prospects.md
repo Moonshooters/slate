@@ -165,6 +165,67 @@ Viet Nam|vn
 Zimbabwe|zw
 
 
+## Get Prospects By Domain (database only)
+
+```ruby
+require 'net/http'
+require 'json'
+
+uri = URI('https://www.findemails.com/api/v1/get_prospects')
+res = Net::HTTP.get(uri, 'key' => 'abc123yourkeyhere', 'company_name' => 'findemails.com')
+JSON.parse(res.body)
+```
+
+```python
+import requests
+
+uri = 'https://www.findemails.com/api/v1/get_prospects'
+payload = {'key': 'abc123yourkeyhere', 'company_name': 'findemails.com'}
+r = requests.get(uri, data = payload)
+r.json()
+```
+
+```shell
+curl https://www.findemails.com/api/v1/profile?key=abc123yourkeyhere&company_name=findemails.com
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "prospects":[
+    {
+      "first_name": "ryan",
+      "last_name": "buckley",
+      "title": "founder",
+      "profile":{
+        "fn":"Ryan Buckley",
+        "title":"Builder of ToOfr, Inlistio, and Voxloca. Author of The Parallel Entrepreneur. Resident of Contra Costa County.",
+        "linkedin_profile":"https://www.linkedin.com/in/rbuckley"
+      },
+      "email":{
+        "email":"ryan@toofr.com",
+        "confidence":70,
+        "state":"high"
+      }
+    },
+  ]
+}
+```
+
+This endpoint returns the emails and prospect data we have on a given domain in our database.
+
+### HTTP Request
+
+`GET https://www.findemails.com/api/v1/get_prospects`
+
+### Query Parameters
+
+Parameter | Description
+--------- | -----------
+key | Your key is required for any request and is found on your [FindEmails account page](https://www.findemails.com/account)
+company_name | The company name or domain of the business
+
 
 
 ## Get Profiles
