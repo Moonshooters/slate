@@ -200,6 +200,7 @@ curl https://www.findemails.com/api/v1/profile?key=abc123yourkeyhere&company_nam
       "title": "founder",
       "profile":{
         "fn":"Ryan Buckley",
+        "photo":"https://media.licdn.com/dms/image/C4D03AQFIi292VtKikw/profile-displayphoto-shrink_200_200/0?e=1536192000&v=beta&t=aXWOwRlu17VF_r96euIeWvX00I8OYfOrwhaK-Xbmksg",
         "title":"Builder of ToOfr, Inlistio, and Voxloca. Author of The Parallel Entrepreneur. Resident of Contra Costa County.",
         "linkedin_profile":"https://www.linkedin.com/in/rbuckley"
       },
@@ -207,6 +208,19 @@ curl https://www.findemails.com/api/v1/profile?key=abc123yourkeyhere&company_nam
         "email":"ryan@toofr.com",
         "confidence":70,
         "state":"high"
+      },
+      "confidence_detail":{
+        [
+          {"description": "Mailserver score", "response": "+40"}, 
+          {"description": "Pattern score", "response": "+27"}, 
+          {"description": "MX records score", "response": "+10"}, 
+          {"description": "Catchall score", "response": "+10"}, 
+          {"description": "Uniqueness score", "response": "+2"}, 
+          {"description": "List score", "response": "+2"}, 
+          {"description": "Name score", "response": "+2"}, 
+          {"description": "Disposable score", "response": "+2"}, 
+          {"description": "Gibberish score", "response": "+2"}
+        ]
       }
     },
   ]
