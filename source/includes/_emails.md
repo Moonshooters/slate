@@ -29,28 +29,31 @@ curl --data "key=abc123yourkeyhere&first_name=ryan&last_name=buckley&company_nam
 ```json
 {
   "ryan@toofr.com": {
-    "confidence":119,"email":"ryan@toofr.com","default":20
-  },
-  "rbuckley@toofr.com": {
-    "confidence":20,"email":"rbuckley@toofr.com","default":15
-  },
-  "ryan.buckley@toofr.com": {
-    "confidence":18,"email":"ryan.buckley@toofr.com","default":16
-  },
-  "ryanbuckley@toofr.com": {
-    "confidence":17,"email":"ryanbuckley@toofr.com","default":17
-  },
-  "ryan_buckley@toofr.com": {
-    "confidence":16,"email":"ryan_buckley@toofr.com","default":18
-  },
-  "ryan-buckley@toofr.com": {
-    "confidence":15,"email":"ryan-buckley@toofr.com","default":19
-  },
-  "ryanb@toofr.com": {
-    "confidence":14,"email":"ryanb@toofr.com","default":14
-  },
-  "buckley@toofr.com": {
-    "confidence":13,"email":"buckley@toofr.com","default":13
+    "confidence": 100,
+    "state": "high",
+    "email": "ryan@toofr.com",
+    "detail": [
+      {"description": "Mailserver score", "response": "+40"}, 
+      {"description": "Pattern score", "response": "+27"}, 
+      {"description": "MX records score", "response": "+10"}, 
+      {"description": "Catchall score", "response": "+10"}, 
+      {"description": "Uniqueness score", "response": "+2"}, 
+      {"description": "List score", "response": "+2"}, 
+      {"description": "Name score", "response": "+2"}, 
+      {"description": "Disposable score", "response": "+2"}, 
+      {"description": "Gibberish score", "response": "+2"}
+    ],
+    "employee": {
+      "first_name": "ryan",
+      "last_name": "buckley",
+      "title": "founder",
+      "profile": {
+        "fn":"Ryan Buckley",
+        "photo":"https://media.licdn.com/dms/image/C4D03AQFIi292VtKikw/profile-displayphoto-shrink_200_200/0?e=1536192000&v=beta&t=aXWOwRlu17VF_r96euIeWvX00I8OYfOrwhaK-Xbmksg",
+        "title":"Builder of ToOfr, Inlistio, and Voxloca. Author of The Parallel Entrepreneur. Resident of Contra Costa County.",
+        "linkedin_profile":"https://www.linkedin.com/in/rbuckley"
+      }
+    } 
   }
 }
 ```
@@ -101,7 +104,33 @@ curl --data "key=abc123yourkeyhere&email=ryan@scripted.com" https://www.findemai
 > The above command returns JSON structured like this:
 
 ```json
-{ "email": "ryan@toofr.com", "confidence": 119 }
+{ 
+  "email": "ryan@toofr.com", 
+  "confidence": 100,
+  "state": high,
+  "detail": [
+    {"description": "Mailserver score", "response": "+40"}, 
+    {"description": "Pattern score", "response": "+27"}, 
+    {"description": "MX records score", "response": "+10"}, 
+    {"description": "Catchall score", "response": "+10"}, 
+    {"description": "Uniqueness score", "response": "+2"}, 
+    {"description": "List score", "response": "+2"}, 
+    {"description": "Name score", "response": "+2"}, 
+    {"description": "Disposable score", "response": "+2"}, 
+    {"description": "Gibberish score", "response": "+2"}
+  ],
+  "employee": {
+    "first_name": "ryan",
+    "last_name": "buckley",
+    "title": "founder",
+    "profile": {
+      "fn":"Ryan Buckley",
+      "photo":"https://media.licdn.com/dms/image/C4D03AQFIi292VtKikw/profile-displayphoto-shrink_200_200/0?e=1536192000&v=beta&t=aXWOwRlu17VF_r96euIeWvX00I8OYfOrwhaK-Xbmksg",
+      "title":"Builder of ToOfr, Inlistio, and Voxloca. Author of The Parallel Entrepreneur. Resident of Contra Costa County.",
+      "linkedin_profile":"https://www.linkedin.com/in/rbuckley"
+    }
+  }
+}
 ```
 
 This endpoint delivers our [confidence score](http://blog.toofr.com/how-to-lower-your-bounce-rates-with-our-confidence-score/) for a given email address.
