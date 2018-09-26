@@ -52,6 +52,13 @@ curl --data "key=abc123yourkeyhere&first_name=ryan&last_name=buckley&company_nam
         "photo":"https://media.licdn.com/dms/image/C4D03AQFIi292VtKikw/profile-displayphoto-shrink_200_200/0?e=1536192000&v=beta&t=aXWOwRlu17VF_r96euIeWvX00I8OYfOrwhaK-Xbmksg",
         "title":"Builder of ToOfr, Inlistio, and Voxloca. Author of The Parallel Entrepreneur. Resident of Contra Costa County.",
         "linkedin_profile":"https://www.linkedin.com/in/rbuckley"
+      },
+      "email": 
+        {
+          "email": "ryan@toofr.com",
+          "confidence": 70,
+          "state": "high"
+        }
       }
     } 
   }
@@ -77,7 +84,7 @@ company_name | This is the text of either the company name or website
 FindEmails works best when you give it websites or domains, but we'll also take company names. (e.g. apple.com works better than Apple). Company names take an additional credit.
 </aside>
 
-## Test Emails
+## Test or Verify Emails
 
 ```ruby
 require 'net/http'
@@ -128,6 +135,13 @@ curl --data "key=abc123yourkeyhere&email=ryan@scripted.com" https://www.findemai
       "photo":"https://media.licdn.com/dms/image/C4D03AQFIi292VtKikw/profile-displayphoto-shrink_200_200/0?e=1536192000&v=beta&t=aXWOwRlu17VF_r96euIeWvX00I8OYfOrwhaK-Xbmksg",
       "title":"Builder of ToOfr, Inlistio, and Voxloca. Author of The Parallel Entrepreneur. Resident of Contra Costa County.",
       "linkedin_profile":"https://www.linkedin.com/in/rbuckley"
+    },
+    "email": 
+      {
+        "email": "ryan@toofr.com",
+        "confidence": 70,
+        "state": "high"
+      }
     }
   }
 }
