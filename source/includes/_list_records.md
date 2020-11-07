@@ -169,3 +169,50 @@ This endpoint creates and initiates a background process on the created list rec
 Parameter | Description
 --------- | -----------
 key | Your key is required for any request and is found on your [FindEmails account page](https://www.findemails.com/account)
+
+
+## Bulk List Records
+
+```ruby
+require 'net/http'
+require 'json'
+ 
+uri = URI('https://www.findemails.com/api/v1/lists/:list_id/list_records/bulk_list_Records')
+res = Net::HTTP.post_form(uri, 'key' => 'abc123yourkeyhere', 'records' => '[{\"first_name\":\"Test0\",\"last_name\":\"Last\",\"company\":\"toofr.com\"},{\"first_name\":\"Test1\",\"last_name\":\"Last\",\"company\":\"toofr.com\"},{\"first_name\":\"Test2\",\"last_name\":\"Last\",\"company\":\"toofr.com\"}]')
+JSON.parse(res.body)
+
+```
+
+```python
+import requests
+ 
+uri = 'https://www.findemails.com/api/v1/lists/:list_id/list_records/bulk_list_Records'
+payload = {'key': 'abc123yourkeyhere', 'records': '[{\"first_name\":\"Test0\",\"last_name\":\"Last\",\"company\":\"toofr.com\"},{\"first_name\":\"Test1\",\"last_name\":\"Last\",\"company\":\"toofr.com\"},{\"first_name\":\"Test2\",\"last_name\":\"Last\",\"company\":\"toofr.com\"}]'}
+r = requests.post(uri, data = payload)
+r.json()
+
+```
+
+```shell
+curl --data "key=abc123yourkeyhere&records=[{\"first_name\":\"Test0\",\"last_name\":\"Last\",\"company\":\"toofr.com\"},{\"first_name\":\"Test1\",\"last_name\":\"Last\",\"company\":\"toofr.com\"},{\"first_name\":\"Test2\",\"last_name\":\"Last\",\"company\":\"toofr.com\"}]" https://www.findemails.com/api/v1/lists/:list_id/list_records/bulk_list_Records
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "message": "We are processing your request. It will take some time for completion."
+}
+
+```
+
+### HTTP Request
+
+`POST https://www.findemails.com/api/v1/lists/:list_id/list_records/bulk_list_Records`
+
+### Query Parameters
+
+Parameter | Description
+--------- | -----------
+key | Your key is required for any request and is found on your [FindEmails account page](https://www.findemails.com/account)
+records | JSON string of all the records details i.e. first_name , last_name and company
