@@ -8,3 +8,4 @@ gem "middleman-sprockets", "~> 4.1.0"
 gem 'rouge', '~> 2.0.5'
 gem 'redcarpet', '~> 3.4.0'
 gem 'puma'
+gem 'rack-contrib', '~> 1.1.0'
