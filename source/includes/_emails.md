@@ -117,7 +117,7 @@ curl --data "key=abc123yourkeyhere&first_name=ryan&last_name=buckley&company_nam
 
 This endpoint discovers emails based on the first name, last name, and company name.
 
-### HTTP Request
+### HTTP Request 
 
 `POST https://www.findemails.com/api/v1/guess_email.json`
 
