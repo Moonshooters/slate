@@ -166,7 +166,7 @@ curl --data "key=abc123yourkeyhere&email=ryan@scripted.com&callback_url=https://
 { 
   "email": "ryan@toofr.com", 
   "confidence": 100,
-  "state": "high",
+  "state": high,
   "detail": [
     {"description": "Mailserver score", "response": "+40"}, 
     {"description": "Pattern score", "response": "+27"}, 
