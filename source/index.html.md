@@ -32,7 +32,7 @@ We have language examples in Shell, Ruby, and Python. You can view code examples
 
 Every FindEmails user has access to our API. API calls use credits in the same way that our web application use credits. For more information on how credits are used, view our [FAQ](https://www.findemails.com/faq).
 
-To get an API key, first [register for a free FindEmails account](https://www.findemails.com/registration). Check your email for a confirmation message, click through the link, and log in. Your API key is available on your [Account page](https://www.findemails.com/account).
+To get an API key, first [register for a free FindEmails account](https://www.findemails.com/registration). Check your email for a confirmation message, click through the link, and log in. Your API key is available on your [Account page](https://www.findemails.com/account/api).
 
 If you run out of credits, you'll need to sign up for a [monthly plan](https://www.findemails.com/pricing) to get more. Currently they start at just $19/mo.
 
